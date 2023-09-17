@@ -3,28 +3,24 @@
 	"id": "woodcutter",
 	"version": "${version}",
 	"name": "Woodcutter",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Woodcutter is just like the Stonecutter. Just for wood!",
 	"authors": [
-		"Me!"
+		"NemoNotFound"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://nemonotfound.com/",
+		"sources": ""
 	},
-	"license": "CC0-1.0",
-	"icon": "assets/woodcutter/icon.png",
+	"license": "MIT",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
           "com.nemonotfound.WoodcutterMod"
 		],
-		"fabric-datagen": [
-			"com.nemonotfound.ExampleModDataGenerator"
+		"client": [
+			"com.nemonotfound.WoodcutterClientMod"
 		]
 	},
-	"mixins": [
-		"woodcutter.mixins.json"
-	],
 	"depends": {
 		"fabricloader": ">=0.14.22",
 		"minecraft": "~1.20.1",
