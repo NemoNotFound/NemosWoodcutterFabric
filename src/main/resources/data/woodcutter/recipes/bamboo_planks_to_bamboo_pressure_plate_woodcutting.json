@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:woodcutting",
+  "count": 4,
+  "ingredient": {
+    "item": "minecraft:bamboo_planks"
+  },
+  "result": "minecraft:bamboo_pressure_plate"
+}
