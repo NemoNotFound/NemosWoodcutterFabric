@@ -6,7 +6,7 @@
         "items": [
           {
             "items": [
-              "minecraft:oak_planks"
+              "minecraft:oak_log"
             ]
           }
         ]
@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "woodcutter::woodcutter"
+        "recipe": "woodcutter:woodcutter"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "woodcutter::woodcutter"
+      "woodcutter:woodcutter"
     ]
   },
   "sends_telemetry_event": false
