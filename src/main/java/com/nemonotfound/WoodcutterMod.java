@@ -6,8 +6,9 @@ import com.nemonotfound.recipe.WoodcuttingRecipe;
 import com.nemonotfound.screen.WoodcutterScreenHandler;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.BlockItem;
+import net.minecraft.item.ItemGroups;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.registry.Registries;
@@ -24,7 +25,7 @@ public class WoodcutterMod implements ModInitializer {
 	public static final String mod_id = "woodcutter";
     public static final Logger log = LoggerFactory.getLogger(mod_id);
 	public static final ScreenHandlerType<WoodcutterScreenHandler> WOODCUTTER_SCREEN_HANDLER =
-			ScreenHandlerRegistry.registerSimple(new Identifier(mod_id, "woodcutter"), WoodcutterScreenHandler::new);
+			ScreenHandlerType.register(mod_id, WoodcutterScreenHandler::new);
 	public static RecipeType<WoodcuttingRecipe> WOODCUTTING;
 	public static RecipeSerializer<WoodcuttingRecipe> WOODCUTTING_RECIPE_RECIPE_SERIALIZER;
 
@@ -35,5 +36,6 @@ public class WoodcutterMod implements ModInitializer {
 		Registry.register(Registries.ITEM, new Identifier(mod_id, "woodcutter"), new BlockItem(ModBlocks.WOODCUTTER_BLOCK, new FabricItemSettings()));
 		WOODCUTTING = RecipeType.register("woodcutting");
 		WOODCUTTING_RECIPE_RECIPE_SERIALIZER = RecipeSerializer.register("woodcutting", new WoodcutterSerializer(WoodcuttingRecipe::new));
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> content.add(ModBlocks.WOODCUTTER_BLOCK));
 	}
 }
