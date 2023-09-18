@@ -10,6 +10,6 @@ public class ModBlocks {
             AbstractBlock.Settings.create()
                     .sounds(BlockSoundGroup.WOOD)
                     .mapColor(MapColor.OAK_TAN)
-                    .instrument(Instrument.BASEDRUM)
+                    .instrument(Instrument.BASS)
                     .strength(2.0f));
 }
