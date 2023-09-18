@@ -24,12 +24,7 @@ import java.util.List;
 
 public class WoodcutterScreenHandler
 extends ScreenHandler {
-    public static final int INPUT_ID = 0;
-    public static final int OUTPUT_ID = 1;
-    private static final int INVENTORY_START = 2;
-    private static final int INVENTORY_END = 29;
-    private static final int OUTPUT_START = 29;
-    private static final int OUTPUT_END = 38;
+
     private final ScreenHandlerContext context;
     private final Property selectedRecipe = Property.create();
     private final World world;
