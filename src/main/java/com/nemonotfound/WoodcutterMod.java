@@ -27,7 +27,7 @@ public class WoodcutterMod implements ModInitializer {
 	public static final ScreenHandlerType<WoodcutterScreenHandler> WOODCUTTER_SCREEN_HANDLER =
 			ScreenHandlerType.register(mod_id, WoodcutterScreenHandler::new);
 	public static RecipeType<WoodcuttingRecipe> WOODCUTTING;
-	public static RecipeSerializer<WoodcuttingRecipe> WOODCUTTING_RECIPE_RECIPE_SERIALIZER;
+	public static WoodcutterSerializer WOODCUTTING_RECIPE_RECIPE_SERIALIZER;
 
 	@Override
 	public void onInitialize() {
