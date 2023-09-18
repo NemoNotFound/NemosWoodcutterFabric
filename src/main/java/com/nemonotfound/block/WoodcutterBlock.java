@@ -34,13 +34,12 @@ public class WoodcutterBlock extends Block {
         if (world.isClient) {
             return ActionResult.SUCCESS;
         }
-        player.openHandledScreen(state.createScreenHandlerFactory(world, pos));
+        player.openHandledScreen(createScreenHandlerFactory(world, pos));
         return ActionResult.CONSUME;
     }
 
-    @Override
     @Nullable
-    public NamedScreenHandlerFactory createScreenHandlerFactory(BlockState state, World world, BlockPos pos) {
+    public NamedScreenHandlerFactory createScreenHandlerFactory(World world, BlockPos pos) {
         return new SimpleNamedScreenHandlerFactory((syncId, playerInventory, player)
                 -> new WoodcutterScreenHandler(syncId, playerInventory, ScreenHandlerContext.create(world, pos)), TITLE);
     }
