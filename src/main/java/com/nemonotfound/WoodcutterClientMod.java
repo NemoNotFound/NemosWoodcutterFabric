@@ -1,10 +1,13 @@
 package com.nemonotfound;
 
+import com.nemonotfound.block.ModBlocks;
 import com.nemonotfound.screen.WoodcutterScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
+import net.minecraft.client.render.RenderLayer;
 
 @Environment(EnvType.CLIENT)
 public class WoodcutterClientMod implements ClientModInitializer {
@@ -12,5 +15,6 @@ public class WoodcutterClientMod implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         HandledScreens.register(WoodcutterMod.WOODCUTTER_SCREEN_HANDLER, WoodcutterScreen::new);
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WOODCUTTER_BLOCK, RenderLayer.getCutout());
     }
 }
