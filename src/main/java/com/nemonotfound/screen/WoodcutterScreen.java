@@ -1,6 +1,3 @@
-/*
- * Decompiled with CFR 0.2.1 (FabricMC 53fa44c9).
- */
 package com.nemonotfound.screen;
 
 import com.nemonotfound.recipe.WoodcuttingRecipe;
@@ -11,6 +8,7 @@ import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.sound.PositionedSoundInstance;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -19,9 +17,13 @@ import net.minecraft.util.math.MathHelper;
 import java.util.List;
 
 @Environment(value=EnvType.CLIENT)
-public class WoodcutterScreen
-extends HandledScreen<WoodcutterScreenHandler> {
+public class WoodcutterScreen extends HandledScreen<WoodcutterScreenHandler> {
     private static final Identifier TEXTURE = new Identifier("woodcutter", "textures/gui/container/woodcutter.png");
+    private static final Identifier SCROLLER_TEXTURE = new Identifier("woodcutter", "container/woodcutter/scroller");
+    private static final Identifier SCROLLER_DISABLED_TEXTURE = new Identifier("woodcutter","container/woodcutter/scroller_disabled");
+    private static final Identifier RECIPE_SELECTED_TEXTURE = new Identifier("woodcutter","container/woodcutter/recipe_selected");
+    private static final Identifier RECIPE_HIGHLIGHTED_TEXTURE = new Identifier("woodcutter","container/woodcutter/recipe_highlighted");
+    private static final Identifier RECIPE_TEXTURE = new Identifier("woodcutter","container/woodcutter/recipe");
     private float scrollAmount;
     private boolean mouseClicked;
     private int scrollOffset;
@@ -41,12 +43,12 @@ extends HandledScreen<WoodcutterScreenHandler> {
 
     @Override
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
-        this.renderBackground(context);
         int i = this.x;
         int j = this.y;
         context.drawTexture(TEXTURE, i, j, 0, 0, this.backgroundWidth, this.backgroundHeight);
         int k = (int)(41.0f * this.scrollAmount);
-        context.drawTexture(TEXTURE, i + 119, j + 15 + k, 176 + (this.shouldScroll() ? 0 : 12), 0, 12, 15);
+        Identifier identifier = this.shouldScroll() ? SCROLLER_TEXTURE : SCROLLER_DISABLED_TEXTURE;
+        context.drawGuiTexture(identifier, i + 119, j + 15 + k, 12, 15);
         int l = this.x + 52;
         int m = this.y + 14;
         int n = this.scrollOffset + 12;
@@ -61,13 +63,13 @@ extends HandledScreen<WoodcutterScreenHandler> {
             int i = this.x + 52;
             int j = this.y + 14;
             int k = this.scrollOffset + 12;
-            List<WoodcuttingRecipe> list = this.handler.getAvailableRecipes();
+            List<RecipeEntry<WoodcuttingRecipe>> list = this.handler.getAvailableRecipes();
             for (int l = this.scrollOffset; l < k && l < this.handler.getAvailableRecipeCount(); ++l) {
                 int m = l - this.scrollOffset;
                 int n = i + m % 4 * 16;
                 int o = j + m / 4 * 18 + 2;
                 if (x < n || x >= n + 16 || y < o || y >= o + 18) continue;
-                context.drawItemTooltip(this.textRenderer, list.get(l).getOutput(this.client.world.getRegistryManager()), x, y);
+                context.drawItemTooltip(this.textRenderer, list.get(l).value().getResult(this.client.world.getRegistryManager()), x, y);
             }
         }
     }
@@ -78,24 +80,19 @@ extends HandledScreen<WoodcutterScreenHandler> {
             int k = x + j % 4 * 16;
             int l = j / 4;
             int m = y + l * 18 + 2;
-            int n = this.backgroundHeight;
-            if (i == (this.handler).getSelectedRecipe()) {
-                n += 18;
-            } else if (mouseX >= k && mouseY >= m && mouseX < k + 16 && mouseY < m + 18) {
-                n += 36;
-            }
-            context.drawTexture(TEXTURE, k, m - 1, 0, n, 16, 18);
+            Identifier identifier = i == this.handler.getSelectedRecipe() ? RECIPE_SELECTED_TEXTURE : (mouseX >= k && mouseY >= m && mouseX < k + 16 && mouseY < m + 18 ? RECIPE_HIGHLIGHTED_TEXTURE : RECIPE_TEXTURE);
+            context.drawGuiTexture(identifier, k, m - 1, 16, 18);
         }
     }
 
     private void renderRecipeIcons(DrawContext context, int x, int y, int scrollOffset) {
-        List<WoodcuttingRecipe> list = this.handler.getAvailableRecipes();
-        for (int i = this.scrollOffset; i < scrollOffset && i < (this.handler).getAvailableRecipeCount(); ++i) {
+        List<RecipeEntry<WoodcuttingRecipe>> list = this.handler.getAvailableRecipes();
+        for (int i = this.scrollOffset; i < scrollOffset && i < this.handler.getAvailableRecipeCount(); ++i) {
             int j = i - this.scrollOffset;
             int k = x + j % 4 * 16;
             int l = j / 4;
             int m = y + l * 18 + 2;
-            context.drawItem(list.get(i).getOutput(this.client.world.getRegistryManager()), k, m);
+            context.drawItem(list.get(i).value().getResult(this.client.world.getRegistryManager()), k, m);
         }
     }
 
@@ -138,10 +135,10 @@ extends HandledScreen<WoodcutterScreenHandler> {
     }
 
     @Override
-    public boolean mouseScrolled(double mouseX, double mouseY, double amount) {
+    public boolean mouseScrolled(double mouseX, double mouseY, double horizontalAmount, double verticalAmount) {
         if (this.shouldScroll()) {
             int i = this.getMaxScroll();
-            float f = (float)amount / (float)i;
+            float f = (float)verticalAmount / (float)i;
             this.scrollAmount = MathHelper.clamp(this.scrollAmount - f, 0.0f, 1.0f);
             this.scrollOffset = (int)((double)(this.scrollAmount * (float)i) + 0.5) * 4;
         }
