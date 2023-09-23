@@ -29,7 +29,7 @@ public class WoodcutterMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		log.info("Thank you for using Woodcutter!");
+		log.info("Thank you for using Nemo's Woodcutter!");
 		Registry.register(Registries.BLOCK, new Identifier(mod_id, "woodcutter"), ModBlocks.WOODCUTTER_BLOCK);
 		Registry.register(Registries.ITEM, new Identifier(mod_id, "woodcutter"), new BlockItem(ModBlocks.WOODCUTTER_BLOCK, new FabricItemSettings()));
 		WOODCUTTING = RecipeType.register("woodcutting");
