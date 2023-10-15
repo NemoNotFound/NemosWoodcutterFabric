@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "woodcutter:woodcutter",
     "woodcutter:dark_oak_ladder",
     "woodcutter:acacia_ladder",
     "woodcutter:birch_ladder",

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "woodcutter:bound_bamboo_ladder"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "woodcutter:blocks/bound_bamboo_ladder"
+}
