@@ -49,6 +49,7 @@ public class WoodcutterMod implements ModInitializer {
 		Registry.register(Registries.BLOCK, new Identifier(mod_id, "mangrove_ladder"), ModBlocks.MANGROVE_LADDER);
 		Registry.register(Registries.BLOCK, new Identifier(mod_id, "jungle_ladder"), ModBlocks.JUNGLE_LADDER);
 		Registry.register(Registries.BLOCK, new Identifier(mod_id, "bound_bamboo_ladder"), ModBlocks.BOUND_BAMBOO_LADDER);
+		Registry.register(Registries.BLOCK, new Identifier(mod_id, "cherry_ladder"), ModBlocks.CHERRY_LADDER);
 	}
 
 	private void registerItems() {
@@ -63,6 +64,7 @@ public class WoodcutterMod implements ModInitializer {
 		Registry.register(Registries.ITEM, new Identifier(mod_id, "mangrove_ladder"), new BlockItem(ModBlocks.MANGROVE_LADDER, new FabricItemSettings()));
 		Registry.register(Registries.ITEM, new Identifier(mod_id, "jungle_ladder"), new BlockItem(ModBlocks.JUNGLE_LADDER, new FabricItemSettings()));
 		Registry.register(Registries.ITEM, new Identifier(mod_id, "bound_bamboo_ladder"), new BlockItem(ModBlocks.BOUND_BAMBOO_LADDER, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(mod_id, "cherry_ladder"), new BlockItem(ModBlocks.CHERRY_LADDER, new FabricItemSettings()));
 	}
 
 	private void addItemsToItemGroup() {
@@ -77,5 +79,6 @@ public class WoodcutterMod implements ModInitializer {
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> content.add(ModBlocks.MANGROVE_LADDER));
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> content.add(ModBlocks.JUNGLE_LADDER));
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> content.add(ModBlocks.BOUND_BAMBOO_LADDER));
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> content.add(ModBlocks.CHERRY_LADDER));
 	}
 }
