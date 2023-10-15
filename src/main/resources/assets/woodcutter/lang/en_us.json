@@ -1,4 +1,14 @@
 {
   "block.woodcutter.woodcutter": "Woodcutter",
-  "container.woodcutter": "Woodcutter"
+  "container.woodcutter": "Woodcutter",
+  "block.woodcutter.dark_oak_ladder": "Dark Oak Ladder",
+  "block.woodcutter.acacia_ladder": "Acacia Ladder",
+  "block.woodcutter.birch_ladder": "Birch Ladder",
+  "block.woodcutter.spruce_ladder": "Spruce Ladder",
+  "block.woodcutter.warped_ladder": "Warped Ladder",
+  "block.woodcutter.bamboo_ladder": "Bamboo Ladder",
+  "block.woodcutter.crimson_ladder": "Crimson Ladder",
+  "block.woodcutter.mangrove_ladder": "Mangrove Ladder",
+  "block.woodcutter.jungle_ladder": "Jungle Ladder",
+  "block.woodcutter.bound_bamboo_ladder": "Bound Bamboo Ladder"
 }

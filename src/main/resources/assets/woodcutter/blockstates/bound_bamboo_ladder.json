@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "woodcutter:block/bound_bamboo_ladder",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "woodcutter:block/bound_bamboo_ladder"
+    },
+    "facing=south": {
+      "model": "woodcutter:block/bound_bamboo_ladder",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "woodcutter:block/bound_bamboo_ladder",
+      "y": 270
+    }
+  }
+}
