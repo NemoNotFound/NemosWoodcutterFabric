@@ -23,5 +23,6 @@ public class ModBlocks {
     public static final Block MANGROVE_LADDER = new LadderBlock(AbstractBlock.Settings.copy(LADDER));
     public static final Block JUNGLE_LADDER = new LadderBlock(AbstractBlock.Settings.copy(LADDER));
     public static final Block BOUND_BAMBOO_LADDER = new LadderBlock(AbstractBlock.Settings.copy(LADDER));
+    public static final Block CHERRY_LADDER = new LadderBlock(AbstractBlock.Settings.copy(LADDER));
 
 }
