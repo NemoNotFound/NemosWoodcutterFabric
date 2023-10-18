@@ -43,17 +43,15 @@ public class WoodcutterScreen extends HandledScreen<WoodcutterScreenHandler> {
 
     @Override
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
-        int i = this.x;
-        int j = this.y;
-        context.drawTexture(TEXTURE, i, j, 0, 0, this.backgroundWidth, this.backgroundHeight);
-        int k = (int)(41.0f * this.scrollAmount);
+        context.drawTexture(TEXTURE, x, y, 0, 0, this.backgroundWidth, this.backgroundHeight);
+        int yPosAfterScrolling = (int)(41.0f * this.scrollAmount);
         Identifier identifier = this.shouldScroll() ? SCROLLER_TEXTURE : SCROLLER_DISABLED_TEXTURE;
-        context.drawGuiTexture(identifier, i + 119, j + 15 + k, 12, 15);
-        int l = this.x + 52;
-        int m = this.y + 14;
+        context.drawGuiTexture(identifier, x + 119, y + 15 + yPosAfterScrolling, 12, 15);
+        int xPosForRecipe = this.x + 52;
+        int yPosForRecipe = this.y + 14;
         int n = this.scrollOffset + 12;
-        this.renderRecipeBackground(context, mouseX, mouseY, l, m, n);
-        this.renderRecipeIcons(context, l, m, n);
+        this.renderRecipeBackground(context, mouseX, mouseY, xPosForRecipe, yPosForRecipe, n);
+        this.renderRecipeIcons(context, xPosForRecipe, yPosForRecipe, n);
     }
 
     @Override
@@ -86,13 +84,13 @@ public class WoodcutterScreen extends HandledScreen<WoodcutterScreenHandler> {
     }
 
     private void renderRecipeIcons(DrawContext context, int x, int y, int scrollOffset) {
-        List<RecipeEntry<WoodcuttingRecipe>> list = this.handler.getAvailableRecipes();
+        List<RecipeEntry<WoodcuttingRecipe>> availableRecipes = this.handler.getAvailableRecipes();
         for (int i = this.scrollOffset; i < scrollOffset && i < this.handler.getAvailableRecipeCount(); ++i) {
             int j = i - this.scrollOffset;
             int k = x + j % 4 * 16;
             int l = j / 4;
             int m = y + l * 18 + 2;
-            context.drawItem(list.get(i).value().getResult(this.client.world.getRegistryManager()), k, m);
+            context.drawItem(availableRecipes.get(i).value().getResult(this.client.world.getRegistryManager()), k, m);
         }
     }
 
