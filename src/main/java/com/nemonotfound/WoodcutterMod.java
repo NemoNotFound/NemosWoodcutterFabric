@@ -6,14 +6,18 @@ import com.nemonotfound.recipe.WoodcuttingRecipe;
 import com.nemonotfound.screen.WoodcutterScreenHandler;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.BlockItem;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroups;
+import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.screen.ScreenHandlerType;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,6 +37,7 @@ public class WoodcutterMod implements ModInitializer {
 		registerBlocks();
 		registerItems();
 		addItemsToItemGroup();
+		addItemsToCustomItemGroup();
 		WOODCUTTING = RecipeType.register("woodcutting");
 		WOODCUTTING_RECIPE_RECIPE_SERIALIZER = RecipeSerializer.register("woodcutting", new WoodcutterSerializer(WoodcuttingRecipe::new));
 	}
@@ -113,5 +118,39 @@ public class WoodcutterMod implements ModInitializer {
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> content.add(ModBlocks.BIRCH_TABLE_THE_CLASSIC));
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> content.add(ModBlocks.ACACIA_TABLE_THE_CLASSIC));
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> content.add(ModBlocks.JUNGLE_TABLE_THE_CLASSIC));
+	}
+
+	private void addItemsToCustomItemGroup() {
+		ItemGroup ITEM_GROUP = FabricItemGroup.builder()
+				.icon(() -> new ItemStack(ModBlocks.WOODCUTTER_BLOCK))
+				.displayName(Text.translatable("Nemo's Woodcutter"))
+				.entries((context, entries) -> {
+					entries.add(ModBlocks.WOODCUTTER_BLOCK);
+					entries.add(ModBlocks.DARK_OAK_LADDER);
+					entries.add(ModBlocks.ACACIA_LADDER);
+					entries.add(ModBlocks.BIRCH_LADDER);
+					entries.add(ModBlocks.SPRUCE_LADDER);
+					entries.add(ModBlocks.WARPED_LADDER);
+					entries.add(ModBlocks.BAMBOO_LADDER);
+					entries.add(ModBlocks.CRIMSON_LADDER);
+					entries.add(ModBlocks.MANGROVE_LADDER);
+					entries.add(ModBlocks.JUNGLE_LADDER);
+					entries.add(ModBlocks.BOUND_BAMBOO_LADDER);
+					entries.add(ModBlocks.CHERRY_LADDER);
+					entries.add(ModBlocks.OAK_TABLE_THE_CLASSIC);
+					entries.add(ModBlocks.CHERRY_TABLE_THE_CLASSIC);
+					entries.add(ModBlocks.DARK_OAK_TABLE_THE_CLASSIC);
+					entries.add(ModBlocks.BAMBOO_TABLE_THE_CLASSIC);
+					entries.add(ModBlocks.WARPED_TABLE_THE_CLASSIC);
+					entries.add(ModBlocks.CRIMSON_TABLE_THE_CLASSIC);
+					entries.add(ModBlocks.MANGROVE_TABLE_THE_CLASSIC);
+					entries.add(ModBlocks.SPRUCE_TABLE_THE_CLASSIC);
+					entries.add(ModBlocks.BIRCH_TABLE_THE_CLASSIC);
+					entries.add(ModBlocks.ACACIA_TABLE_THE_CLASSIC);
+					entries.add(ModBlocks.JUNGLE_TABLE_THE_CLASSIC);
+				})
+				.build();
+
+		Registry.register(Registries.ITEM_GROUP, new Identifier(mod_id, "woodcutter_group"), ITEM_GROUP);
 	}
 }
