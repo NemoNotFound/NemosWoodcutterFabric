@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:woodcutting",
+  "count": 1,
+  "ingredient": {
+    "item": "minecraft:jungle_planks"
+  },
+  "result": "woodcutter:jungle_table_the_classic"
+}
