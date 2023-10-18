@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:woodcutting",
+  "count": 1,
+  "ingredient": {
+    "item": "minecraft:mangrove_planks"
+  },
+  "result": "woodcutter:mangrove_table_the_classic"
+}

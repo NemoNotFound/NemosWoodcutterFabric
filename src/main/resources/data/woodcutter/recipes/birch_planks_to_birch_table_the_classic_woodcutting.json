@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:woodcutting",
+  "count": 1,
+  "ingredient": {
+    "item": "minecraft:birch_planks"
+  },
+  "result": "woodcutter:birch_table_the_classic"
+}

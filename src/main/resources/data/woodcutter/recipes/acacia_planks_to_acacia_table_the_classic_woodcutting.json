@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:woodcutting",
+  "count": 1,
+  "ingredient": {
+    "item": "minecraft:acacia_planks"
+  },
+  "result": "woodcutter:acacia_table_the_classic"
+}

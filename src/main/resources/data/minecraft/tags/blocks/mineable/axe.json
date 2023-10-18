@@ -12,6 +12,17 @@
     "woodcutter:mangrove_ladder",
     "woodcutter:jungle_ladder",
     "woodcutter:bound_bamboo_ladder",
-    "woodcutter:cherry_ladder"
+    "woodcutter:cherry_ladder",
+    "woodcutter:oak_table_the_classic",
+    "woodcutter:cherry_table_the_classic",
+    "woodcutter:dark_oak_table_the_classic",
+    "woodcutter:bamboo_table_the_classic",
+    "woodcutter:warped_table_the_classic",
+    "woodcutter:crimson_table_the_classic",
+    "woodcutter:mangrove_table_the_classic",
+    "woodcutter:spruce_table_the_classic",
+    "woodcutter:birch_table_the_classic",
+    "woodcutter:acacia_table_the_classic",
+    "woodcutter:jungle_table_the_classic"
   ]
 }
