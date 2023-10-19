@@ -66,6 +66,7 @@ public class WoodcutterMod implements ModInitializer {
 		Registry.register(Registries.BLOCK, new Identifier(mod_id, "birch_table_the_classic"), ModBlocks.BIRCH_TABLE_THE_CLASSIC);
 		Registry.register(Registries.BLOCK, new Identifier(mod_id, "acacia_table_the_classic"), ModBlocks.ACACIA_TABLE_THE_CLASSIC);
 		Registry.register(Registries.BLOCK, new Identifier(mod_id, "jungle_table_the_classic"), ModBlocks.JUNGLE_TABLE_THE_CLASSIC);
+		Registry.register(Registries.BLOCK, new Identifier(mod_id, "oak_chair"), ModBlocks.OAK_CHAIR);
 	}
 
 	private void registerItems() {
@@ -92,6 +93,7 @@ public class WoodcutterMod implements ModInitializer {
 		Registry.register(Registries.ITEM, new Identifier(mod_id, "birch_table_the_classic"), new BlockItem(ModBlocks.BIRCH_TABLE_THE_CLASSIC, new FabricItemSettings()));
 		Registry.register(Registries.ITEM, new Identifier(mod_id, "acacia_table_the_classic"), new BlockItem(ModBlocks.ACACIA_TABLE_THE_CLASSIC, new FabricItemSettings()));
 		Registry.register(Registries.ITEM, new Identifier(mod_id, "jungle_table_the_classic"), new BlockItem(ModBlocks.JUNGLE_TABLE_THE_CLASSIC, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(mod_id, "oak_chair"), new BlockItem(ModBlocks.OAK_CHAIR, new FabricItemSettings()));
 	}
 
 	private void addItemsToItemGroup() {
@@ -118,6 +120,7 @@ public class WoodcutterMod implements ModInitializer {
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> content.add(ModBlocks.BIRCH_TABLE_THE_CLASSIC));
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> content.add(ModBlocks.ACACIA_TABLE_THE_CLASSIC));
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> content.add(ModBlocks.JUNGLE_TABLE_THE_CLASSIC));
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> content.add(ModBlocks.OAK_CHAIR));
 	}
 
 	private void addItemsToCustomItemGroup() {
@@ -148,6 +151,7 @@ public class WoodcutterMod implements ModInitializer {
 					entries.add(ModBlocks.BIRCH_TABLE_THE_CLASSIC);
 					entries.add(ModBlocks.ACACIA_TABLE_THE_CLASSIC);
 					entries.add(ModBlocks.JUNGLE_TABLE_THE_CLASSIC);
+					entries.add(ModBlocks.OAK_CHAIR);
 				})
 				.build();
 

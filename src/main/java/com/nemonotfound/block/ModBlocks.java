@@ -1,6 +1,9 @@
 package com.nemonotfound.block;
 
-import net.minecraft.block.*;
+import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.Block;
+import net.minecraft.block.LadderBlock;
+import net.minecraft.block.MapColor;
 import net.minecraft.block.enums.Instrument;
 import net.minecraft.sound.BlockSoundGroup;
 
@@ -35,5 +38,6 @@ public class ModBlocks {
     public static final Block BIRCH_TABLE_THE_CLASSIC = new TableBlock(AbstractBlock.Settings.copy(BIRCH_PLANKS).nonOpaque());
     public static final Block ACACIA_TABLE_THE_CLASSIC = new TableBlock(AbstractBlock.Settings.copy(ACACIA_PLANKS).nonOpaque());
     public static final Block JUNGLE_TABLE_THE_CLASSIC = new TableBlock(AbstractBlock.Settings.copy(JUNGLE_PLANKS).nonOpaque());
+    public static final Block OAK_CHAIR = new ChairBlock(AbstractBlock.Settings.copy(OAK_PLANKS).nonOpaque());
 
 }
