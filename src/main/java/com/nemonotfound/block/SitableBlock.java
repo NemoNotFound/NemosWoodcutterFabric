@@ -22,12 +22,12 @@ import net.minecraft.world.WorldAccess;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class SittableBlock extends HorizontalFacingBlock {
+public abstract class SitableBlock extends HorizontalFacingBlock {
 
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     private ChairEntity chairEntity;
 
-    public SittableBlock(Settings settings) {
+    public SitableBlock(Settings settings) {
         super(settings);
         setDefaultState(this.getStateManager().getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
 
