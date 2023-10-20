@@ -31,7 +31,7 @@ public abstract class SitableBlock extends HorizontalFacingBlock {
         super(settings);
         setDefaultState(this.getStateManager().getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
 
-        this.height = 0.36f;
+        this.height = 0.5f;
     }
 
     public float height;
