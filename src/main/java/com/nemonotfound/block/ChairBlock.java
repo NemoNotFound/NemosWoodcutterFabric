@@ -16,7 +16,7 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldAccess;
 
-public class ChairBlock extends SittableBlock implements Waterloggable {
+public class ChairBlock extends SitableBlock implements Waterloggable {
 
     private static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
     private static final VoxelShape SOUTH_SHAPE = VoxelShapes.union(Block.createCuboidShape(1, 6, 1, 15, 8, 15),
