@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "woodcutter:block/warped_chair",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "woodcutter:block/warped_chair"
+    },
+    "facing=south": {
+      "model": "woodcutter:block/warped_chair",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "woodcutter:block/warped_chair",
+      "y": 270
+    }
+  }
+}
