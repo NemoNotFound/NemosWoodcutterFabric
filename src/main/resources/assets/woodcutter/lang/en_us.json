@@ -23,5 +23,15 @@
   "block.woodcutter.birch_table_the_classic": "Birch Table \"The Classic\"",
   "block.woodcutter.acacia_table_the_classic": "Acacia Table \"The Classic\"",
   "block.woodcutter.jungle_table_the_classic": "Jungle Table \"The Classic\"",
-  "block.woodcutter.oak_chair": "Oak Chair"
+  "block.woodcutter.oak_chair": "Oak Chair",
+  "block.woodcutter.cherry_chair": "Cherry Chair",
+  "block.woodcutter.dark_oak_chair": "Dark Oak Chair",
+  "block.woodcutter.bamboo_chair": "Bamboo Chair",
+  "block.woodcutter.warped_chair": "Warped Chair",
+  "block.woodcutter.crimson_chair": "Crimson Chair",
+  "block.woodcutter.mangrove_chair": "Mangrove Chair",
+  "block.woodcutter.spruce_chair": "Spruce Chair",
+  "block.woodcutter.birch_chair": "Birch Chair",
+  "block.woodcutter.acacia_chair": "Acacia Chair",
+  "block.woodcutter.jungle_chair": "Jungle Chair"
 }

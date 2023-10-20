@@ -27,8 +27,6 @@ import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.awt.*;
-
 public class WoodcutterMod implements ModInitializer {
 
 	public static final String MOD_ID = "woodcutter";
@@ -81,6 +79,16 @@ public class WoodcutterMod implements ModInitializer {
 		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "acacia_table_the_classic"), ModBlocks.ACACIA_TABLE_THE_CLASSIC);
 		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "jungle_table_the_classic"), ModBlocks.JUNGLE_TABLE_THE_CLASSIC);
 		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "oak_chair"), ModBlocks.OAK_CHAIR);
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "cherry_chair"), ModBlocks.CHERRY_CHAIR);
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "dark_oak_chair"), ModBlocks.DARK_OAK_CHAIR);
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "bamboo_chair"), ModBlocks.BAMBOO_CHAIR);
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "warped_chair"), ModBlocks.WARPED_CHAIR);
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "crimson_chair"), ModBlocks.CRIMSON_CHAIR);
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "mangrove_chair"), ModBlocks.MANGROVE_CHAIR);
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "spruce_chair"), ModBlocks.SPRUCE_CHAIR);
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "birch_chair"), ModBlocks.BIRCH_CHAIR);
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "acacia_chair"), ModBlocks.ACACIA_CHAIR);
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "jungle_chair"), ModBlocks.JUNGLE_CHAIR);
 	}
 
 	private void registerItems() {
@@ -108,6 +116,16 @@ public class WoodcutterMod implements ModInitializer {
 		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "acacia_table_the_classic"), new BlockItem(ModBlocks.ACACIA_TABLE_THE_CLASSIC, new FabricItemSettings()));
 		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "jungle_table_the_classic"), new BlockItem(ModBlocks.JUNGLE_TABLE_THE_CLASSIC, new FabricItemSettings()));
 		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "oak_chair"), new BlockItem(ModBlocks.OAK_CHAIR, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "cherry_chair"), new BlockItem(ModBlocks.CHERRY_CHAIR, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "dark_oak_chair"), new BlockItem(ModBlocks.DARK_OAK_CHAIR, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "bamboo_chair"), new BlockItem(ModBlocks.BAMBOO_CHAIR, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "warped_chair"), new BlockItem(ModBlocks.WARPED_CHAIR, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "crimson_chair"), new BlockItem(ModBlocks.CRIMSON_CHAIR, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "mangrove_chair"), new BlockItem(ModBlocks.MANGROVE_CHAIR, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "spruce_chair"), new BlockItem(ModBlocks.SPRUCE_CHAIR, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "birch_chair"), new BlockItem(ModBlocks.BIRCH_CHAIR, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "acacia_chair"), new BlockItem(ModBlocks.ACACIA_CHAIR, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "jungle_chair"), new BlockItem(ModBlocks.JUNGLE_CHAIR, new FabricItemSettings()));
 	}
 
 	private void addItemsToItemGroup() {
@@ -135,6 +153,16 @@ public class WoodcutterMod implements ModInitializer {
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> content.add(ModBlocks.ACACIA_TABLE_THE_CLASSIC));
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> content.add(ModBlocks.JUNGLE_TABLE_THE_CLASSIC));
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> content.add(ModBlocks.OAK_CHAIR));
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> content.add(ModBlocks.CHERRY_CHAIR));
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> content.add(ModBlocks.DARK_OAK_CHAIR));
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> content.add(ModBlocks.BAMBOO_CHAIR));
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> content.add(ModBlocks.WARPED_CHAIR));
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> content.add(ModBlocks.CRIMSON_CHAIR));
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> content.add(ModBlocks.MANGROVE_CHAIR));
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> content.add(ModBlocks.SPRUCE_CHAIR));
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> content.add(ModBlocks.BIRCH_CHAIR));
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> content.add(ModBlocks.ACACIA_CHAIR));
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> content.add(ModBlocks.JUNGLE_CHAIR));
 	}
 
 	private void addItemsToCustomItemGroup() {
@@ -166,6 +194,16 @@ public class WoodcutterMod implements ModInitializer {
 					entries.add(ModBlocks.ACACIA_TABLE_THE_CLASSIC);
 					entries.add(ModBlocks.JUNGLE_TABLE_THE_CLASSIC);
 					entries.add(ModBlocks.OAK_CHAIR);
+					entries.add(ModBlocks.CHERRY_CHAIR);
+					entries.add(ModBlocks.DARK_OAK_CHAIR);
+					entries.add(ModBlocks.BAMBOO_CHAIR);
+					entries.add(ModBlocks.WARPED_CHAIR);
+					entries.add(ModBlocks.CRIMSON_CHAIR);
+					entries.add(ModBlocks.MANGROVE_CHAIR);
+					entries.add(ModBlocks.SPRUCE_CHAIR);
+					entries.add(ModBlocks.BIRCH_CHAIR);
+					entries.add(ModBlocks.ACACIA_CHAIR);
+					entries.add(ModBlocks.JUNGLE_CHAIR);
 				})
 				.build();
 
