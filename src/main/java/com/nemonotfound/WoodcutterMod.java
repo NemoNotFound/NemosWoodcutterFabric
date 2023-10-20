@@ -1,6 +1,7 @@
 package com.nemonotfound;
 
 import com.nemonotfound.block.ModBlocks;
+import com.nemonotfound.entity.ChairEntity;
 import com.nemonotfound.recipe.WoodcutterSerializer;
 import com.nemonotfound.recipe.WoodcuttingRecipe;
 import com.nemonotfound.screen.WoodcutterScreenHandler;
@@ -8,6 +9,10 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
+import net.minecraft.entity.EntityDimensions;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnGroup;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroups;
@@ -22,14 +27,23 @@ import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.awt.*;
+
 public class WoodcutterMod implements ModInitializer {
 
-	public static final String mod_id = "woodcutter";
-    public static final Logger log = LoggerFactory.getLogger(mod_id);
+	public static final String MOD_ID = "woodcutter";
+    public static final Logger log = LoggerFactory.getLogger(MOD_ID);
 	public static final ScreenHandlerType<WoodcutterScreenHandler> WOODCUTTER_SCREEN_HANDLER =
-			ScreenHandlerType.register(mod_id, WoodcutterScreenHandler::new);
+			ScreenHandlerType.register(MOD_ID, WoodcutterScreenHandler::new);
 	public static RecipeType<WoodcuttingRecipe> WOODCUTTING;
 	public static WoodcutterSerializer WOODCUTTING_RECIPE_RECIPE_SERIALIZER;
+	public static final EntityType<ChairEntity> CHAIR_ENTITY = Registry.register(Registries.ENTITY_TYPE,
+			new Identifier(MOD_ID, "chair_entity"),
+			FabricEntityTypeBuilder.create(SpawnGroup.MISC, ChairEntity::new)
+					.dimensions(new EntityDimensions(0, 0, true))
+					.fireImmune()
+					.disableSummon()
+					.build());
 
 	@Override
 	public void onInitialize() {
@@ -43,57 +57,57 @@ public class WoodcutterMod implements ModInitializer {
 	}
 
 	private void registerBlocks() {
-		Registry.register(Registries.BLOCK, new Identifier(mod_id, "woodcutter"), ModBlocks.WOODCUTTER_BLOCK);
-		Registry.register(Registries.BLOCK, new Identifier(mod_id, "dark_oak_ladder"), ModBlocks.DARK_OAK_LADDER);
-		Registry.register(Registries.BLOCK, new Identifier(mod_id, "acacia_ladder"), ModBlocks.ACACIA_LADDER);
-		Registry.register(Registries.BLOCK, new Identifier(mod_id, "birch_ladder"), ModBlocks.BIRCH_LADDER);
-		Registry.register(Registries.BLOCK, new Identifier(mod_id, "spruce_ladder"), ModBlocks.SPRUCE_LADDER);
-		Registry.register(Registries.BLOCK, new Identifier(mod_id, "warped_ladder"), ModBlocks.WARPED_LADDER);
-		Registry.register(Registries.BLOCK, new Identifier(mod_id, "bamboo_ladder"), ModBlocks.BAMBOO_LADDER);
-		Registry.register(Registries.BLOCK, new Identifier(mod_id, "crimson_ladder"), ModBlocks.CRIMSON_LADDER);
-		Registry.register(Registries.BLOCK, new Identifier(mod_id, "mangrove_ladder"), ModBlocks.MANGROVE_LADDER);
-		Registry.register(Registries.BLOCK, new Identifier(mod_id, "jungle_ladder"), ModBlocks.JUNGLE_LADDER);
-		Registry.register(Registries.BLOCK, new Identifier(mod_id, "bound_bamboo_ladder"), ModBlocks.BOUND_BAMBOO_LADDER);
-		Registry.register(Registries.BLOCK, new Identifier(mod_id, "cherry_ladder"), ModBlocks.CHERRY_LADDER);
-		Registry.register(Registries.BLOCK, new Identifier(mod_id, "oak_table_the_classic"), ModBlocks.OAK_TABLE_THE_CLASSIC);
-		Registry.register(Registries.BLOCK, new Identifier(mod_id, "cherry_table_the_classic"), ModBlocks.CHERRY_TABLE_THE_CLASSIC);
-		Registry.register(Registries.BLOCK, new Identifier(mod_id, "dark_oak_table_the_classic"), ModBlocks.DARK_OAK_TABLE_THE_CLASSIC);
-		Registry.register(Registries.BLOCK, new Identifier(mod_id, "bamboo_table_the_classic"), ModBlocks.BAMBOO_TABLE_THE_CLASSIC);
-		Registry.register(Registries.BLOCK, new Identifier(mod_id, "warped_table_the_classic"), ModBlocks.WARPED_TABLE_THE_CLASSIC);
-		Registry.register(Registries.BLOCK, new Identifier(mod_id, "crimson_table_the_classic"), ModBlocks.CRIMSON_TABLE_THE_CLASSIC);
-		Registry.register(Registries.BLOCK, new Identifier(mod_id, "mangrove_table_the_classic"), ModBlocks.MANGROVE_TABLE_THE_CLASSIC);
-		Registry.register(Registries.BLOCK, new Identifier(mod_id, "spruce_table_the_classic"), ModBlocks.SPRUCE_TABLE_THE_CLASSIC);
-		Registry.register(Registries.BLOCK, new Identifier(mod_id, "birch_table_the_classic"), ModBlocks.BIRCH_TABLE_THE_CLASSIC);
-		Registry.register(Registries.BLOCK, new Identifier(mod_id, "acacia_table_the_classic"), ModBlocks.ACACIA_TABLE_THE_CLASSIC);
-		Registry.register(Registries.BLOCK, new Identifier(mod_id, "jungle_table_the_classic"), ModBlocks.JUNGLE_TABLE_THE_CLASSIC);
-		Registry.register(Registries.BLOCK, new Identifier(mod_id, "oak_chair"), ModBlocks.OAK_CHAIR);
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "woodcutter"), ModBlocks.WOODCUTTER_BLOCK);
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "dark_oak_ladder"), ModBlocks.DARK_OAK_LADDER);
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "acacia_ladder"), ModBlocks.ACACIA_LADDER);
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "birch_ladder"), ModBlocks.BIRCH_LADDER);
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "spruce_ladder"), ModBlocks.SPRUCE_LADDER);
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "warped_ladder"), ModBlocks.WARPED_LADDER);
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "bamboo_ladder"), ModBlocks.BAMBOO_LADDER);
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "crimson_ladder"), ModBlocks.CRIMSON_LADDER);
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "mangrove_ladder"), ModBlocks.MANGROVE_LADDER);
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "jungle_ladder"), ModBlocks.JUNGLE_LADDER);
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "bound_bamboo_ladder"), ModBlocks.BOUND_BAMBOO_LADDER);
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "cherry_ladder"), ModBlocks.CHERRY_LADDER);
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "oak_table_the_classic"), ModBlocks.OAK_TABLE_THE_CLASSIC);
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "cherry_table_the_classic"), ModBlocks.CHERRY_TABLE_THE_CLASSIC);
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "dark_oak_table_the_classic"), ModBlocks.DARK_OAK_TABLE_THE_CLASSIC);
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "bamboo_table_the_classic"), ModBlocks.BAMBOO_TABLE_THE_CLASSIC);
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "warped_table_the_classic"), ModBlocks.WARPED_TABLE_THE_CLASSIC);
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "crimson_table_the_classic"), ModBlocks.CRIMSON_TABLE_THE_CLASSIC);
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "mangrove_table_the_classic"), ModBlocks.MANGROVE_TABLE_THE_CLASSIC);
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "spruce_table_the_classic"), ModBlocks.SPRUCE_TABLE_THE_CLASSIC);
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "birch_table_the_classic"), ModBlocks.BIRCH_TABLE_THE_CLASSIC);
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "acacia_table_the_classic"), ModBlocks.ACACIA_TABLE_THE_CLASSIC);
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "jungle_table_the_classic"), ModBlocks.JUNGLE_TABLE_THE_CLASSIC);
+		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "oak_chair"), ModBlocks.OAK_CHAIR);
 	}
 
 	private void registerItems() {
-		Registry.register(Registries.ITEM, new Identifier(mod_id, "woodcutter"), new BlockItem(ModBlocks.WOODCUTTER_BLOCK, new FabricItemSettings()));
-		Registry.register(Registries.ITEM, new Identifier(mod_id, "dark_oak_ladder"), new BlockItem(ModBlocks.DARK_OAK_LADDER, new FabricItemSettings()));
-		Registry.register(Registries.ITEM, new Identifier(mod_id, "acacia_ladder"), new BlockItem(ModBlocks.ACACIA_LADDER, new FabricItemSettings()));
-		Registry.register(Registries.ITEM, new Identifier(mod_id, "birch_ladder"), new BlockItem(ModBlocks.BIRCH_LADDER, new FabricItemSettings()));
-		Registry.register(Registries.ITEM, new Identifier(mod_id, "spruce_ladder"), new BlockItem(ModBlocks.SPRUCE_LADDER, new FabricItemSettings()));
-		Registry.register(Registries.ITEM, new Identifier(mod_id, "warped_ladder"), new BlockItem(ModBlocks.WARPED_LADDER, new FabricItemSettings()));
-		Registry.register(Registries.ITEM, new Identifier(mod_id, "bamboo_ladder"), new BlockItem(ModBlocks.BAMBOO_LADDER, new FabricItemSettings()));
-		Registry.register(Registries.ITEM, new Identifier(mod_id, "crimson_ladder"), new BlockItem(ModBlocks.CRIMSON_LADDER, new FabricItemSettings()));
-		Registry.register(Registries.ITEM, new Identifier(mod_id, "mangrove_ladder"), new BlockItem(ModBlocks.MANGROVE_LADDER, new FabricItemSettings()));
-		Registry.register(Registries.ITEM, new Identifier(mod_id, "jungle_ladder"), new BlockItem(ModBlocks.JUNGLE_LADDER, new FabricItemSettings()));
-		Registry.register(Registries.ITEM, new Identifier(mod_id, "bound_bamboo_ladder"), new BlockItem(ModBlocks.BOUND_BAMBOO_LADDER, new FabricItemSettings()));
-		Registry.register(Registries.ITEM, new Identifier(mod_id, "cherry_ladder"), new BlockItem(ModBlocks.CHERRY_LADDER, new FabricItemSettings()));
-		Registry.register(Registries.ITEM, new Identifier(mod_id, "oak_table_the_classic"), new BlockItem(ModBlocks.OAK_TABLE_THE_CLASSIC, new FabricItemSettings()));
-		Registry.register(Registries.ITEM, new Identifier(mod_id, "cherry_table_the_classic"), new BlockItem(ModBlocks.CHERRY_TABLE_THE_CLASSIC, new FabricItemSettings()));
-		Registry.register(Registries.ITEM, new Identifier(mod_id, "dark_oak_table_the_classic"), new BlockItem(ModBlocks.DARK_OAK_TABLE_THE_CLASSIC, new FabricItemSettings()));
-		Registry.register(Registries.ITEM, new Identifier(mod_id, "bamboo_table_the_classic"), new BlockItem(ModBlocks.BAMBOO_TABLE_THE_CLASSIC, new FabricItemSettings()));
-		Registry.register(Registries.ITEM, new Identifier(mod_id, "warped_table_the_classic"), new BlockItem(ModBlocks.WARPED_TABLE_THE_CLASSIC, new FabricItemSettings()));
-		Registry.register(Registries.ITEM, new Identifier(mod_id, "crimson_table_the_classic"), new BlockItem(ModBlocks.CRIMSON_TABLE_THE_CLASSIC, new FabricItemSettings()));
-		Registry.register(Registries.ITEM, new Identifier(mod_id, "mangrove_table_the_classic"), new BlockItem(ModBlocks.MANGROVE_TABLE_THE_CLASSIC, new FabricItemSettings()));
-		Registry.register(Registries.ITEM, new Identifier(mod_id, "spruce_table_the_classic"), new BlockItem(ModBlocks.SPRUCE_TABLE_THE_CLASSIC, new FabricItemSettings()));
-		Registry.register(Registries.ITEM, new Identifier(mod_id, "birch_table_the_classic"), new BlockItem(ModBlocks.BIRCH_TABLE_THE_CLASSIC, new FabricItemSettings()));
-		Registry.register(Registries.ITEM, new Identifier(mod_id, "acacia_table_the_classic"), new BlockItem(ModBlocks.ACACIA_TABLE_THE_CLASSIC, new FabricItemSettings()));
-		Registry.register(Registries.ITEM, new Identifier(mod_id, "jungle_table_the_classic"), new BlockItem(ModBlocks.JUNGLE_TABLE_THE_CLASSIC, new FabricItemSettings()));
-		Registry.register(Registries.ITEM, new Identifier(mod_id, "oak_chair"), new BlockItem(ModBlocks.OAK_CHAIR, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "woodcutter"), new BlockItem(ModBlocks.WOODCUTTER_BLOCK, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "dark_oak_ladder"), new BlockItem(ModBlocks.DARK_OAK_LADDER, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "acacia_ladder"), new BlockItem(ModBlocks.ACACIA_LADDER, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "birch_ladder"), new BlockItem(ModBlocks.BIRCH_LADDER, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "spruce_ladder"), new BlockItem(ModBlocks.SPRUCE_LADDER, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "warped_ladder"), new BlockItem(ModBlocks.WARPED_LADDER, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "bamboo_ladder"), new BlockItem(ModBlocks.BAMBOO_LADDER, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "crimson_ladder"), new BlockItem(ModBlocks.CRIMSON_LADDER, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "mangrove_ladder"), new BlockItem(ModBlocks.MANGROVE_LADDER, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "jungle_ladder"), new BlockItem(ModBlocks.JUNGLE_LADDER, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "bound_bamboo_ladder"), new BlockItem(ModBlocks.BOUND_BAMBOO_LADDER, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "cherry_ladder"), new BlockItem(ModBlocks.CHERRY_LADDER, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "oak_table_the_classic"), new BlockItem(ModBlocks.OAK_TABLE_THE_CLASSIC, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "cherry_table_the_classic"), new BlockItem(ModBlocks.CHERRY_TABLE_THE_CLASSIC, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "dark_oak_table_the_classic"), new BlockItem(ModBlocks.DARK_OAK_TABLE_THE_CLASSIC, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "bamboo_table_the_classic"), new BlockItem(ModBlocks.BAMBOO_TABLE_THE_CLASSIC, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "warped_table_the_classic"), new BlockItem(ModBlocks.WARPED_TABLE_THE_CLASSIC, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "crimson_table_the_classic"), new BlockItem(ModBlocks.CRIMSON_TABLE_THE_CLASSIC, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "mangrove_table_the_classic"), new BlockItem(ModBlocks.MANGROVE_TABLE_THE_CLASSIC, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "spruce_table_the_classic"), new BlockItem(ModBlocks.SPRUCE_TABLE_THE_CLASSIC, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "birch_table_the_classic"), new BlockItem(ModBlocks.BIRCH_TABLE_THE_CLASSIC, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "acacia_table_the_classic"), new BlockItem(ModBlocks.ACACIA_TABLE_THE_CLASSIC, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "jungle_table_the_classic"), new BlockItem(ModBlocks.JUNGLE_TABLE_THE_CLASSIC, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "oak_chair"), new BlockItem(ModBlocks.OAK_CHAIR, new FabricItemSettings()));
 	}
 
 	private void addItemsToItemGroup() {
@@ -155,6 +169,6 @@ public class WoodcutterMod implements ModInitializer {
 				})
 				.build();
 
-		Registry.register(Registries.ITEM_GROUP, new Identifier(mod_id, "woodcutter_group"), ITEM_GROUP);
+		Registry.register(Registries.ITEM_GROUP, new Identifier(MOD_ID, "woodcutter_group"), ITEM_GROUP);
 	}
 }
