@@ -18,10 +18,12 @@ import net.minecraft.util.math.MathHelper;
 
 import java.util.List;
 
+import static com.nemonotfound.NemosWoodcutter.MOD_ID;
+
 @Environment(value=EnvType.CLIENT)
 public class WoodcutterScreen
 extends HandledScreen<WoodcutterScreenHandler> {
-    private static final Identifier TEXTURE = new Identifier("nemos-woodcutter", "textures/gui/container/woodcutter.png");
+    private static final Identifier TEXTURE = new Identifier(MOD_ID, "textures/gui/container/woodcutter.png");
     private float scrollAmount;
     private boolean mouseClicked;
     private int scrollOffset;
