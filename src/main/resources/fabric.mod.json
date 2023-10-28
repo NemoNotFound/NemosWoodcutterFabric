@@ -1,9 +1,9 @@
 {
 	"schemaVersion": 1,
-	"id": "woodcutter",
+	"id": "nemos-woodcutter",
 	"version": "${version}",
-	"name": "Woodcutter",
-	"description": "Woodcutter is just like the Stonecutter. Just for wood!",
+	"name": "Nemo's Woodcutter",
+	"description": "The Woodcutter is just like the Stonecutter. Just for wood!",
 	"authors": [
 		"NemoNotFound"
 	],
@@ -15,10 +15,10 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-          "com.nemonotfound.WoodcutterMod"
+			"com.nemonotfound.NemosWoodcutter"
 		],
 		"client": [
-			"com.nemonotfound.WoodcutterClientMod"
+			"com.nemonotfound.NemosWoodcutterClient"
 		]
 	},
 	"depends": {
@@ -30,5 +30,5 @@
 	"suggests": {
 		"another-mod": "*"
 	},
-	"accessWidener": "woodcutter.accesswidener"
+	"accessWidener": "nemos-woodcutter.accesswidener"
 }

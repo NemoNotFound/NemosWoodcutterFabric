@@ -1,7 +1,7 @@
 package com.nemonotfound.screen;
 
 import com.google.common.collect.Lists;
-import com.nemonotfound.WoodcutterMod;
+import com.nemonotfound.NemosWoodcutter;
 import com.nemonotfound.block.ModBlocks;
 import com.nemonotfound.recipe.WoodcuttingRecipe;
 import net.minecraft.entity.player.PlayerEntity;
@@ -50,7 +50,7 @@ extends ScreenHandler {
     }
 
     public WoodcutterScreenHandler(int syncId, PlayerInventory playerInventory, final ScreenHandlerContext context) {
-        super(WoodcutterMod.WOODCUTTER_SCREEN_HANDLER, syncId);
+        super(NemosWoodcutter.WOODCUTTER_SCREEN_HANDLER, syncId);
         int i;
         this.context = context;
         this.world = playerInventory.player.getWorld();
@@ -143,7 +143,7 @@ extends ScreenHandler {
         this.selectedRecipe.set(-1);
         this.outputSlot.setStackNoCallbacks(ItemStack.EMPTY);
         if (!stack.isEmpty()) {
-            this.availableRecipes = this.world.getRecipeManager().getAllMatches(WoodcutterMod.WOODCUTTING, input, this.world);
+            this.availableRecipes = this.world.getRecipeManager().getAllMatches(NemosWoodcutter.WOODCUTTING, input, this.world);
         }
     }
 
@@ -165,7 +165,7 @@ extends ScreenHandler {
 
     @Override
     public ScreenHandlerType<?> getType() {
-        return WoodcutterMod.WOODCUTTER_SCREEN_HANDLER;
+        return NemosWoodcutter.WOODCUTTER_SCREEN_HANDLER;
     }
 
     public void setContentsChangedListener(Runnable contentsChangedListener) {
@@ -191,7 +191,7 @@ extends ScreenHandler {
                     return ItemStack.EMPTY;
                 }
                 slot2.onQuickTransfer(itemStack2, itemStack);
-            } else if (slot == 0 ? !this.insertItem(itemStack2, 2, 38, false) : (this.world.getRecipeManager().getFirstMatch(WoodcutterMod.WOODCUTTING, new SimpleInventory(itemStack2), this.world).isPresent() ? !this.insertItem(itemStack2, 0, 1, false) : (slot >= 2 && slot < 29 ? !this.insertItem(itemStack2, 29, 38, false) : slot >= 29 && slot < 38 && !this.insertItem(itemStack2, 2, 29, false)))) {
+            } else if (slot == 0 ? !this.insertItem(itemStack2, 2, 38, false) : (this.world.getRecipeManager().getFirstMatch(NemosWoodcutter.WOODCUTTING, new SimpleInventory(itemStack2), this.world).isPresent() ? !this.insertItem(itemStack2, 0, 1, false) : (slot >= 2 && slot < 29 ? !this.insertItem(itemStack2, 29, 38, false) : slot >= 29 && slot < 38 && !this.insertItem(itemStack2, 2, 29, false)))) {
                 return ItemStack.EMPTY;
             }
             if (itemStack2.isEmpty()) {

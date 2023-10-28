@@ -21,7 +21,7 @@ import java.util.List;
 @Environment(value=EnvType.CLIENT)
 public class WoodcutterScreen
 extends HandledScreen<WoodcutterScreenHandler> {
-    private static final Identifier TEXTURE = new Identifier("woodcutter", "textures/gui/container/woodcutter.png");
+    private static final Identifier TEXTURE = new Identifier("nemos-woodcutter", "textures/gui/container/woodcutter.png");
     private float scrollAmount;
     private boolean mouseClicked;
     private int scrollOffset;
