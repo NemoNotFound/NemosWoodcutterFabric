@@ -16,14 +16,16 @@ import net.minecraft.util.math.MathHelper;
 
 import java.util.List;
 
+import static com.nemonotfound.NemosWoodcutter.MOD_ID;
+
 @Environment(value=EnvType.CLIENT)
 public class WoodcutterScreen extends HandledScreen<WoodcutterScreenHandler> {
-    private static final Identifier TEXTURE = new Identifier("woodcutter", "textures/gui/container/woodcutter.png");
-    private static final Identifier SCROLLER_TEXTURE = new Identifier("woodcutter", "container/woodcutter/scroller");
-    private static final Identifier SCROLLER_DISABLED_TEXTURE = new Identifier("woodcutter","container/woodcutter/scroller_disabled");
-    private static final Identifier RECIPE_SELECTED_TEXTURE = new Identifier("woodcutter","container/woodcutter/recipe_selected");
-    private static final Identifier RECIPE_HIGHLIGHTED_TEXTURE = new Identifier("woodcutter","container/woodcutter/recipe_highlighted");
-    private static final Identifier RECIPE_TEXTURE = new Identifier("woodcutter","container/woodcutter/recipe");
+    private static final Identifier TEXTURE = new Identifier(MOD_ID, "textures/gui/container/woodcutter.png");
+    private static final Identifier SCROLLER_TEXTURE = new Identifier(MOD_ID, "container/woodcutter/scroller");
+    private static final Identifier SCROLLER_DISABLED_TEXTURE = new Identifier(MOD_ID,"container/woodcutter/scroller_disabled");
+    private static final Identifier RECIPE_SELECTED_TEXTURE = new Identifier(MOD_ID,"container/woodcutter/recipe_selected");
+    private static final Identifier RECIPE_HIGHLIGHTED_TEXTURE = new Identifier(MOD_ID,"container/woodcutter/recipe_highlighted");
+    private static final Identifier RECIPE_TEXTURE = new Identifier(MOD_ID,"container/woodcutter/recipe");
     private float scrollAmount;
     private boolean mouseClicked;
     private int scrollOffset;

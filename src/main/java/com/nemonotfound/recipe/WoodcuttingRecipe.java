@@ -1,6 +1,6 @@
 package com.nemonotfound.recipe;
 
-import com.nemonotfound.WoodcutterMod;
+import com.nemonotfound.NemosWoodcutter;
 import com.nemonotfound.block.ModBlocks;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
@@ -12,7 +12,7 @@ public class WoodcuttingRecipe
 extends CuttingRecipe {
 
     public WoodcuttingRecipe(String group, Ingredient ingredient, ItemStack output) {
-        super(WoodcutterMod.WOODCUTTING, WoodcutterMod.WOODCUTTING_RECIPE_RECIPE_SERIALIZER, group, ingredient, output);
+        super(NemosWoodcutter.WOODCUTTING, NemosWoodcutter.WOODCUTTING_RECIPE_RECIPE_SERIALIZER, group, ingredient, output);
     }
 
     @Override

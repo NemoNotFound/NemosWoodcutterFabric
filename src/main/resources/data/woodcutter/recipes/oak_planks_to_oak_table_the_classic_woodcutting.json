@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:woodcutting",
-  "count": 1,
-  "ingredient": {
-    "item": "minecraft:oak_planks"
-  },
-  "result": "woodcutter:oak_table_the_classic"
-}

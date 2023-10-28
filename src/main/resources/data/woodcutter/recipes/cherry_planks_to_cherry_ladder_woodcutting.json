@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:woodcutting",
-  "count": 2,
-  "ingredient": {
-    "item": "minecraft:cherry_planks"
-  },
-  "result": "woodcutter:cherry_ladder"
-}
