@@ -123,16 +123,18 @@ public class WoodcutterScreen extends HandledScreen<WoodcutterScreenHandler> {
                 double d = mouseX - (double)(i + m % 4 * 16);
                 double e = mouseY - (double)(j + m / 4 * 18);
                 if (!(d >= 0.0) || !(e >= 0.0) || !(d < 16.0) || !(e < 18.0) || !(this.handler).onButtonClick(this.client.player, l)) continue;
-                var recipeEntry = this.handler.getAvailableRecipes().get(l);
-                var recipePath = recipeEntry.id().getPath();
-                var inputCount = this.handler.inputSlot.getStack().getCount();
-                var isDoor = recipePath.contains("_door");
-                var isBoat = recipePath.contains("_boat");
-                var isRaft = recipePath.contains("_raft");
-                if ((isDoor || isBoat || isRaft) && inputCount < 2) {
-                    MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(SoundEvents.UI_STONECUTTER_SELECT_RECIPE, 4.0f));
-                } else {
-                    MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(SoundEvents.UI_STONECUTTER_SELECT_RECIPE, 1.0f));
+                if (this.handler.getAvailableRecipeCount() > l) {
+                    var recipeEntry = this.handler.getAvailableRecipes().get(l);
+                    var recipePath = recipeEntry.id().getPath();
+                    var inputCount = this.handler.inputSlot.getStack().getCount();
+                    var isDoor = recipePath.contains("_door");
+                    var isBoat = recipePath.contains("_boat");
+                    var isRaft = recipePath.contains("_raft");
+                    if ((isDoor || isBoat || isRaft) && inputCount < 2) {
+                        MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(SoundEvents.UI_STONECUTTER_SELECT_RECIPE, 4.0f));
+                    } else {
+                        MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(SoundEvents.UI_STONECUTTER_SELECT_RECIPE, 1.0f));
+                    }
                 }
 
                 this.client.interactionManager.clickButton((this.handler).syncId, l);
