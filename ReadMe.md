@@ -14,6 +14,10 @@ If you want to have the Woodcutter and some furniture then check out Nemo's Furn
     - Pressure Plate
     - Slabs
     - Stairs
-    - Trapdoor
+    - Trapdoor (requires two planks)
+    - Door (requires two planks)
+    - Boat
+    - Sign
+    - Button
 
 I hope you like my second mod. Feel free to give me any feedback, I'd appreciate it a lot!

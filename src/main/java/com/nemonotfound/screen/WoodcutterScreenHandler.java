@@ -66,7 +66,13 @@ extends ScreenHandler {
             public void onTakeItem(PlayerEntity player, ItemStack stack) {
                 stack.onCraft(player.getWorld(), player, stack.getCount());
                 WoodcutterScreenHandler.this.output.unlockLastRecipe(player, this.getInputStacks());
-                ItemStack itemStack = WoodcutterScreenHandler.this.inputSlot.takeStack(1);
+                ItemStack itemStack;
+                if (stack.toString().contains("_door") || stack.toString().contains("boat") || stack.toString().contains("raft")) {
+                    itemStack = WoodcutterScreenHandler.this.inputSlot.takeStack(2);
+                } else {
+                    itemStack = WoodcutterScreenHandler.this.inputSlot.takeStack(1);
+                }
+
                 if (!itemStack.isEmpty()) {
                     WoodcutterScreenHandler.this.populateResult();
                 }
@@ -149,10 +155,17 @@ extends ScreenHandler {
 
     void populateResult() {
         if (!this.availableRecipes.isEmpty() && this.isInBounds(this.selectedRecipe.get())) {
-            WoodcuttingRecipe woodcuttingRecipe = this.availableRecipes.get(this.selectedRecipe.get());
-            ItemStack itemStack = woodcuttingRecipe.craft(this.input, this.world.getRegistryManager());
-            if (itemStack.isItemEnabled(this.world.getEnabledFeatures())) {
-                this.output.setLastRecipe(woodcuttingRecipe);
+            WoodcuttingRecipe recipe = this.availableRecipes.get(this.selectedRecipe.get());
+            ItemStack itemStack = recipe.craft(this.input, this.world.getRegistryManager());
+            var inputCount = inputSlot.getStack().getCount();
+            var isDoor = itemStack.toString().contains("_door");
+            var isBoat = itemStack.toString().contains("_boat");
+            var isRafT = itemStack.toString().contains("_raft");
+
+            if ((isDoor || isBoat || isRafT) && inputCount < 2) {
+                this.outputSlot.setStackNoCallbacks(ItemStack.EMPTY);
+            } else if (itemStack.isItemEnabled(this.world.getEnabledFeatures())) {
+                this.output.setLastRecipe(recipe);
                 this.outputSlot.setStackNoCallbacks(itemStack);
             } else {
                 this.outputSlot.setStackNoCallbacks(ItemStack.EMPTY);
@@ -201,7 +214,7 @@ extends ScreenHandler {
             if (itemStack2.getCount() == itemStack.getCount()) {
                 return ItemStack.EMPTY;
             }
-            slot2.onTakeItem(player, itemStack2);
+            slot2.onTakeItem(player, itemStack);
             this.sendContentUpdates();
         }
         return itemStack;

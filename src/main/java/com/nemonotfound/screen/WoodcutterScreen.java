@@ -1,6 +1,3 @@
-/*
- * Decompiled with CFR 0.2.1 (FabricMC 53fa44c9).
- */
 package com.nemonotfound.screen;
 
 import com.nemonotfound.recipe.WoodcuttingRecipe;
@@ -20,9 +17,8 @@ import java.util.List;
 
 import static com.nemonotfound.NemosWoodcutter.MOD_ID;
 
-@Environment(value=EnvType.CLIENT)
-public class WoodcutterScreen
-extends HandledScreen<WoodcutterScreenHandler> {
+@Environment(value = EnvType.CLIENT)
+public class WoodcutterScreen extends HandledScreen<WoodcutterScreenHandler> {
     private static final Identifier TEXTURE = new Identifier(MOD_ID, "textures/gui/container/woodcutter.png");
     private float scrollAmount;
     private boolean mouseClicked;
@@ -81,11 +77,22 @@ extends HandledScreen<WoodcutterScreenHandler> {
             int l = j / 4;
             int m = y + l * 18 + 2;
             int n = this.backgroundHeight;
-            if (i == (this.handler).getSelectedRecipe()) {
-                n += 18;
+            if (i == this.handler.getSelectedRecipe()) {
+                n += 54;
             } else if (mouseX >= k && mouseY >= m && mouseX < k + 16 && mouseY < m + 18) {
                 n += 36;
             }
+            var recipe = this.handler.getAvailableRecipes().get(i);
+            var recipeOutput = recipe.getOutput(this.client.world.getRegistryManager());
+            var inputCount = this.handler.inputSlot.getStack().getCount();
+            var isDoor = recipeOutput.toString().contains("_door");
+            var isBoat = recipeOutput.toString().contains("boat");
+            var isRaft = recipeOutput.toString().contains("raft");
+
+            if ((isDoor || isBoat || isRaft) && inputCount < 2) {
+                n += 18;
+            }
+
             context.drawTexture(TEXTURE, k, m - 1, 0, n, 16, 18);
         }
     }
@@ -113,7 +120,19 @@ extends HandledScreen<WoodcutterScreenHandler> {
                 double d = mouseX - (double)(i + m % 4 * 16);
                 double e = mouseY - (double)(j + m / 4 * 18);
                 if (!(d >= 0.0) || !(e >= 0.0) || !(d < 16.0) || !(e < 18.0) || !(this.handler).onButtonClick(this.client.player, l)) continue;
-                MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(SoundEvents.UI_STONECUTTER_SELECT_RECIPE, 1.0f));
+                if (this.handler.getAvailableRecipeCount() > l) {
+                    var recipe = this.handler.getAvailableRecipes().get(l);
+                    var recipeOutput = recipe.getOutput(this.client.world.getRegistryManager());
+                    var inputCount = this.handler.inputSlot.getStack().getCount();
+                    var isDoor = recipeOutput.toString().contains("_door");
+                    var isBoat = recipeOutput.toString().contains("_boat");
+                    var isRaft = recipeOutput.toString().contains("_raft");
+                    if ((isDoor || isBoat || isRaft) && inputCount < 2) {
+                        MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(SoundEvents.UI_STONECUTTER_SELECT_RECIPE, 4.0f));
+                    } else {
+                        MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(SoundEvents.UI_STONECUTTER_SELECT_RECIPE, 1.0f));
+                    }
+                }
                 this.client.interactionManager.clickButton((this.handler).syncId, l);
                 return true;
             }
@@ -143,9 +162,9 @@ extends HandledScreen<WoodcutterScreenHandler> {
     public boolean mouseScrolled(double mouseX, double mouseY, double amount) {
         if (this.shouldScroll()) {
             int i = this.getMaxScroll();
-            float f = (float)amount / (float)i;
+            float f = (float) amount / (float) i;
             this.scrollAmount = MathHelper.clamp(this.scrollAmount - f, 0.0f, 1.0f);
-            this.scrollOffset = (int)((double)(this.scrollAmount * (float)i) + 0.5) * 4;
+            this.scrollOffset = (int) ((double) (this.scrollAmount * (float) i) + 0.5) * 4;
         }
         return true;
     }
