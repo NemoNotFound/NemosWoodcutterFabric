@@ -35,6 +35,7 @@ public class NemosWoodcutter implements ModInitializer {
 		addItemsToItemGroup();
 		WOODCUTTING = RecipeType.register("woodcutting");
 		WOODCUTTING_RECIPE_RECIPE_SERIALIZER = RecipeSerializer.register("woodcutting", new WoodcutterSerializer(WoodcuttingRecipe::new));
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> content.add(ModBlocks.WOODCUTTER_BLOCK));
 	}
 
 	private void registerBlocks() {
