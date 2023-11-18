@@ -14,9 +14,9 @@ If you want to have the Woodcutter and some furniture then check out Nemo's Furn
     - Pressure Plate
     - Slabs
     - Stairs
-    - Trapdoor (requires two planks)
+    - Trapdoor
     - Door (requires two planks)
-    - Boat
+    - Boat (requires two planks)
     - Sign
     - Button
 
