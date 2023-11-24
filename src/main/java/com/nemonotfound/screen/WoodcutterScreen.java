@@ -71,7 +71,10 @@ public class WoodcutterScreen extends HandledScreen<WoodcutterScreenHandler> {
     }
 
     private void renderRecipeBackground(DrawContext context, int mouseX, int mouseY, int x, int y, int scrollOffset) {
-        for (int i = this.scrollOffset; i < scrollOffset && i < this.handler.getAvailableRecipeCount(); ++i) {
+        List<WoodcuttingRecipe> recipes = this.handler.getAvailableRecipes().stream()
+                .filter(recipe -> !recipe.getOutput(this.client.world.getRegistryManager()).toString().contains("0 air"))
+                .toList();
+        for (int i = this.scrollOffset; i < scrollOffset && i < recipes.size(); ++i) {
             int j = i - this.scrollOffset;
             int k = x + j % 4 * 16;
             int l = j / 4;
@@ -82,7 +85,7 @@ public class WoodcutterScreen extends HandledScreen<WoodcutterScreenHandler> {
             } else if (mouseX >= k && mouseY >= m && mouseX < k + 16 && mouseY < m + 18) {
                 n += 36;
             }
-            var recipe = this.handler.getAvailableRecipes().get(i);
+            var recipe = recipes.get(i);
             var recipeOutput = recipe.getOutput(this.client.world.getRegistryManager());
             var inputCount = this.handler.inputSlot.getStack().getCount();
             var isDoor = recipeOutput.toString().contains("_door");
@@ -98,13 +101,18 @@ public class WoodcutterScreen extends HandledScreen<WoodcutterScreenHandler> {
     }
 
     private void renderRecipeIcons(DrawContext context, int x, int y, int scrollOffset) {
-        List<WoodcuttingRecipe> list = this.handler.getAvailableRecipes();
-        for (int i = this.scrollOffset; i < scrollOffset && i < (this.handler).getAvailableRecipeCount(); ++i) {
+        List<WoodcuttingRecipe> recipes = this.handler.getAvailableRecipes().stream()
+                .filter(recipe -> !recipe.getOutput(this.client.world.getRegistryManager()).toString().contains("0 air"))
+                .toList();
+        for (int i = this.scrollOffset; i < scrollOffset && i < recipes.size(); ++i) {
             int j = i - this.scrollOffset;
             int k = x + j % 4 * 16;
             int l = j / 4;
             int m = y + l * 18 + 2;
-            context.drawItem(list.get(i).getOutput(this.client.world.getRegistryManager()), k, m);
+            var recipe = recipes.get(i);
+            var recipeOutput = recipe.getOutput(this.client.world.getRegistryManager());
+
+            context.drawItem(recipeOutput, k, m);
         }
     }
 
