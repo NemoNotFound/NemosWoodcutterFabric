@@ -89,6 +89,10 @@ public class WoodcutterScreen extends HandledScreen<WoodcutterScreenHandler> {
             var isBoat = recipePath.contains("boat");
             var isRaft = recipePath.contains("raft");
 
+            if (recipePath.contains("air")) {
+                continue;
+            }
+
             if ((isDoor || isBoat || isRaft) && inputCount < 2) {
                 context.drawGuiTexture(RECIPE_DISABLED_TEXTURE, k, m - 1, 16, 18);
             } else {
@@ -106,6 +110,11 @@ public class WoodcutterScreen extends HandledScreen<WoodcutterScreenHandler> {
             int l = j / 4;
             int m = y + l * 18 + 2;
             var recipeEntry = availableRecipes.get(i);
+            var recipePath = recipeEntry.id().getPath();
+
+            if (recipePath.contains("air")) {
+                continue;
+            }
 
             context.drawItem(recipeEntry.value().getResult(this.client.world.getRegistryManager()), k, m);
         }
