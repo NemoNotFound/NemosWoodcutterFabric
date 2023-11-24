@@ -20,6 +20,6 @@ If you want to have the Woodcutter and some furniture then check out Nemo's Furn
     - Button
 
 ## Compatibilities
-- "More Slabs, Stairs, and Walls" by Nibaru
+- "More Slabs, Stairs, and Walls" version 3.1.0 by Nibaru
 
 I hope you like my second mod. Feel free to give me any feedback, I'd appreciate it a lot!
