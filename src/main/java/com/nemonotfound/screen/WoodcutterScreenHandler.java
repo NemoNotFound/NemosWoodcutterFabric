@@ -20,6 +20,7 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class WoodcutterScreenHandler
@@ -149,7 +150,10 @@ extends ScreenHandler {
         this.selectedRecipe.set(-1);
         this.outputSlot.setStackNoCallbacks(ItemStack.EMPTY);
         if (!stack.isEmpty()) {
-            this.availableRecipes = this.world.getRecipeManager().getAllMatches(NemosWoodcutter.WOODCUTTING, input, this.world);
+            this.availableRecipes = new ArrayList<>(this.world.getRecipeManager().getAllMatches(NemosWoodcutter.WOODCUTTING, input, this.world)
+                    .stream()
+                    .filter(recipe -> !recipe.getOutput(this.world.getRegistryManager()).toString().contains("0 air"))
+                    .toList());
         }
     }
 

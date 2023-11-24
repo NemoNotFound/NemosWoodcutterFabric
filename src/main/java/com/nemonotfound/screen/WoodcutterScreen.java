@@ -71,9 +71,7 @@ public class WoodcutterScreen extends HandledScreen<WoodcutterScreenHandler> {
     }
 
     private void renderRecipeBackground(DrawContext context, int mouseX, int mouseY, int x, int y, int scrollOffset) {
-        List<WoodcuttingRecipe> recipes = this.handler.getAvailableRecipes().stream()
-                .filter(recipe -> !recipe.getOutput(this.client.world.getRegistryManager()).toString().contains("0 air"))
-                .toList();
+        List<WoodcuttingRecipe> recipes = this.handler.getAvailableRecipes();
         for (int i = this.scrollOffset; i < scrollOffset && i < recipes.size(); ++i) {
             int j = i - this.scrollOffset;
             int k = x + j % 4 * 16;
@@ -101,9 +99,7 @@ public class WoodcutterScreen extends HandledScreen<WoodcutterScreenHandler> {
     }
 
     private void renderRecipeIcons(DrawContext context, int x, int y, int scrollOffset) {
-        List<WoodcuttingRecipe> recipes = this.handler.getAvailableRecipes().stream()
-                .filter(recipe -> !recipe.getOutput(this.client.world.getRegistryManager()).toString().contains("0 air"))
-                .toList();
+        List<WoodcuttingRecipe> recipes = this.handler.getAvailableRecipes();
         for (int i = this.scrollOffset; i < scrollOffset && i < recipes.size(); ++i) {
             int j = i - this.scrollOffset;
             int k = x + j % 4 * 16;
