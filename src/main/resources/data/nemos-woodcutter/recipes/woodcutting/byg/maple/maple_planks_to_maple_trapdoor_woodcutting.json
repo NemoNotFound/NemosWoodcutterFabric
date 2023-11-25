@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:woodcutting",
+  "count": 2,
+  "ingredient": {
+    "item": "byg:maple_planks"
+  },
+  "result": "byg:maple_trapdoor"
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:woodcutting",
+  "count": 1,
+  "ingredient": {
+    "item": "byg:cika_planks"
+  },
+  "result": "byg:cika_fence_gate"
+}

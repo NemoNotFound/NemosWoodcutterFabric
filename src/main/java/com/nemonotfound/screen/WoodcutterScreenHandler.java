@@ -66,7 +66,7 @@ extends ScreenHandler {
             @Override
             public void onTakeItem(PlayerEntity player, ItemStack stack) {
                 stack.onCraft(player.getWorld(), player, stack.getCount());
-                WoodcutterScreenHandler.this.output.unlockLastRecipe(player, this.getInputStacks());
+                WoodcutterScreenHandler.this.output.unlockLastRecipe(player);
                 ItemStack itemStack;
                 if (stack.toString().contains("_door") || stack.toString().contains("boat") || stack.toString().contains("raft")) {
                     itemStack = WoodcutterScreenHandler.this.inputSlot.takeStack(2);
@@ -152,7 +152,7 @@ extends ScreenHandler {
         if (!stack.isEmpty()) {
             this.availableRecipes = new ArrayList<>(this.world.getRecipeManager().getAllMatches(NemosWoodcutter.WOODCUTTING, input, this.world)
                     .stream()
-                    .filter(recipe -> !recipe.getOutput(this.world.getRegistryManager()).toString().contains("0 air"))
+                    .filter(recipe -> !recipe.getOutput(this.world.getRegistryManager()).getItem().toString().equals("air"))
                     .toList());
         }
     }

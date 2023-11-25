@@ -1,16 +1,12 @@
 package com.nemonotfound.block;
 
-import net.minecraft.block.AbstractBlock;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.MapColor;
-import net.minecraft.block.enums.Instrument;
-import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.block.Material;
 
 public class ModBlocks {
 
-    public static final Block WOODCUTTER_BLOCK = new WoodcutterBlock(AbstractBlock.Settings.create()
-                    .sounds(BlockSoundGroup.WOOD)
-                    .mapColor(MapColor.OAK_TAN)
-                    .instrument(Instrument.BASS)
-                    .strength(2.0f));
+    public static final Block WOODCUTTER_BLOCK = new WoodcutterBlock(FabricBlockSettings.of(Material.WOOD, MapColor.OAK_TAN)
+            .strength(2.0f));
 }

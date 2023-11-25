@@ -1,12 +1,13 @@
 package com.nemonotfound.screen;
 
+import com.mojang.blaze3d.systems.RenderSystem;
 import com.nemonotfound.recipe.WoodcuttingRecipe;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.sound.PositionedSoundInstance;
+import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
@@ -32,45 +33,48 @@ public class WoodcutterScreen extends HandledScreen<WoodcutterScreenHandler> {
     }
 
     @Override
-    public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        super.render(context, mouseX, mouseY, delta);
-        this.drawMouseoverTooltip(context, mouseX, mouseY);
+    public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
+        super.render(matrices, mouseX, mouseY, delta);
+        this.drawMouseoverTooltip(matrices, mouseX, mouseY);
     }
 
     @Override
-    protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
-        this.renderBackground(context);
+    protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) {
+        this.renderBackground(matrices);
+        RenderSystem.setShaderTexture(0, TEXTURE);
         int i = this.x;
         int j = this.y;
-        context.drawTexture(TEXTURE, i, j, 0, 0, this.backgroundWidth, this.backgroundHeight);
-        int k = (int)(41.0f * this.scrollAmount);
-        context.drawTexture(TEXTURE, i + 119, j + 15 + k, 176 + (this.shouldScroll() ? 0 : 12), 0, 12, 15);
+        drawTexture(matrices, i, j, 0, 0, this.backgroundWidth, this.backgroundHeight);
+        int k = (int)(41.0F * this.scrollAmount);
+        drawTexture(matrices, i + 119, j + 15 + k, 176 + (this.shouldScroll() ? 0 : 12), 0, 12, 15);
         int l = this.x + 52;
         int m = this.y + 14;
         int n = this.scrollOffset + 12;
-        this.renderRecipeBackground(context, mouseX, mouseY, l, m, n);
-        this.renderRecipeIcons(context, l, m, n);
+        this.renderRecipeBackground(matrices, mouseX, mouseY, l, m, n);
+        this.renderRecipeIcons(matrices, l, m, n);
     }
 
     @Override
-    protected void drawMouseoverTooltip(DrawContext context, int x, int y) {
-        super.drawMouseoverTooltip(context, x, y);
+    protected void drawMouseoverTooltip(MatrixStack matrices, int x, int y) {
+        super.drawMouseoverTooltip(matrices, x, y);
         if (this.canCraft) {
             int i = this.x + 52;
             int j = this.y + 14;
             int k = this.scrollOffset + 12;
             List<WoodcuttingRecipe> list = this.handler.getAvailableRecipes();
-            for (int l = this.scrollOffset; l < k && l < this.handler.getAvailableRecipeCount(); ++l) {
+
+            for(int l = this.scrollOffset; l < k && l < this.handler.getAvailableRecipeCount(); ++l) {
                 int m = l - this.scrollOffset;
                 int n = i + m % 4 * 16;
                 int o = j + m / 4 * 18 + 2;
-                if (x < n || x >= n + 16 || y < o || y >= o + 18) continue;
-                context.drawItemTooltip(this.textRenderer, list.get(l).getOutput(this.client.world.getRegistryManager()), x, y);
+                if (x >= n && x < n + 16 && y >= o && y < o + 18) {
+                    this.renderTooltip(matrices, list.get(l).getOutput(this.client.world.getRegistryManager()), x, y);
+                }
             }
         }
     }
 
-    private void renderRecipeBackground(DrawContext context, int mouseX, int mouseY, int x, int y, int scrollOffset) {
+    private void renderRecipeBackground(MatrixStack matrices, int mouseX, int mouseY, int x, int y, int scrollOffset) {
         List<WoodcuttingRecipe> recipes = this.handler.getAvailableRecipes();
         for (int i = this.scrollOffset; i < scrollOffset && i < recipes.size(); ++i) {
             int j = i - this.scrollOffset;
@@ -94,11 +98,11 @@ public class WoodcutterScreen extends HandledScreen<WoodcutterScreenHandler> {
                 n += 18;
             }
 
-            context.drawTexture(TEXTURE, k, m - 1, 0, n, 16, 18);
+            drawTexture(matrices, k, m - 1, 0, n, 16, 18);
         }
     }
 
-    private void renderRecipeIcons(DrawContext context, int x, int y, int scrollOffset) {
+    private void renderRecipeIcons(MatrixStack matrices, int x, int y, int scrollOffset) {
         List<WoodcuttingRecipe> recipes = this.handler.getAvailableRecipes();
         for (int i = this.scrollOffset; i < scrollOffset && i < recipes.size(); ++i) {
             int j = i - this.scrollOffset;
@@ -108,7 +112,7 @@ public class WoodcutterScreen extends HandledScreen<WoodcutterScreenHandler> {
             var recipe = recipes.get(i);
             var recipeOutput = recipe.getOutput(this.client.world.getRegistryManager());
 
-            context.drawItem(recipeOutput, k, m);
+            this.client.getItemRenderer().renderInGuiWithOverrides(matrices, recipeOutput, k, m);
         }
     }
 
