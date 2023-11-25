@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:woodcutting",
+  "count": 2,
+  "ingredient": {
+    "item": "byg:baobab_planks"
+  },
+  "result": "byg:baobab_trapdoor"
+}

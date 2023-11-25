@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:woodcutting",
+  "count": 4,
+  "ingredient": {
+    "item": "byg:cika_planks"
+  },
+  "result": "byg:cika_pressure_plate"
+}

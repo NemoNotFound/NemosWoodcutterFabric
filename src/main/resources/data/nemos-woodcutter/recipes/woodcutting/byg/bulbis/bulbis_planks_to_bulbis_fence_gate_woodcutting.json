@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:woodcutting",
+  "count": 1,
+  "ingredient": {
+    "item": "byg:bulbis_planks"
+  },
+  "result": "byg:bulbis_fence_gate"
+}

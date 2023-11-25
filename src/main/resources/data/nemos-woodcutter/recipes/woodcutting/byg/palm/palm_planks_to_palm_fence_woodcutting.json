@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:woodcutting",
+  "count": 1,
+  "ingredient": {
+    "item": "byg:palm_planks"
+  },
+  "result": "byg:palm_fence"
+}

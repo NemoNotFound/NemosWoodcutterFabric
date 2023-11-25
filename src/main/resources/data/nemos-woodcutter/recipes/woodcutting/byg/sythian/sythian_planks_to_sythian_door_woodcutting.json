@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:woodcutting",
+  "count": 2,
+  "ingredient": {
+    "item": "byg:sythian_planks"
+  },
+  "result": "byg:sythian_door"
+}

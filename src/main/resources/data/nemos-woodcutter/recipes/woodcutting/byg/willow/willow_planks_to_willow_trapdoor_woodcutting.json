@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:woodcutting",
+  "count": 2,
+  "ingredient": {
+    "item": "byg:willow_planks"
+  },
+  "result": "byg:willow_trapdoor"
+}

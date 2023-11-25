@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:woodcutting",
+  "count": 4,
+  "ingredient": {
+    "item": "byg:baobab_planks"
+  },
+  "result": "byg:baobab_button"
+}
