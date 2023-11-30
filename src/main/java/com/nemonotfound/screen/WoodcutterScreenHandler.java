@@ -152,7 +152,7 @@ extends ScreenHandler {
         if (!stack.isEmpty()) {
             this.availableRecipes = new ArrayList<>(this.world.getRecipeManager().getAllMatches(NemosWoodcutter.WOODCUTTING, input, this.world)
                     .stream()
-                    .filter(recipe -> !recipe.getOutput(this.world.getRegistryManager()).getItem().toString().equals("air"))
+                    .filter(recipe -> !recipe.getOutput().getItem().toString().equals("air"))
                     .toList());
         }
     }
@@ -160,7 +160,7 @@ extends ScreenHandler {
     void populateResult() {
         if (!this.availableRecipes.isEmpty() && this.isInBounds(this.selectedRecipe.get())) {
             WoodcuttingRecipe recipe = this.availableRecipes.get(this.selectedRecipe.get());
-            ItemStack itemStack = recipe.craft(this.input, this.world.getRegistryManager());
+            ItemStack itemStack = recipe.craft(this.input);
             var inputCount = inputSlot.getStack().getCount();
             var isDoor = itemStack.toString().contains("_door");
             var isBoat = itemStack.toString().contains("_boat");
@@ -225,8 +225,8 @@ extends ScreenHandler {
     }
 
     @Override
-    public void onClosed(PlayerEntity player) {
-        super.onClosed(player);
+    public void close(PlayerEntity player) {
+        super.close(player);
         this.output.removeStack(1);
         this.context.run((world, pos) -> this.dropInventory(player, this.input));
     }

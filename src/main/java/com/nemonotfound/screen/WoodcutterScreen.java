@@ -51,7 +51,7 @@ public class WoodcutterScreen extends HandledScreen<WoodcutterScreenHandler> {
         int m = this.y + 14;
         int n = this.scrollOffset + 12;
         this.renderRecipeBackground(matrices, mouseX, mouseY, l, m, n);
-        this.renderRecipeIcons(matrices, l, m, n);
+        this.renderRecipeIcons(l, m, n);
     }
 
     @Override
@@ -68,7 +68,7 @@ public class WoodcutterScreen extends HandledScreen<WoodcutterScreenHandler> {
                 int n = i + m % 4 * 16;
                 int o = j + m / 4 * 18 + 2;
                 if (x >= n && x < n + 16 && y >= o && y < o + 18) {
-                    this.renderTooltip(matrices, list.get(l).getOutput(this.client.world.getRegistryManager()), x, y);
+                    this.renderTooltip(matrices, list.get(l).getOutput(), x, y);
                 }
             }
         }
@@ -88,7 +88,7 @@ public class WoodcutterScreen extends HandledScreen<WoodcutterScreenHandler> {
                 n += 36;
             }
             var recipe = recipes.get(i);
-            var recipeOutput = recipe.getOutput(this.client.world.getRegistryManager());
+            var recipeOutput = recipe.getOutput();
             var inputCount = this.handler.inputSlot.getStack().getCount();
             var isDoor = recipeOutput.toString().contains("_door");
             var isBoat = recipeOutput.toString().contains("boat");
@@ -102,7 +102,7 @@ public class WoodcutterScreen extends HandledScreen<WoodcutterScreenHandler> {
         }
     }
 
-    private void renderRecipeIcons(MatrixStack matrices, int x, int y, int scrollOffset) {
+    private void renderRecipeIcons(int x, int y, int scrollOffset) {
         List<WoodcuttingRecipe> recipes = this.handler.getAvailableRecipes();
         for (int i = this.scrollOffset; i < scrollOffset && i < recipes.size(); ++i) {
             int j = i - this.scrollOffset;
@@ -110,9 +110,9 @@ public class WoodcutterScreen extends HandledScreen<WoodcutterScreenHandler> {
             int l = j / 4;
             int m = y + l * 18 + 2;
             var recipe = recipes.get(i);
-            var recipeOutput = recipe.getOutput(this.client.world.getRegistryManager());
+            var recipeOutput = recipe.getOutput();
 
-            this.client.getItemRenderer().renderInGuiWithOverrides(matrices, recipeOutput, k, m);
+            this.client.getItemRenderer().renderInGuiWithOverrides(recipeOutput, k, m);
         }
     }
 
@@ -130,7 +130,7 @@ public class WoodcutterScreen extends HandledScreen<WoodcutterScreenHandler> {
                 if (!(d >= 0.0) || !(e >= 0.0) || !(d < 16.0) || !(e < 18.0) || !(this.handler).onButtonClick(this.client.player, l)) continue;
                 if (this.handler.getAvailableRecipeCount() > l) {
                     var recipe = this.handler.getAvailableRecipes().get(l);
-                    var recipeOutput = recipe.getOutput(this.client.world.getRegistryManager());
+                    var recipeOutput = recipe.getOutput();
                     var inputCount = this.handler.inputSlot.getStack().getCount();
                     var isDoor = recipeOutput.toString().contains("_door");
                     var isBoat = recipeOutput.toString().contains("_boat");
