@@ -6,15 +6,13 @@ import com.nemonotfound.recipe.WoodcuttingRecipe;
 import com.nemonotfound.screen.WoodcutterScreenHandler;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.BlockItem;
-import net.minecraft.item.ItemGroups;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,21 +30,16 @@ public class NemosWoodcutter implements ModInitializer {
 		log.info("Thank you for using Nemo's Woodcutter!");
 		registerBlocks();
 		registerItems();
-		addItemsToItemGroup();
 		WOODCUTTING = RecipeType.register("woodcutting");
 		WOODCUTTING_RECIPE_RECIPE_SERIALIZER = RecipeSerializer.register("woodcutting", new WoodcutterSerializer(WoodcuttingRecipe::new));
-		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> content.add(ModBlocks.WOODCUTTER_BLOCK));
 	}
 
 	private void registerBlocks() {
-		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "woodcutter"), ModBlocks.WOODCUTTER_BLOCK);
+		Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "woodcutter"), ModBlocks.WOODCUTTER_BLOCK);
 	}
 
 	private void registerItems() {
-		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "woodcutter"), new BlockItem(ModBlocks.WOODCUTTER_BLOCK, new FabricItemSettings()));
-	}
-
-	private void addItemsToItemGroup() {
-		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> content.add(ModBlocks.WOODCUTTER_BLOCK));
+		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "woodcutter"), new BlockItem(ModBlocks.WOODCUTTER_BLOCK,
+				new FabricItemSettings().group(ItemGroup.DECORATIONS)));
 	}
 }

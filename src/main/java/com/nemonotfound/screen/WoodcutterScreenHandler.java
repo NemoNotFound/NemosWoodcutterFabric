@@ -168,11 +168,9 @@ extends ScreenHandler {
 
             if ((isDoor || isBoat || isRafT) && inputCount < 2) {
                 this.outputSlot.setStackNoCallbacks(ItemStack.EMPTY);
-            } else if (itemStack.isItemEnabled(this.world.getEnabledFeatures())) {
+            } else {
                 this.output.setLastRecipe(recipe);
                 this.outputSlot.setStackNoCallbacks(itemStack);
-            } else {
-                this.outputSlot.setStackNoCallbacks(ItemStack.EMPTY);
             }
         } else {
             this.outputSlot.setStackNoCallbacks(ItemStack.EMPTY);
@@ -195,7 +193,7 @@ extends ScreenHandler {
     }
 
     @Override
-    public ItemStack quickMove(PlayerEntity player, int slot) {
+    public ItemStack transferSlot(PlayerEntity player, int slot) {
         ItemStack itemStack = ItemStack.EMPTY;
         Slot slot2 = this.slots.get(slot);
         if (slot2 != null && slot2.hasStack()) {
