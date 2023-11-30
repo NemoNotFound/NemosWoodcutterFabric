@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:woodcutting",
+  "count": 2,
+  "ingredient": {
+    "item": "byg:cypress_planks"
+  },
+  "result": "byg:cypress_slab"
+}

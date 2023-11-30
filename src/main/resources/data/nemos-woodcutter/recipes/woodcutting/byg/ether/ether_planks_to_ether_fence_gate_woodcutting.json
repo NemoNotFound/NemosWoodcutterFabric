@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:woodcutting",
+  "count": 1,
+  "ingredient": {
+    "item": "byg:ether_planks"
+  },
+  "result": "byg:ether_fence_gate"
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:woodcutting",
+  "count": 1,
+  "ingredient": {
+    "item": "byg:cypress_planks"
+  },
+  "result": "byg:cypress_fence_gate"
+}

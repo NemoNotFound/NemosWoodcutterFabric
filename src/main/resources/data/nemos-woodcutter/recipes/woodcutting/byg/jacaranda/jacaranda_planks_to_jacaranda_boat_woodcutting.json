@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:woodcutting",
+  "count": 1,
+  "ingredient": {
+    "item": "byg:jacaranda_planks"
+  },
+  "result": "byg:jacaranda_boat"
+}

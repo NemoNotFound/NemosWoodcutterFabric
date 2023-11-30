@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:woodcutting",
+  "count": 2,
+  "ingredient": {
+    "item": "byg:rainbow_eucalyptus_planks"
+  },
+  "result": "byg:rainbow_eucalyptus_slab"
+}
