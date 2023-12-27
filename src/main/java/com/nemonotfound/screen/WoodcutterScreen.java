@@ -83,11 +83,11 @@ public class WoodcutterScreen extends HandledScreen<WoodcutterScreenHandler> {
             int l = j / 4;
             int m = y + l * 18 + 2;
             var recipeEntry = this.handler.getAvailableRecipes().get(i);
-            var recipePath = recipeEntry.id().getPath();
+            var result = recipeEntry.value().getResult(this.client.world.getRegistryManager()).toString();
             var inputCount = this.handler.inputSlot.getStack().getCount();
-            var isDoor = recipePath.contains("_door");
-            var isBoat = recipePath.contains("boat");
-            var isRaft = recipePath.contains("raft");
+            var isDoor = result.contains("_door");
+            var isBoat = result.contains("boat");
+            var isRaft = result.contains("raft");
 
             if ((isDoor || isBoat || isRaft) && inputCount < 2) {
                 context.drawGuiTexture(RECIPE_DISABLED_TEXTURE, k, m - 1, 16, 18);
