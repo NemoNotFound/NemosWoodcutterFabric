@@ -20,7 +20,7 @@ If you want to have the Woodcutter and some furniture then check out Nemo's Furn
     - Button
 
 ## Compatibilities
-- "More Slabs, Stairs, and Walls" version 3.1.0 by Nibaru (Minecraft version 1.19.2 - 1.20.2)
-- "Oh The Biomes You'll Go Refabricated" version 4.0.1.0 by AOCAWOL (Minecraft version 1.19.2 - 1.19.4)
+- "[More Slabs, Stairs, and Walls](https://www.curseforge.com/minecraft/mc-mods/more-slabs-stairs-and-walls)" version 3.1.0 by Nibaru (Minecraft version 1.19.2 - 1.20.4)
+- "[Oh The Biomes You'll Go Refabricated](https://www.curseforge.com/minecraft/mc-mods/oh-the-biomes-youll-go-fabric)" version 4.0.1.0 by AOCAWOL (Minecraft version 1.19.2 - 1.19.4)
 
 I hope you like my second mod. Feel free to give me any feedback, I'd appreciate it a lot!
