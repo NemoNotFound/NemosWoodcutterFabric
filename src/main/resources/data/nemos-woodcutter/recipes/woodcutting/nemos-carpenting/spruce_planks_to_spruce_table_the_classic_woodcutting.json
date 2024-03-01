@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:woodcutting",
+  "count": 1,
+  "ingredient": {
+    "item": "minecraft:spruce_planks"
+  },
+  "result": "nemos-carpenting:spruce_table_the_classic"
+}

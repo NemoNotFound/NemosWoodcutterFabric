@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:woodcutting",
+  "count": 1,
+  "ingredient": {
+    "item": "minecraft:crimson_planks"
+  },
+  "result": "nemos-carpenting:crimson_table_the_classic"
+}
