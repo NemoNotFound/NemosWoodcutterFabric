@@ -8,8 +8,7 @@
 		"NemoNotFound"
 	],
 	"contact": {
-		"homepage": "https://nemonotfound.com/",
-		"sources": ""
+		"homepage": "https://nemonotfound.com/"
 	},
 	"license": "MIT",
 	"environment": "*",
@@ -22,7 +21,7 @@
 		]
 	},
 	"depends": {
-		"fabricloader": ">=0.15.0",
+		"fabricloader": ">=0.15.7",
 		"minecraft": "~1.19.2",
 		"java": ">=17",
 		"fabric-api": "*"

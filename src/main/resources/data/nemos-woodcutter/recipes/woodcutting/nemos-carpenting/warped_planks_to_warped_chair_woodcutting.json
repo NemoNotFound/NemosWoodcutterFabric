@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:woodcutting",
+  "count": 1,
+  "ingredient": {
+    "item": "minecraft:warped_planks"
+  },
+  "result": "nemos-carpenting:warped_chair"
+}
