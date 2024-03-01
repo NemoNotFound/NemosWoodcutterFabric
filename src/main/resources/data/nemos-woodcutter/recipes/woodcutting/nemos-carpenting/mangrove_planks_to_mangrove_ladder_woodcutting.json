@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:woodcutting",
+  "count": 2,
+  "ingredient": {
+    "item": "minecraft:mangrove_planks"
+  },
+  "result": "nemos-carpenting:mangrove_ladder"
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:woodcutting",
+  "count": 1,
+  "ingredient": {
+    "item": "regions_unexplored:kapok_planks"
+  },
+  "result": "regions_unexplored:kapok_fence_gate"
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:woodcutting",
+  "count": 2,
+  "ingredient": {
+    "item": "regions_unexplored:redwood_planks"
+  },
+  "result": "regions_unexplored:redwood_trapdoor"
+}
