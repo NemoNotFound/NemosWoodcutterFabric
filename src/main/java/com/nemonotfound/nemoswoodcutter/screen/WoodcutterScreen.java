@@ -1,8 +1,6 @@
-package com.nemonotfound.screen;
+package com.nemonotfound.nemoswoodcutter.screen;
 
-import com.nemonotfound.recipe.WoodcuttingRecipe;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+import com.nemonotfound.nemoswoodcutter.recipe.WoodcuttingRecipe;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
@@ -16,9 +14,8 @@ import net.minecraft.util.math.MathHelper;
 
 import java.util.List;
 
-import static com.nemonotfound.NemosWoodcutter.MOD_ID;
+import static com.nemonotfound.nemoswoodcutter.NemosWoodcutter.MOD_ID;
 
-@Environment(value=EnvType.CLIENT)
 public class WoodcutterScreen extends HandledScreen<WoodcutterScreenHandler> {
     private static final Identifier TEXTURE = new Identifier(MOD_ID, "textures/gui/container/woodcutter.png");
     private static final Identifier SCROLLER_TEXTURE = new Identifier(MOD_ID, "container/woodcutter/scroller");
