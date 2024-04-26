@@ -1,7 +1,6 @@
-package com.nemonotfound.nemoswoodcutter.block;
+package com.nemonotfound.block;
 
-import com.mojang.serialization.MapCodec;
-import com.nemonotfound.nemoswoodcutter.screen.WoodcutterScreenHandler;
+import com.nemonotfound.screen.WoodcutterScreenHandler;
 import net.minecraft.block.*;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.player.PlayerEntity;
@@ -26,7 +25,6 @@ import org.jetbrains.annotations.Nullable;
 
 public class WoodcutterBlock extends Block {
 
-    public static final MapCodec<WoodcutterBlock> CODEC = createCodec(WoodcutterBlock::new);
     private static final Text TITLE = Text.translatable("container.woodcutter");
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
     protected static final VoxelShape SHAPE = Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 9.0, 16.0);
@@ -34,11 +32,6 @@ public class WoodcutterBlock extends Block {
     public WoodcutterBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH));
-    }
-
-    @Override
-    public MapCodec<WoodcutterBlock> getCodec() {
-        return CODEC;
     }
 
     @Override

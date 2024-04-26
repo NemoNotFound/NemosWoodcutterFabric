@@ -10,10 +10,6 @@ base {
 	archivesName = project.archives_base_name
 }
 
-fabricApi {
-	configureDataGeneration()
-}
-
 repositories {
 	// Add repositories to retrieve artifacts from in here.
 	// You should only use this when depending on other mods because
@@ -24,8 +20,30 @@ repositories {
 
 loom {
 	accessWidenerPath = file("src/main/resources/nemos-woodcutter.accesswidener")
+    runs {
+		// This adds a new gradle task that runs the datagen API: "gradlew runDatagen"
+		datagen {
+			inherit server
+			name "Data Generation"
+			vmArg "-Dfabric-api.datagen"
+			vmArg "-Dfabric-api.datagen.output-dir=${file("src/main/generated")}"
+			vmArg "-Dfabric-api.datagen.modid=woodcutter"
+ 
+			runDir "build/datagen"
+		}
+	}
 }
 
+// Add the generated resources to the main source set
+sourceSets {
+	main {
+		resources {
+			srcDirs += [
+					'src/main/generated'
+			]
+		}
+	}
+}
 dependencies {
 	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"

@@ -11,14 +11,13 @@
 		"homepage": "https://nemonotfound.com/"
 	},
 	"license": "MIT",
-	"icon": "assets/nemos-woodcutter/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.nemonotfound.nemoswoodcutter.NemosWoodcutter"
+			"com.nemonotfound.NemosWoodcutter"
 		],
 		"client": [
-			"com.nemonotfound.nemoswoodcutter.NemosWoodcutterClient"
+			"com.nemonotfound.NemosWoodcutterClient"
 		]
 	},
 	"depends": {
