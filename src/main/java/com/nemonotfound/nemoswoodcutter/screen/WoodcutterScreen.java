@@ -1,6 +1,6 @@
-package com.nemonotfound.screen;
+package com.nemonotfound.nemoswoodcutter.screen;
 
-import com.nemonotfound.recipe.WoodcuttingRecipe;
+import com.nemonotfound.nemoswoodcutter.recipe.WoodcuttingRecipe;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
@@ -16,7 +16,7 @@ import net.minecraft.util.math.MathHelper;
 
 import java.util.List;
 
-import static com.nemonotfound.NemosWoodcutter.MOD_ID;
+import static com.nemonotfound.nemoswoodcutter.NemosWoodcutter.MOD_ID;
 
 @Environment(value=EnvType.CLIENT)
 public class WoodcutterScreen extends HandledScreen<WoodcutterScreenHandler> {

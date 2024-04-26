@@ -1,4 +1,4 @@
-package com.nemonotfound.block;
+package com.nemonotfound.nemoswoodcutter.block;
 
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;

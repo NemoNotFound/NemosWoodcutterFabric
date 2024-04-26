@@ -1,7 +1,7 @@
-package com.nemonotfound;
+package com.nemonotfound.nemoswoodcutter;
 
-import com.nemonotfound.block.ModBlocks;
-import com.nemonotfound.screen.WoodcutterScreen;
+import com.nemonotfound.nemoswoodcutter.block.ModBlocks;
+import com.nemonotfound.nemoswoodcutter.screen.WoodcutterScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;

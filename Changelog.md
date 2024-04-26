@@ -1,8 +1,7 @@
-# Changelog v1.9.0
+# Changelog v1.9.1
 
-## Changes
-- Updated Fabric Loader to 0.15.10
-- 
+## Fixes
+- Wood won't be mined faster by axe on servers
 
 ### Downloads
 [CurseForge](https://curseforge.com/minecraft/mc-mods/nemos-woodcutter) <br>

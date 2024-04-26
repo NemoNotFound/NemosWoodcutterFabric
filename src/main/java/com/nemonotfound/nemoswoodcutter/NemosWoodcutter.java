@@ -1,14 +1,14 @@
-package com.nemonotfound;
+package com.nemonotfound.nemoswoodcutter;
 
-import com.nemonotfound.block.ModBlocks;
-import com.nemonotfound.recipe.WoodcutterSerializer;
-import com.nemonotfound.recipe.WoodcuttingRecipe;
-import com.nemonotfound.screen.WoodcutterScreenHandler;
+import com.nemonotfound.nemoswoodcutter.block.ModBlocks;
+import com.nemonotfound.nemoswoodcutter.recipe.WoodcutterSerializer;
+import com.nemonotfound.nemoswoodcutter.recipe.WoodcuttingRecipe;
+import com.nemonotfound.nemoswoodcutter.screen.WoodcutterScreenHandler;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
@@ -32,7 +32,7 @@ public class NemosWoodcutter implements ModInitializer {
 	public void onInitialize() {
 		log.info("Thank you for using Nemo's Woodcutter!");
 		Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "woodcutter"), ModBlocks.WOODCUTTER_BLOCK);
-		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "woodcutter"), new BlockItem(ModBlocks.WOODCUTTER_BLOCK, new FabricItemSettings()));
+		Registry.register(Registries.ITEM, new Identifier(MOD_ID, "woodcutter"), new BlockItem(ModBlocks.WOODCUTTER_BLOCK, new Item.Settings()));
 		WOODCUTTING = RecipeType.register("woodcutting");
 		WOODCUTTING_RECIPE_RECIPE_SERIALIZER = RecipeSerializer.register("woodcutting", new WoodcutterSerializer(WoodcuttingRecipe::new));
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> content.addAfter(Blocks.STONECUTTER,

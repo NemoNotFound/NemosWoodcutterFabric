@@ -14,10 +14,10 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.nemonotfound.NemosWoodcutter"
+			"com.nemonotfound.nemoswoodcutter.NemosWoodcutter"
 		],
 		"client": [
-			"com.nemonotfound.NemosWoodcutterClient"
+			"com.nemonotfound.nemoswoodcutter.NemosWoodcutterClient"
 		]
 	},
 	"depends": {

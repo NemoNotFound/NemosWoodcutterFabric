@@ -1,7 +1,7 @@
-package com.nemonotfound.recipe;
+package com.nemonotfound.nemoswoodcutter.recipe;
 
-import com.nemonotfound.NemosWoodcutter;
-import com.nemonotfound.block.ModBlocks;
+import com.nemonotfound.nemoswoodcutter.NemosWoodcutter;
+import com.nemonotfound.nemoswoodcutter.block.ModBlocks;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.CuttingRecipe;

@@ -1,9 +1,9 @@
-package com.nemonotfound.screen;
+package com.nemonotfound.nemoswoodcutter.screen;
 
 import com.google.common.collect.Lists;
-import com.nemonotfound.NemosWoodcutter;
-import com.nemonotfound.block.ModBlocks;
-import com.nemonotfound.recipe.WoodcuttingRecipe;
+import com.nemonotfound.nemoswoodcutter.NemosWoodcutter;
+import com.nemonotfound.nemoswoodcutter.block.ModBlocks;
+import com.nemonotfound.nemoswoodcutter.recipe.WoodcuttingRecipe;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.CraftingResultInventory;

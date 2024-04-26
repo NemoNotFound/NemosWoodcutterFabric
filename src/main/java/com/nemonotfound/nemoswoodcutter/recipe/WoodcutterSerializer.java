@@ -1,4 +1,4 @@
-package com.nemonotfound.recipe;
+package com.nemonotfound.nemoswoodcutter.recipe;
 
 import net.minecraft.recipe.CuttingRecipe;
 

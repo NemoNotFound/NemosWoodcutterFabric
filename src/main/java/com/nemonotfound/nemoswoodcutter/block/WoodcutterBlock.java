@@ -1,6 +1,6 @@
-package com.nemonotfound.block;
+package com.nemonotfound.nemoswoodcutter.block;
 
-import com.nemonotfound.screen.WoodcutterScreenHandler;
+import com.nemonotfound.nemoswoodcutter.screen.WoodcutterScreenHandler;
 import net.minecraft.block.*;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.player.PlayerEntity;
