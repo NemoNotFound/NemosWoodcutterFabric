@@ -1,17 +1,22 @@
 package com.nemonotfound.nemoswoodcutter.datagen;
 
 import com.mojang.datafixers.util.Pair;
+import com.nemonotfound.nemoswoodcutter.block.ModBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.advancement.AdvancementCriterion;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.RecipeExporter;
+import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.VanillaRecipeProvider;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.util.Identifier;
 
 import java.util.concurrent.CompletableFuture;
@@ -24,6 +29,8 @@ public class RecipeGenerator extends FabricRecipeProvider {
 
     @Override
     public void generate(RecipeExporter exporter) {
+        createWoodCutterRecipe(exporter);
+
         createCarpentryRecipe(exporter, Pair.of(Blocks.ACACIA_PLANKS, 2), Items.ACACIA_BOAT, 1);
         createCarpentryRecipe(exporter, Pair.of(Blocks.ACACIA_PLANKS, 1), Items.ACACIA_BUTTON, 4);
         createCarpentryRecipe(exporter, Pair.of(Blocks.ACACIA_PLANKS, 2), Items.ACACIA_DOOR, 2);
@@ -160,5 +167,15 @@ public class RecipeGenerator extends FabricRecipeProvider {
                 .input(Ingredient.ofItems(input), ingredientPair.getSecond())
                 .criterion(FabricRecipeProvider.hasItem(output), conditionsFromItem(output))
                 .offerTo(exporter, new Identifier(blockName + "_to_" + getRecipeName(output) + "_woodcutting"));
+    }
+
+    private void createWoodCutterRecipe(RecipeExporter exporter) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, ModBlocks.WOODCUTTER_BLOCK)
+                .input('I', Items.IRON_INGOT)
+                .input('#', ItemTags.LOGS)
+                .pattern(" I ")
+                .pattern("###")
+                .criterion("has_logs", VanillaRecipeProvider.conditionsFromTag(ItemTags.LOGS))
+                .offerTo(exporter);
     }
 }

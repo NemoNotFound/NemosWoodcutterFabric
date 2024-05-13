@@ -14,7 +14,7 @@
     "###"
   ],
   "result": {
-    "item": "nemos-woodcutter:woodcutter"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "nemos-woodcutter:woodcutter"
+  }
 }
