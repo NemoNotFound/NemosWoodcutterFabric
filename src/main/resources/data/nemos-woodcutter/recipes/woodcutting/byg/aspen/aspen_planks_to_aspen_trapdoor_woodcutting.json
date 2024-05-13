@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:woodcutting",
-  "count": 2,
-  "ingredient": {
-    "item": "byg:aspen_planks"
-  },
-  "result": "byg:aspen_trapdoor"
-}

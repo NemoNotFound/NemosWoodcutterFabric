@@ -18,6 +18,9 @@
 		],
 		"client": [
 			"com.nemonotfound.nemoswoodcutter.NemosWoodcutterClient"
+		],
+		"fabric-datagen": [
+			"com.nemonotfound.nemoswoodcutter.NemosWoodcutterDataGenerator"
 		]
 	},
 	"depends": {

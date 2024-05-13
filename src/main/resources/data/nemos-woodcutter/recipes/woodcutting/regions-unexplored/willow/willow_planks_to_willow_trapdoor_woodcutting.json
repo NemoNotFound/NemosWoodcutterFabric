@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:woodcutting",
-  "count": 2,
-  "ingredient": {
-    "item": "regions_unexplored:willow_planks"
-  },
-  "result": "regions_unexplored:willow_trapdoor"
-}

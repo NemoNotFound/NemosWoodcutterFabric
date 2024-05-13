@@ -1,0 +1,8 @@
+{
+  "type": "nemos-woodcutter:woodcutting",
+  "count": 3,
+  "ingredient": {
+    "item": "regions_unexplored:eucalyptus_planks"
+  },
+  "result": "regions_unexplored:eucalyptus_sign"
+}

@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:woodcutting",
-  "count": 4,
-  "ingredient": {
-    "item": "byg:ether_planks"
-  },
-  "result": "byg:ether_button"
-}

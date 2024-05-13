@@ -1,0 +1,8 @@
+{
+  "type": "nemos-woodcutter:woodcutting",
+  "count": 4,
+  "ingredient": {
+    "item": "byg:pine_planks"
+  },
+  "result": "byg:pine_pressure_plate"
+}

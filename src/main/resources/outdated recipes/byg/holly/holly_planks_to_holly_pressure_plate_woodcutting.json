@@ -1,0 +1,8 @@
+{
+  "type": "nemos-woodcutter:woodcutting",
+  "count": 4,
+  "ingredient": {
+    "item": "byg:holly_planks"
+  },
+  "result": "byg:holly_pressure_plate"
+}

@@ -1,0 +1,8 @@
+{
+  "type": "nemos-woodcutter:woodcutting",
+  "count": 4,
+  "ingredient": {
+    "item": "byg:willow_planks"
+  },
+  "result": "byg:willow_pressure_plate"
+}

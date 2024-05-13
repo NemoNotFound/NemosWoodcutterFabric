@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:woodcutting",
-  "count": 1,
-  "ingredient": {
-    "item": "byg:fir_planks"
-  },
-  "result": "byg:fir_stairs"
-}

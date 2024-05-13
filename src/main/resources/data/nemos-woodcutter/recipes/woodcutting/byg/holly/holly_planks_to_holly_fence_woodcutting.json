@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:woodcutting",
-  "count": 1,
-  "ingredient": {
-    "item": "byg:holly_planks"
-  },
-  "result": "byg:holly_fence"
-}

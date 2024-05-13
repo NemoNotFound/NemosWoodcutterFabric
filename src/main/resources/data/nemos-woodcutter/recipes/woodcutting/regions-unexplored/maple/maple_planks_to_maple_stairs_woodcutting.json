@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:woodcutting",
-  "count": 1,
-  "ingredient": {
-    "item": "regions_unexplored:maple_planks"
-  },
-  "result": "regions_unexplored:maple_stairs"
-}

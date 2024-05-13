@@ -1,0 +1,8 @@
+{
+  "type": "nemos-woodcutter:woodcutting",
+  "count": 4,
+  "ingredient": {
+    "item": "regions_unexplored:socotra_planks"
+  },
+  "result": "regions_unexplored:socotra_pressure_plate"
+}

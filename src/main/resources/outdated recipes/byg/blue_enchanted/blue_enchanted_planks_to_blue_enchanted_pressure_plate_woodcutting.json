@@ -1,0 +1,8 @@
+{
+  "type": "nemos-woodcutter:woodcutting",
+  "count": 4,
+  "ingredient": {
+    "item": "byg:blue_enchanted_planks"
+  },
+  "result": "byg:blue_enchanted_pressure_plate"
+}

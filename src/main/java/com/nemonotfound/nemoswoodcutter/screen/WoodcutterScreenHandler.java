@@ -1,6 +1,7 @@
 package com.nemonotfound.nemoswoodcutter.screen;
 
 import com.google.common.collect.Lists;
+import com.mojang.datafixers.util.Pair;
 import com.nemonotfound.nemoswoodcutter.NemosWoodcutter;
 import com.nemonotfound.nemoswoodcutter.block.ModBlocks;
 import com.nemonotfound.nemoswoodcutter.recipe.WoodcuttingRecipe;
@@ -11,6 +12,7 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.screen.Property;
 import net.minecraft.screen.ScreenHandler;
@@ -160,13 +162,14 @@ extends ScreenHandler {
     void populateResult() {
         if (!this.availableRecipes.isEmpty() && this.isInBounds(this.selectedRecipe.get())) {
             RecipeEntry<WoodcuttingRecipe> recipeEntry = this.availableRecipes.get(this.selectedRecipe.get());
-            ItemStack itemStack = recipeEntry.value().craft(this.input, this.world.getRegistryManager());
+            WoodcuttingRecipe recipe = recipeEntry.value();
+            Pair<Ingredient, Integer> ingredientPair = recipe.getIngredientPair();
+            int requiredInputCount = ingredientPair.getSecond();
             var inputCount = inputSlot.getStack().getCount();
-            var isDoor = recipeEntry.id().getPath().contains("_door");
-            var isBoat = recipeEntry.id().getPath().contains("_boat");
-            var isRafT = recipeEntry.id().getPath().contains("_raft");
 
-            if ((isDoor || isBoat || isRafT) && inputCount < 2) {
+            ItemStack itemStack = recipeEntry.value().craft(this.input, this.world.getRegistryManager());
+
+            if (inputCount < requiredInputCount) {
                 this.outputSlot.setStackNoCallbacks(ItemStack.EMPTY);
             } else if (itemStack.isItemEnabled(this.world.getEnabledFeatures())) {
                 this.output.setLastRecipe(recipeEntry);

@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:woodcutting",
-  "count": 1,
-  "ingredient": {
-    "item": "byg:skyris_planks"
-  },
-  "result": "byg:skyris_fence"
-}

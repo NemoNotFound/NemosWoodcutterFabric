@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:woodcutting",
-  "count": 4,
-  "ingredient": {
-    "item": "byg:rainbow_eucalyptus_planks"
-  },
-  "result": "byg:rainbow_eucalyptus_pressure_plate"
-}

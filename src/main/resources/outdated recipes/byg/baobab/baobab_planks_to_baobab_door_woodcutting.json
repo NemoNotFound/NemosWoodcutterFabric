@@ -1,0 +1,8 @@
+{
+  "type": "nemos-woodcutter:woodcutting",
+  "count": 2,
+  "ingredient": {
+    "item": "byg:baobab_planks"
+  },
+  "result": "byg:baobab_door"
+}

@@ -1,0 +1,8 @@
+{
+  "type": "nemos-woodcutter:woodcutting",
+  "count": 4,
+  "ingredient": {
+    "item": "regions_unexplored:palm_planks"
+  },
+  "result": "regions_unexplored:palm_pressure_plate"
+}

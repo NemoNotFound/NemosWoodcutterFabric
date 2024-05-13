@@ -1,0 +1,8 @@
+{
+  "type": "nemos-woodcutter:woodcutting",
+  "count": 1,
+  "ingredient": {
+    "item": "byg:cherry_planks"
+  },
+  "result": "byg:cherry_fence_gate"
+}

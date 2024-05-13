@@ -1,0 +1,8 @@
+{
+  "type": "nemos-woodcutter:woodcutting",
+  "count": 1,
+  "ingredient": {
+    "item": "byg:zelkova_planks"
+  },
+  "result": "byg:zelkova_fence_gate"
+}

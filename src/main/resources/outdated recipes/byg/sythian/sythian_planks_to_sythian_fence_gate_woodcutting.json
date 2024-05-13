@@ -1,0 +1,8 @@
+{
+  "type": "nemos-woodcutter:woodcutting",
+  "count": 1,
+  "ingredient": {
+    "item": "byg:sythian_planks"
+  },
+  "result": "byg:sythian_fence_gate"
+}

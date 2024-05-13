@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:woodcutting",
-  "count": 1,
-  "ingredient": {
-    "item": "byg:nightshade_planks"
-  },
-  "result": "byg:nightshade_stairs"
-}

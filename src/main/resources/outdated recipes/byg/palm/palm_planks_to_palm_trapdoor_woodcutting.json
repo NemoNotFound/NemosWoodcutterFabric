@@ -1,0 +1,8 @@
+{
+  "type": "nemos-woodcutter:woodcutting",
+  "count": 2,
+  "ingredient": {
+    "item": "byg:palm_planks"
+  },
+  "result": "byg:palm_trapdoor"
+}
