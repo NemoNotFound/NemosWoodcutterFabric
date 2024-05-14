@@ -8,21 +8,20 @@
 		"NemoNotFound"
 	],
 	"contact": {
-		"homepage": "https://nemonotfound.com/",
-		"sources": ""
+		"homepage": "https://nemonotfound.com/"
 	},
 	"license": "MIT",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.nemonotfound.NemosWoodcutter"
+			"com.nemonotfound.nemoswoodcutter.NemosWoodcutter"
 		],
 		"client": [
-			"com.nemonotfound.NemosWoodcutterClient"
+			"com.nemonotfound.nemoswoodcutter.NemosWoodcutterClient"
 		]
 	},
 	"depends": {
-		"fabricloader": ">=0.15.7",
+		"fabricloader": ">=0.15.10",
 		"minecraft": "~1.20.1",
 		"java": ">=17",
 		"fabric-api": "*"

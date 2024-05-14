@@ -1,0 +1,10 @@
+{
+  "type": "nemos-woodcutter:woodcutting",
+  "ingredient": {
+    "item": "minecraft:cherry_planks"
+  },
+  "result": {
+    "Count": 1,
+    "id": "minecraft:cherry_fence"
+  }
+}

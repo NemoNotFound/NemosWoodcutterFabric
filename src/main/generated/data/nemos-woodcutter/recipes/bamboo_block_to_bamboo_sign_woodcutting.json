@@ -1,0 +1,10 @@
+{
+  "type": "nemos-woodcutter:woodcutting",
+  "ingredient": {
+    "item": "minecraft:bamboo_block"
+  },
+  "result": {
+    "Count": 6,
+    "id": "minecraft:bamboo_sign"
+  }
+}

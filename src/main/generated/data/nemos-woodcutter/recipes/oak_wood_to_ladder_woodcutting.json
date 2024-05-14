@@ -1,0 +1,10 @@
+{
+  "type": "nemos-woodcutter:woodcutting",
+  "ingredient": {
+    "item": "minecraft:oak_wood"
+  },
+  "result": {
+    "Count": 8,
+    "id": "minecraft:ladder"
+  }
+}
