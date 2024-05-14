@@ -1,0 +1,10 @@
+{
+  "type": "nemos-woodcutter:woodcutting",
+  "ingredient": {
+    "item": "minecraft:bamboo_block"
+  },
+  "result": {
+    "count": 8,
+    "id": "minecraft:bamboo_pressure_plate"
+  }
+}

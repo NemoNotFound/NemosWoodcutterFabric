@@ -1,5 +1,6 @@
 package com.nemonotfound.nemoswoodcutter.screen;
 
+import com.mojang.datafixers.util.Pair;
 import com.nemonotfound.nemoswoodcutter.recipe.WoodcuttingRecipe;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -8,6 +9,7 @@ import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.sound.PositionedSoundInstance;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
@@ -82,14 +84,12 @@ public class WoodcutterScreen extends HandledScreen<WoodcutterScreenHandler> {
             int k = x + j % 4 * 16;
             int l = j / 4;
             int m = y + l * 18 + 2;
-            var recipeEntry = this.handler.getAvailableRecipes().get(i);
-            var result = recipeEntry.value().getResult(this.client.world.getRegistryManager()).toString();
+            var recipe = this.handler.getAvailableRecipes().get(i).value();
             var inputCount = this.handler.inputSlot.getStack().getCount();
-            var isDoor = result.contains("_door");
-            var isBoat = result.contains("boat");
-            var isRaft = result.contains("raft");
+            Pair<Ingredient, Integer> ingredientPair = recipe.getIngredientPair();
+            int requiredInputCount = ingredientPair.getSecond();
 
-            if ((isDoor || isBoat || isRaft) && inputCount < 2) {
+            if (inputCount < requiredInputCount) {
                 context.drawGuiTexture(RECIPE_DISABLED_TEXTURE, k, m - 1, 16, 18);
             } else {
                 Identifier identifier = i == this.handler.getSelectedRecipe() ? RECIPE_SELECTED_TEXTURE : (mouseX >= k && mouseY >= m && mouseX < k + 16 && mouseY < m + 18 ? RECIPE_HIGHLIGHTED_TEXTURE : RECIPE_TEXTURE);
@@ -124,13 +124,13 @@ public class WoodcutterScreen extends HandledScreen<WoodcutterScreenHandler> {
                 double e = mouseY - (double)(j + m / 4 * 18);
                 if (!(d >= 0.0) || !(e >= 0.0) || !(d < 16.0) || !(e < 18.0) || !(this.handler).onButtonClick(this.client.player, l)) continue;
                 if (this.handler.getAvailableRecipeCount() > l) {
-                    var recipeEntry = this.handler.getAvailableRecipes().get(l);
-                    var recipePath = recipeEntry.id().getPath();
+                    var recipe = this.handler.getAvailableRecipes().get(l).value();
+                    Pair<Ingredient, Integer> ingredientPair = recipe.getIngredientPair();
+                    int requiredInputCount = ingredientPair.getSecond();
+
                     var inputCount = this.handler.inputSlot.getStack().getCount();
-                    var isDoor = recipePath.contains("_door");
-                    var isBoat = recipePath.contains("_boat");
-                    var isRaft = recipePath.contains("_raft");
-                    if ((isDoor || isBoat || isRaft) && inputCount < 2) {
+
+                    if (inputCount < requiredInputCount) {
                         MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(SoundEvents.UI_STONECUTTER_SELECT_RECIPE, 4.0f));
                     } else {
                         MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(SoundEvents.UI_STONECUTTER_SELECT_RECIPE, 1.0f));

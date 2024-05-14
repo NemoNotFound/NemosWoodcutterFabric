@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
 import com.nemonotfound.nemoswoodcutter.NemosWoodcutter;
 import com.nemonotfound.nemoswoodcutter.block.ModBlocks;
+import com.nemonotfound.nemoswoodcutter.recipe.ModRecipeTypes;
 import com.nemonotfound.nemoswoodcutter.recipe.WoodcuttingRecipe;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -153,7 +154,7 @@ extends ScreenHandler {
         this.selectedRecipe.set(-1);
         this.outputSlot.setStackNoCallbacks(ItemStack.EMPTY);
         if (!stack.isEmpty()) {
-            this.availableRecipes = new ArrayList<>(this.world.getRecipeManager().getAllMatches(NemosWoodcutter.WOODCUTTING, input, this.world).stream()
+            this.availableRecipes = new ArrayList<>(this.world.getRecipeManager().getAllMatches(ModRecipeTypes.WOODCUTTING, input, this.world).stream()
                     .filter(recipe -> !recipe.value().getResult(this.world.getRegistryManager()).toString().contains("0 air"))
                     .toList());
         }
@@ -211,7 +212,7 @@ extends ScreenHandler {
                     return ItemStack.EMPTY;
                 }
                 slot2.onQuickTransfer(itemStack2, itemStack);
-            } else if (slot == 0 ? !this.insertItem(itemStack2, 2, 38, false) : (this.world.getRecipeManager().getFirstMatch(NemosWoodcutter.WOODCUTTING, new SimpleInventory(itemStack2), this.world).isPresent() ? !this.insertItem(itemStack2, 0, 1, false) : (slot >= 2 && slot < 29 ? !this.insertItem(itemStack2, 29, 38, false) : slot >= 29 && slot < 38 && !this.insertItem(itemStack2, 2, 29, false)))) {
+            } else if (slot == 0 ? !this.insertItem(itemStack2, 2, 38, false) : (this.world.getRecipeManager().getFirstMatch(ModRecipeTypes.WOODCUTTING, new SimpleInventory(itemStack2), this.world).isPresent() ? !this.insertItem(itemStack2, 0, 1, false) : (slot >= 2 && slot < 29 ? !this.insertItem(itemStack2, 29, 38, false) : slot >= 29 && slot < 38 && !this.insertItem(itemStack2, 2, 29, false)))) {
                 return ItemStack.EMPTY;
             }
             if (itemStack2.isEmpty()) {
