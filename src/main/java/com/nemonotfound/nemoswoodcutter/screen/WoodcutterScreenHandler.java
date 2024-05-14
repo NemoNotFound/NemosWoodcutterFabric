@@ -27,6 +27,7 @@ import net.minecraft.world.World;
 import java.util.ArrayList;
 import java.util.List;
 
+//TODO: Needs refactoring
 public class WoodcutterScreenHandler
 extends ScreenHandler {
 
@@ -48,6 +49,7 @@ extends ScreenHandler {
             WoodcutterScreenHandler.this.contentsChangedListener.run();
         }
     };
+
     final CraftingResultInventory output = new CraftingResultInventory();
 
     public WoodcutterScreenHandler(int syncId, PlayerInventory playerInventory) {
@@ -60,7 +62,7 @@ extends ScreenHandler {
         this.context = context;
         this.world = playerInventory.player.getWorld();
         this.inputSlot = this.addSlot(new Slot(this.input, 0, 20, 33));
-        this.outputSlot = this.addSlot(new Slot(this.output, 1, 143, 33){
+        this.outputSlot = this.addSlot(new Slot(this.output, 1, 143, 33) {
 
             @Override
             public boolean canInsert(ItemStack stack) {
@@ -69,14 +71,12 @@ extends ScreenHandler {
 
             @Override
             public void onTakeItem(PlayerEntity player, ItemStack stack) {
+                WoodcuttingRecipe recipe = availableRecipes.get(selectedRecipe.get()).value();
                 stack.onCraftByPlayer(player.getWorld(), player, stack.getCount());
                 WoodcutterScreenHandler.this.output.unlockLastRecipe(player, this.getInputStacks());
-                ItemStack itemStack;
-                if (stack.toString().contains("_door") || stack.toString().contains("boat") || stack.toString().contains("raft")) {
-                    itemStack = WoodcutterScreenHandler.this.inputSlot.takeStack(2);
-                } else {
-                    itemStack = WoodcutterScreenHandler.this.inputSlot.takeStack(1);
-                }
+                Pair<Ingredient, Integer> ingredientPair = recipe.getIngredientPair();
+                int requiredCount = ingredientPair.getSecond();
+                ItemStack itemStack = WoodcutterScreenHandler.this.inputSlot.takeStack(requiredCount);
 
                 if (!itemStack.isEmpty()) {
                     WoodcutterScreenHandler.this.populateResult();
@@ -84,7 +84,8 @@ extends ScreenHandler {
                 context.run((world, pos) -> {
                     long l = world.getTime();
                     if (WoodcutterScreenHandler.this.lastTakeTime != l) {
-                        world.playSound(null, pos, SoundEvents.UI_STONECUTTER_TAKE_RESULT, SoundCategory.BLOCKS, 1.0f, 1.0f);
+                        world.playSound(null, pos, SoundEvents.UI_STONECUTTER_TAKE_RESULT,
+                                SoundCategory.BLOCKS, 1.0f, 1.0f);
                         WoodcutterScreenHandler.this.lastTakeTime = l;
                     }
                 });
@@ -95,14 +96,17 @@ extends ScreenHandler {
                 return List.of(WoodcutterScreenHandler.this.inputSlot.getStack());
             }
         });
+
         for (i = 0; i < 3; ++i) {
             for (int j = 0; j < 9; ++j) {
                 this.addSlot(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
             }
         }
+
         for (i = 0; i < 9; ++i) {
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
         }
+
         this.addProperty(this.selectedRecipe);
     }
 
@@ -133,6 +137,7 @@ extends ScreenHandler {
             this.selectedRecipe.set(id);
             this.populateResult();
         }
+
         return true;
     }
 
@@ -143,6 +148,7 @@ extends ScreenHandler {
     @Override
     public void onContentChanged(Inventory inventory) {
         ItemStack itemStack = this.inputSlot.getStack();
+
         if (!itemStack.isOf(this.inputStack.getItem())) {
             this.inputStack = itemStack.copy();
             this.updateInput(inventory, itemStack);
@@ -153,8 +159,10 @@ extends ScreenHandler {
         this.availableRecipes.clear();
         this.selectedRecipe.set(-1);
         this.outputSlot.setStackNoCallbacks(ItemStack.EMPTY);
+
         if (!stack.isEmpty()) {
-            this.availableRecipes = new ArrayList<>(this.world.getRecipeManager().getAllMatches(ModRecipeTypes.WOODCUTTING, input, this.world).stream()
+            this.availableRecipes = new ArrayList<>(this.world.getRecipeManager()
+                    .getAllMatches(ModRecipeTypes.WOODCUTTING, input, this.world).stream()
                     .filter(recipe -> !recipe.value().getResult(this.world.getRegistryManager()).toString().contains("0 air"))
                     .toList());
         }
@@ -212,7 +220,12 @@ extends ScreenHandler {
                     return ItemStack.EMPTY;
                 }
                 slot2.onQuickTransfer(itemStack2, itemStack);
-            } else if (slot == 0 ? !this.insertItem(itemStack2, 2, 38, false) : (this.world.getRecipeManager().getFirstMatch(ModRecipeTypes.WOODCUTTING, new SimpleInventory(itemStack2), this.world).isPresent() ? !this.insertItem(itemStack2, 0, 1, false) : (slot >= 2 && slot < 29 ? !this.insertItem(itemStack2, 29, 38, false) : slot >= 29 && slot < 38 && !this.insertItem(itemStack2, 2, 29, false)))) {
+            } else if (slot == 0 ? !this.insertItem(itemStack2, 2, 38, false) :
+                    (this.world.getRecipeManager().getFirstMatch(ModRecipeTypes.WOODCUTTING,
+                            new SimpleInventory(itemStack2), this.world).isPresent() ?
+                            !this.insertItem(itemStack2, 0, 1, false) : (slot >= 2 && slot < 29 ?
+                                    !this.insertItem(itemStack2, 29, 38, false) :
+                            slot >= 29 && slot < 38 && !this.insertItem(itemStack2, 2, 29, false)))) {
                 return ItemStack.EMPTY;
             }
             if (itemStack2.isEmpty()) {
