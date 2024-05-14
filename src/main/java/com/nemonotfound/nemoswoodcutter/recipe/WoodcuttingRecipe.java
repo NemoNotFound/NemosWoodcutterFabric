@@ -92,8 +92,8 @@ public class WoodcuttingRecipe implements Recipe<Inventory> {
                 ingredientCount = count > 0 ? count : 1;
             }
 
-            if (JsonHelper.hasElement(resultJson, countString)) {
-                int count = JsonHelper.getInt(resultJson, countString);
+            if (JsonHelper.hasElement(resultJson, "Count")) {
+                int count = JsonHelper.getInt(resultJson, "Count");
                 resultCount = count > 0 ? count : 1;
             }
 
