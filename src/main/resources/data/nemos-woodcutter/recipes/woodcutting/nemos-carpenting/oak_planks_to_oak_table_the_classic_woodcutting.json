@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:woodcutting",
-  "count": 1,
-  "ingredient": {
-    "item": "minecraft:oak_planks",
-    "itemCount": 2
-  },
-  "result": "nemos-carpenting:oak_table_the_classic"
-}

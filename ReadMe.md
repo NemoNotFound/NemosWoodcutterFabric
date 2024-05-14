@@ -2,8 +2,7 @@
 <br><br>
 
 <p align="center">
-  With the Woodcutter you can do everything that a Stonecutter does, just for wood! <br>
-If you want to have the Woodcutter and some furniture then check out Nemo's Furniture! <br><br>
+  With the Woodcutter you can do everything that a Stonecutter does, just for wood! <br><br>
   I love to create mods for Minecraft and wish to live off it one day, so I hope you like what I do.
   Either way feel free to give me your feedback and suggestions, either in the comments or on my <a href="https://discord.com/invite/yxs9dga">Discord</a> :) 
   <br><br>

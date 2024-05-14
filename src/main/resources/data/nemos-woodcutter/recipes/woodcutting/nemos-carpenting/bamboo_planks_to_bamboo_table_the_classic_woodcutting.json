@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:woodcutting",
-  "count": 1,
-  "ingredient": {
-    "item": "minecraft:bamboo_planks"
-  },
-  "result": "nemos-carpenting:bamboo_table_the_classic"
-}
