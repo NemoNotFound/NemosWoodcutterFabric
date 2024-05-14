@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:warped_stems_to_warped_fence_gate_woodcutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_warped_fence_gate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:warped_fence_gate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_warped_fence_gate"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:warped_stems_to_warped_fence_gate_woodcutting"
+    ]
+  }
+}
