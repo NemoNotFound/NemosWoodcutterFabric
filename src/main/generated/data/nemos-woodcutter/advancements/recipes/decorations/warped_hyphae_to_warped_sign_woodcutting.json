@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:warped_hyphae_to_warped_sign_woodcutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_warped_sign": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:warped_sign"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_warped_sign"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:warped_hyphae_to_warped_sign_woodcutting"
+    ]
+  }
+}

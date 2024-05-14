@@ -1,0 +1,10 @@
+{
+  "type": "nemos-woodcutter:woodcutting",
+  "ingredient": {
+    "item": "minecraft:crimson_hyphae"
+  },
+  "result": {
+    "Count": 4,
+    "id": "minecraft:crimson_planks"
+  }
+}

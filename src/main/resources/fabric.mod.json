@@ -14,14 +14,14 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.nemonotfound.NemosWoodcutter"
+			"com.nemonotfound.nemoswoodcutter.NemosWoodcutter"
 		],
 		"client": [
-			"com.nemonotfound.NemosWoodcutterClient"
+			"com.nemonotfound.nemoswoodcutter.NemosWoodcutterClient"
 		]
 	},
 	"depends": {
-		"fabricloader": ">=0.15.7",
+		"fabricloader": ">=0.15.10",
 		"minecraft": "~1.19.2",
 		"java": ">=17",
 		"fabric-api": "*"

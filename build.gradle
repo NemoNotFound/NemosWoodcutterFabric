@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.5-SNAPSHOT'
+	id 'fabric-loom' version '1.6-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -8,6 +8,10 @@ group = project.maven_group
 
 base {
 	archivesName = project.archives_base_name
+}
+
+fabricApi {
+	configureDataGeneration()
 }
 
 repositories {
@@ -20,30 +24,8 @@ repositories {
 
 loom {
 	accessWidenerPath = file("src/main/resources/nemos-woodcutter.accesswidener")
-    runs {
-		// This adds a new gradle task that runs the datagen API: "gradlew runDatagen"
-		datagen {
-			inherit server
-			name "Data Generation"
-			vmArg "-Dfabric-api.datagen"
-			vmArg "-Dfabric-api.datagen.output-dir=${file("src/main/generated")}"
-			vmArg "-Dfabric-api.datagen.modid=woodcutter"
- 
-			runDir "build/datagen"
-		}
-	}
 }
 
-// Add the generated resources to the main source set
-sourceSets {
-	main {
-		resources {
-			srcDirs += [
-					'src/main/generated'
-			]
-		}
-	}
-}
 dependencies {
 	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"

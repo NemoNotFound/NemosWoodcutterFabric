@@ -1,0 +1,11 @@
+{
+  "type": "nemos-woodcutter:woodcutting",
+  "ingredient": {
+    "count": 2,
+    "item": "minecraft:mangrove_planks"
+  },
+  "result": {
+    "Count": 1,
+    "id": "minecraft:mangrove_boat"
+  }
+}

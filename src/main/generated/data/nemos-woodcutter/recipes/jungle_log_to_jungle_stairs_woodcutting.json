@@ -1,0 +1,10 @@
+{
+  "type": "nemos-woodcutter:woodcutting",
+  "ingredient": {
+    "item": "minecraft:jungle_log"
+  },
+  "result": {
+    "Count": 4,
+    "id": "minecraft:jungle_stairs"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_acacia_button": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:acacia_button"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:stripped_acacia_log_to_acacia_button_woodcutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_acacia_button"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:stripped_acacia_log_to_acacia_button_woodcutting"
+    ]
+  }
+}
