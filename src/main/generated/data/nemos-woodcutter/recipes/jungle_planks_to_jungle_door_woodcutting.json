@@ -1,0 +1,11 @@
+{
+  "type": "nemos-woodcutter:woodcutting",
+  "ingredient": {
+    "count": 2,
+    "item": "minecraft:jungle_planks"
+  },
+  "result": {
+    "Count": 2,
+    "id": "minecraft:jungle_door"
+  }
+}
