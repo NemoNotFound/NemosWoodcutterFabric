@@ -1,0 +1,19 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "biomesoplenty"
+      ]
+    }
+  ],
+  "type": "nemos-woodcutter:woodcutting",
+  "ingredient": {
+    "count": 2,
+    "item": "biomesoplenty:maple_planks"
+  },
+  "result": {
+    "Count": 1,
+    "id": "biomesoplenty:maple_boat"
+  }
+}
