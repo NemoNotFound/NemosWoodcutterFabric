@@ -1,7 +1,7 @@
-# Changelog v1.10.1
+# Changelog v1.11
 
-## Changes
-- Optimized the log recipes (fewer files needed)
+## Additions
+- Added recipe for [Biomes O' Plenty](https://www.curseforge.com/minecraft/mc-mods/biomes-o-plenty)
 
 ### Downloads
 [CurseForge](https://curseforge.com/minecraft/mc-mods/nemos-woodcutter) <br>

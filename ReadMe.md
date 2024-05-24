@@ -20,13 +20,16 @@
 <h2 align="center">Compatibilities</h2>
 <ul>
   <li>
-    <a href="https://www.curseforge.com/minecraft/mc-mods/more-slabs-stairs-and-walls">More Slabs, Stairs, and Walls</a> version 3.1.0 by Nibaru (Minecraft version 1.19.2 - 1.20.4)
+    <a href="https://www.curseforge.com/minecraft/mc-mods/more-slabs-stairs-and-walls">More Slabs, Stairs, and Walls</a> by Nibaru - Version 1.19.2 - 1.20.4
   </li>
   <li>
-    <a href="https://www.curseforge.com/minecraft/mc-mods/oh-the-biomes-youll-go-fabric">Oh The Biomes You'll Go Refabricated</a> version 4.0.1.0 by AOCAWOL (Minecraft version 1.19.2 - 1.19.4)
+    <a href="https://www.curseforge.com/minecraft/mc-mods/oh-the-biomes-youll-go-fabric">Oh The Biomes You'll Go Refabricated</a> by AOCAWOL - Version 1.19.2 - 1.19.4
   </li>
   <li>
-    <a href="https://www.curseforge.com/minecraft/mc-mods/regions-unexplored">Regions Unexplored</a> version 0.5.4 by UHQ_GAMES (Minecraft version 1.19.2 - 1.20.4)
+    <a href="https://www.curseforge.com/minecraft/mc-mods/regions-unexplored">Regions Unexplored</a> by UHQ_GAMES - Version 1.19.2 - 1.20.4
+  </li>
+  <li>
+    <a href="https://www.curseforge.com/minecraft/mc-mods/biomes-o-plenty">Biomes O' Plenty</a> by Forstride - Version 1.20.4 - 1.20.6
   </li>
 </ul>
 
