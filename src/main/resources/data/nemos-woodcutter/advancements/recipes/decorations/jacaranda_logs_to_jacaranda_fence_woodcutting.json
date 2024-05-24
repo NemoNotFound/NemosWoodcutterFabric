@@ -1,0 +1,40 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "biomesoplenty"
+      ]
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_jacaranda_fence": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomesoplenty:jacaranda_fence"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:jacaranda_logs_to_jacaranda_fence_woodcutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_jacaranda_fence"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:jacaranda_logs_to_jacaranda_fence_woodcutting"
+    ]
+  }
+}
