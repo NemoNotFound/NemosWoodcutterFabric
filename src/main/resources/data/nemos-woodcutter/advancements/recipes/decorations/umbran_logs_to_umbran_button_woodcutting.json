@@ -1,0 +1,42 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "biomesoplenty"
+      ]
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:umbran_logs_to_umbran_button_woodcutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_umbran_button": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "biomesoplenty:umbran_button"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_umbran_button"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:umbran_logs_to_umbran_button_woodcutting"
+    ]
+  }
+}
