@@ -1,0 +1,42 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "regions_unexplored"
+      ]
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_mauve_pressure_plate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "regions_unexplored:mauve_pressure_plate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:regions_unexplored_mauve_logs_to_mauve_pressure_plate_woodcutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_mauve_pressure_plate"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:regions_unexplored_mauve_logs_to_mauve_pressure_plate_woodcutting"
+    ]
+  }
+}

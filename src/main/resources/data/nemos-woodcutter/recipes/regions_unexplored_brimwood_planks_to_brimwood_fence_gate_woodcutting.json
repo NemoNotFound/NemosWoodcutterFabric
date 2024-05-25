@@ -1,0 +1,18 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "regions_unexplored"
+      ]
+    }
+  ],
+  "type": "nemos-woodcutter:woodcutting",
+  "ingredient": {
+    "item": "regions_unexplored:brimwood_planks"
+  },
+  "result": {
+    "Count": 1,
+    "id": "regions_unexplored:brimwood_fence_gate"
+  }
+}

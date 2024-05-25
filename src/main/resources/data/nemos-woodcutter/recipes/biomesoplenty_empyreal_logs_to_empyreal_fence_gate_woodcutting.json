@@ -1,0 +1,18 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "biomesoplenty"
+      ]
+    }
+  ],
+  "type": "nemos-woodcutter:woodcutting",
+  "ingredient": {
+    "tag": "biomesoplenty:empyreal_logs"
+  },
+  "result": {
+    "Count": 4,
+    "id": "biomesoplenty:empyreal_fence_gate"
+  }
+}
