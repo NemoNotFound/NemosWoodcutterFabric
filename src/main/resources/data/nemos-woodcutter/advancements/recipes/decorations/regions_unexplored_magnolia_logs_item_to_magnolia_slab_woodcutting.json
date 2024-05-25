@@ -1,0 +1,42 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "regions_unexplored"
+      ]
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_magnolia_slab": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "regions_unexplored:magnolia_slab"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:regions_unexplored_magnolia_logs_item_to_magnolia_slab_woodcutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_magnolia_slab"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:regions_unexplored_magnolia_logs_item_to_magnolia_slab_woodcutting"
+    ]
+  }
+}

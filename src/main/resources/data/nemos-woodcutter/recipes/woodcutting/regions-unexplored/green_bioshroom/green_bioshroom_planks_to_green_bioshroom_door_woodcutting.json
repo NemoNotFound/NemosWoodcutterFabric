@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:woodcutting",
-  "count": 2,
-  "ingredient": {
-    "item": "regions_unexplored:green_bioshroom_planks"
-  },
-  "result": "regions_unexplored:green_bioshroom_door"
-}

@@ -1,0 +1,19 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "regions_unexplored"
+      ]
+    }
+  ],
+  "type": "nemos-woodcutter:woodcutting",
+  "ingredient": {
+    "count": 2,
+    "item": "regions_unexplored:kapok_planks"
+  },
+  "result": {
+    "Count": 1,
+    "id": "regions_unexplored:kapok_boat"
+  }
+}

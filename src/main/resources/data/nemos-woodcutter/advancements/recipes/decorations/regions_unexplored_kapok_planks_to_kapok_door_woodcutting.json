@@ -1,0 +1,42 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "regions_unexplored"
+      ]
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_kapok_door": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "regions_unexplored:kapok_door"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:regions_unexplored_kapok_planks_to_kapok_door_woodcutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_kapok_door"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:regions_unexplored_kapok_planks_to_kapok_door_woodcutting"
+    ]
+  }
+}
