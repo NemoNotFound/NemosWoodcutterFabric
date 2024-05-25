@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:woodcutting",
-  "count": 1,
-  "ingredient": {
-    "item": "byg:pine_planks"
-  },
-  "result": "byg:pine_boat"
-}

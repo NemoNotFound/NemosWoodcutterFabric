@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:woodcutting",
-  "count": 4,
-  "ingredient": {
-    "item": "byg:cypress_planks"
-  },
-  "result": "byg:cypress_pressure_plate"
-}
