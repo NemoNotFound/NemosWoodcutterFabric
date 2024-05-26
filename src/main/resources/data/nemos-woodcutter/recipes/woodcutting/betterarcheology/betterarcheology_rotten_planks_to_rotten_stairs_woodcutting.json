@@ -1,0 +1,18 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "betterarcheology"
+      ]
+    }
+  ],
+  "type": "nemos-woodcutter:woodcutting",
+  "ingredient": {
+    "item": "betterarcheology:rotten_planks"
+  },
+  "result": {
+    "Count": 1,
+    "id": "betterarcheology:rotten_stairs"
+  }
+}
