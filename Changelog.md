@@ -1,7 +1,10 @@
-# Changelog v1.11
+# Changelog v1.11.1
 
 ## Additions
-- Added recipes for [Biomes O' Plenty](https://www.curseforge.com/minecraft/mc-mods/biomes-o-plenty)
+- Added recipes for [Better Archeology](https://www.curseforge.com/minecraft/mc-mods/better-archeology)
+
+## Changes
+- Recipes for other mods now only load, if the mod is loaded
 
 ### Downloads
 [CurseForge](https://curseforge.com/minecraft/mc-mods/nemos-woodcutter) <br>
