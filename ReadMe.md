@@ -30,9 +30,6 @@
     <a href="https://www.curseforge.com/minecraft/mc-mods/regions-unexplored">Regions Unexplored</a> by UHQ_GAMES - Version 1.19.2 - 1.20.4
   </li>
   <li>
-    <a href="https://www.curseforge.com/minecraft/mc-mods/regions-unexplored">Regions Unexplored</a> version 0.5.4 by UHQ_GAMES (Minecraft version 1.19.2 - 1.20.4)
-  </li>
-  <li>
     <a href="https://www.curseforge.com/minecraft/mc-mods/better-archeology">Better Archeology</a> by Pandarix - Version 1.20.1 - 1.20.4
   </li>
 </ul>
