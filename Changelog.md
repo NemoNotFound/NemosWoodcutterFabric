@@ -3,7 +3,7 @@
 ## Additions
 - Added recipes for [Better Archeology](https://www.curseforge.com/minecraft/mc-mods/better-archeology)
 
-## Changes
+## Fixes
 - Recipes for other mods now only load, if the mod is loaded
 
 ### Downloads
