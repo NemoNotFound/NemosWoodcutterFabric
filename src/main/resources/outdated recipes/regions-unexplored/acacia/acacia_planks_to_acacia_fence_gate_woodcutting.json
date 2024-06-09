@@ -1,8 +1,0 @@
-{
-  "type": "nemos-woodcutter:woodcutting",
-  "count": 1,
-  "ingredient": {
-    "item": "regions_unexplored:acacia_planks"
-  },
-  "result": "regions_unexplored:acacia_fence_gate"
-}

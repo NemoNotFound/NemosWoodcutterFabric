@@ -1,8 +1,0 @@
-{
-  "type": "nemos-woodcutter:woodcutting",
-  "count": 2,
-  "ingredient": {
-    "item": "minecraft:cherry_wood"
-  },
-  "result": "more_slabs_stairs_and_walls:cherry_wood_slab"
-}

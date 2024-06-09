@@ -1,8 +1,0 @@
-{
-  "type": "nemos-woodcutter:woodcutting",
-  "count": 3,
-  "ingredient": {
-    "item": "byg:cypress_planks"
-  },
-  "result": "byg:cypress_sign"
-}

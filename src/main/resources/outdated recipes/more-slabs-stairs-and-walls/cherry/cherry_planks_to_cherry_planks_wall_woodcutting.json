@@ -1,8 +1,0 @@
-{
-  "type": "nemos-woodcutter:woodcutting",
-  "count": 1,
-  "ingredient": {
-    "item": "minecraft:cherry_planks"
-  },
-  "result": "more_slabs_stairs_and_walls:cherry_planks_wall"
-}

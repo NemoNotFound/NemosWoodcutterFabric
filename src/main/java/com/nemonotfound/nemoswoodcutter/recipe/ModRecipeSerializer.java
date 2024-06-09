@@ -12,7 +12,7 @@ public class ModRecipeSerializer {
     public static void registerRecipeSerializer() {
         log.info("Register recipe serializer");
 
-        Registry.register(Registries.RECIPE_SERIALIZER, new Identifier(MOD_ID, WoodcuttingRecipe.Serializer.ID),
+        Registry.register(Registries.RECIPE_SERIALIZER, Identifier.of(MOD_ID, WoodcuttingRecipe.Serializer.ID),
                 WoodcuttingRecipe.Serializer.INSTANCE);
     }
 }

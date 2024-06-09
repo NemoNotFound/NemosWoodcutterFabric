@@ -15,6 +15,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeEntry;
+import net.minecraft.recipe.input.SingleStackRecipeInput;
 import net.minecraft.screen.Property;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerContext;
@@ -162,13 +163,17 @@ extends ScreenHandler {
 
         if (!stack.isEmpty()) {
             this.availableRecipes = new ArrayList<>(this.world.getRecipeManager()
-                    .getAllMatches(ModRecipeTypes.WOODCUTTING, input, this.world).stream()
+                    .getAllMatches(ModRecipeTypes.WOODCUTTING, createRecipeInput(input), this.world).stream()
                     .filter(recipe -> !recipe.value().getResult(this.world.getRegistryManager()).toString().contains("0 air"))
                     .toList());
         }
     }
 
-    void populateResult() {
+    private static SingleStackRecipeInput createRecipeInput(Inventory inventory) {
+        return new SingleStackRecipeInput(inventory.getStack(0));
+    }
+
+    private void populateResult() {
         if (!this.availableRecipes.isEmpty() && this.isInBounds(this.selectedRecipe.get())) {
             RecipeEntry<WoodcuttingRecipe> recipeEntry = this.availableRecipes.get(this.selectedRecipe.get());
             WoodcuttingRecipe recipe = recipeEntry.value();
@@ -176,7 +181,7 @@ extends ScreenHandler {
             int requiredInputCount = ingredientPair.getSecond();
             var inputCount = inputSlot.getStack().getCount();
 
-            ItemStack itemStack = recipeEntry.value().craft(this.input, this.world.getRegistryManager());
+            ItemStack itemStack = recipeEntry.value().craft(createRecipeInput(this.input), this.world.getRegistryManager());
 
             if (inputCount < requiredInputCount) {
                 this.outputSlot.setStackNoCallbacks(ItemStack.EMPTY);
@@ -222,7 +227,7 @@ extends ScreenHandler {
                 slot2.onQuickTransfer(itemStack2, itemStack);
             } else if (slot == 0 ? !this.insertItem(itemStack2, 2, 38, false) :
                     (this.world.getRecipeManager().getFirstMatch(ModRecipeTypes.WOODCUTTING,
-                            new SimpleInventory(itemStack2), this.world).isPresent() ?
+                            new SingleStackRecipeInput(itemStack2), this.world).isPresent() ?
                             !this.insertItem(itemStack2, 0, 1, false) : (slot >= 2 && slot < 29 ?
                                     !this.insertItem(itemStack2, 29, 38, false) :
                             slot >= 29 && slot < 38 && !this.insertItem(itemStack2, 2, 29, false)))) {

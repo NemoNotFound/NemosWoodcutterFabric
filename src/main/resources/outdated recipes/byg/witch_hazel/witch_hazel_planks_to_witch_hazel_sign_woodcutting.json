@@ -1,8 +1,0 @@
-{
-  "type": "nemos-woodcutter:woodcutting",
-  "count": 3,
-  "ingredient": {
-    "item": "byg:witch_hazel_planks"
-  },
-  "result": "byg:witch_hazel_sign"
-}

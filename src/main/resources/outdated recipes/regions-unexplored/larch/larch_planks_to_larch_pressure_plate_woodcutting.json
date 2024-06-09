@@ -1,8 +1,0 @@
-{
-  "type": "nemos-woodcutter:woodcutting",
-  "count": 4,
-  "ingredient": {
-    "item": "regions_unexplored:larch_planks"
-  },
-  "result": "regions_unexplored:larch_pressure_plate"
-}

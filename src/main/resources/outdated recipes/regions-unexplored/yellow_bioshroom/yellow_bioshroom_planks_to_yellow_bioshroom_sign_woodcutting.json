@@ -1,8 +1,0 @@
-{
-  "type": "nemos-woodcutter:woodcutting",
-  "count": 3,
-  "ingredient": {
-    "item": "regions_unexplored:yellow_bioshroom_planks"
-  },
-  "result": "regions_unexplored:yellow_bioshroom_sign"
-}

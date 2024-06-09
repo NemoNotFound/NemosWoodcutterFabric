@@ -22,13 +22,13 @@ import static com.nemonotfound.nemoswoodcutter.NemosWoodcutter.MOD_ID;
 
 @Environment(value = EnvType.CLIENT) //TODO: Whole class needs refactoring
 public class WoodcutterScreen extends HandledScreen<WoodcutterScreenHandler> {
-    private static final Identifier TEXTURE = new Identifier(MOD_ID, "textures/gui/container/woodcutter.png");
-    private static final Identifier SCROLLER_TEXTURE = new Identifier(MOD_ID, "container/woodcutter/scroller");
-    private static final Identifier SCROLLER_DISABLED_TEXTURE = new Identifier(MOD_ID, "container/woodcutter/scroller_disabled");
-    private static final Identifier RECIPE_SELECTED_TEXTURE = new Identifier(MOD_ID, "container/woodcutter/recipe_selected");
-    private static final Identifier RECIPE_HIGHLIGHTED_TEXTURE = new Identifier(MOD_ID, "container/woodcutter/recipe_highlighted");
-    private static final Identifier RECIPE_DISABLED_TEXTURE = new Identifier(MOD_ID, "container/woodcutter/recipe_disabled");
-    private static final Identifier RECIPE_TEXTURE = new Identifier(MOD_ID, "container/woodcutter/recipe");
+    private static final Identifier TEXTURE = Identifier.of(MOD_ID, "textures/gui/container/woodcutter.png");
+    private static final Identifier SCROLLER_TEXTURE = Identifier.of(MOD_ID, "container/woodcutter/scroller");
+    private static final Identifier SCROLLER_DISABLED_TEXTURE = Identifier.of(MOD_ID, "container/woodcutter/scroller_disabled");
+    private static final Identifier RECIPE_SELECTED_TEXTURE = Identifier.of(MOD_ID, "container/woodcutter/recipe_selected");
+    private static final Identifier RECIPE_HIGHLIGHTED_TEXTURE = Identifier.of(MOD_ID, "container/woodcutter/recipe_highlighted");
+    private static final Identifier RECIPE_DISABLED_TEXTURE = Identifier.of(MOD_ID, "container/woodcutter/recipe_disabled");
+    private static final Identifier RECIPE_TEXTURE = Identifier.of(MOD_ID, "container/woodcutter/recipe");
     private float scrollAmount;
     private boolean mouseClicked;
     private int scrollOffset;

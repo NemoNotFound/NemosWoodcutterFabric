@@ -1,8 +1,0 @@
-{
-  "type": "nemos-woodcutter:woodcutting",
-  "count": 1,
-  "ingredient": {
-    "item": "byg:embur_planks"
-  },
-  "result": "byg:embur_stairs"
-}

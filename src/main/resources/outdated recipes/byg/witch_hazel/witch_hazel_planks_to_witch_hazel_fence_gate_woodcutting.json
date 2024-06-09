@@ -1,8 +1,0 @@
-{
-  "type": "nemos-woodcutter:woodcutting",
-  "count": 1,
-  "ingredient": {
-    "item": "byg:witch_hazel_planks"
-  },
-  "result": "byg:witch_hazel_fence_gate"
-}

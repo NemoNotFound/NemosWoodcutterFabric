@@ -11,7 +11,7 @@ import static com.nemonotfound.nemoswoodcutter.NemosWoodcutter.log;
 public class ModRecipeTypes {
 
     public static RecipeType<WoodcuttingRecipe> WOODCUTTING = Registry.register(Registries.RECIPE_TYPE,
-            new Identifier(MOD_ID, WoodcuttingRecipe.Type.ID), WoodcuttingRecipe.Type.INSTANCE);
+            Identifier.of(MOD_ID, WoodcuttingRecipe.Type.ID), WoodcuttingRecipe.Type.INSTANCE);
 
     public static void registerRecipeTypes() {
         log.info("Register recipe types");

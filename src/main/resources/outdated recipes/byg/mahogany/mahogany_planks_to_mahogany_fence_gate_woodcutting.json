@@ -1,8 +1,0 @@
-{
-  "type": "nemos-woodcutter:woodcutting",
-  "count": 1,
-  "ingredient": {
-    "item": "byg:mahogany_planks"
-  },
-  "result": "byg:mahogany_fence_gate"
-}

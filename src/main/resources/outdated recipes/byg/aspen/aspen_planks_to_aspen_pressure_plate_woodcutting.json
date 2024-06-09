@@ -1,8 +1,0 @@
-{
-  "type": "nemos-woodcutter:woodcutting",
-  "count": 4,
-  "ingredient": {
-    "item": "byg:aspen_planks"
-  },
-  "result": "byg:aspen_pressure_plate"
-}

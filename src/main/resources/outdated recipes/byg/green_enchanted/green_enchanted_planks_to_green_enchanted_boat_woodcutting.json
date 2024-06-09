@@ -1,8 +1,0 @@
-{
-  "type": "nemos-woodcutter:woodcutting",
-  "count": 1,
-  "ingredient": {
-    "item": "byg:green_enchanted_planks"
-  },
-  "result": "byg:green_enchanted_boat"
-}

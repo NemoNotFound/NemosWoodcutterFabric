@@ -1,8 +1,0 @@
-{
-  "type": "nemos-woodcutter:woodcutting",
-  "count": 4,
-  "ingredient": {
-    "item": "regions_unexplored:joshua_planks"
-  },
-  "result": "regions_unexplored:joshua_pressure_plate"
-}

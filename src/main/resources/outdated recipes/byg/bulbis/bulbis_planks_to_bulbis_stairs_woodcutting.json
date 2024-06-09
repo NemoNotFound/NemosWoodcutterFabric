@@ -1,8 +1,0 @@
-{
-  "type": "nemos-woodcutter:woodcutting",
-  "count": 1,
-  "ingredient": {
-    "item": "byg:bulbis_planks"
-  },
-  "result": "byg:bulbis_stairs"
-}

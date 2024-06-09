@@ -5,7 +5,7 @@ import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.MapColor;
-import net.minecraft.block.enums.Instrument;
+import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
@@ -23,7 +23,7 @@ public class ModBlocks {
             new WoodcutterBlock(AbstractBlock.Settings.create()
                     .sounds(BlockSoundGroup.WOOD)
                     .mapColor(MapColor.OAK_TAN)
-                    .instrument(Instrument.BASS)
+                    .instrument(NoteBlockInstrument.BASS)
                     .strength(2.0f)));
 
     public static void registerBlocks() {
@@ -34,8 +34,8 @@ public class ModBlocks {
     }
 
     private static Block registerBlock(String path, Block block) {
-        Block registeredBlock = Registry.register(Registries.BLOCK, new Identifier(MOD_ID, path), block);
-        Registry.register(Registries.ITEM, new Identifier(MOD_ID, path), new BlockItem(block, new Item.Settings()));
+        Block registeredBlock = Registry.register(Registries.BLOCK, Identifier.of(MOD_ID, path), block);
+        Registry.register(Registries.ITEM, Identifier.of(MOD_ID, path), new BlockItem(block, new Item.Settings()));
 
         return registeredBlock;
     }

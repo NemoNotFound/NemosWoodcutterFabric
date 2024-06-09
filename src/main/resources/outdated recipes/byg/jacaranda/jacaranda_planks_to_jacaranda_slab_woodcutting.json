@@ -1,8 +1,0 @@
-{
-  "type": "nemos-woodcutter:woodcutting",
-  "count": 2,
-  "ingredient": {
-    "item": "byg:jacaranda_planks"
-  },
-  "result": "byg:jacaranda_slab"
-}
