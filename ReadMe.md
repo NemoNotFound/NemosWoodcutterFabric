@@ -8,7 +8,7 @@
 </p>
 
 <div align="center">
-  <a href="https://discord.com/invite/yxs9dga">
+  <a href="https://discord.com/invite/yxs9dga" target="_blank">
     <img src="https://github.com/NemoNotFound/NemoNotFound/blob/master/resources/svg/join_discord_button.svg?raw=true" alt="ko-fi donation" width="200">
   </a>
 </div>
@@ -22,7 +22,7 @@
 <br>
 
 <div align="center">
-  <a href="https://ko-fi.com/J3J5UXAPK">
+  <a href="https://ko-fi.com/J3J5UXAPK" target="_blank">
     <img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="ko-fi donation">
   </a>
 </div>
