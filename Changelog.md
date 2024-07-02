@@ -1,10 +1,8 @@
-# Changelog v1.11.1
+# Changelog v1.11.2
 
 ## Additions
-- Added recipes for [Better Archeology](https://www.curseforge.com/minecraft/mc-mods/better-archeology)
-
-## Fixes
-- Recipes for other mods now only load, if the mod is loaded
+- Added compatibility for [Danger Close](https://www.curseforge.com/minecraft/mc-mods/danger-close) which makes the Woodcutter hurt you. 
+I mean, who steps on a spinning saw blade anyway?
 
 ### Downloads
 [CurseForge](https://curseforge.com/minecraft/mc-mods/nemos-woodcutter) <br>
