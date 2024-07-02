@@ -4,9 +4,18 @@
 <p align="center">
   With the Woodcutter you can do everything that a Stonecutter does, just for wood! <br><br>
   I love to create mods for Minecraft and wish to live off it one day, so I hope you like what I do.
-  Either way feel free to give me your feedback and suggestions, either in the comments or on my <a href="https://discord.com/invite/yxs9dga">Discord</a> :) 
-  <br><br>
-  If you have suggestions for compatibilities, let me know on my <a href="https://discord.com/invite/yxs9dga">Discord</a> or <a href="https://github.com/NemoNotFound/NemosWoodcutter/discussions/new?category=ideas">here</a> <br>
+  Either way feel free to give me your feedback and suggestions, either in the comments or on my Discord :)
+</p>
+
+<div align="center">
+  <a href="https://discord.com/invite/yxs9dga">
+    <img src="https://github.com/NemoNotFound/NemoNotFound/blob/master/resources/svg/join_discord_button.svg?raw=true" alt="ko-fi donation" width="200">
+  </a>
+</div>
+
+<p align="center">
+  <br>
+  If you have suggestions for compatibilities, let me know on my Discord or <a href="https://github.com/NemoNotFound/NemosWoodcutter/discussions/new?category=ideas">here</a> <br>
   For more information check the <a href="https://www.nemonotfound.com/minecraft-mods/nemos-woodcutter">wiki</a>.
 </p>
 
@@ -31,6 +40,9 @@
   </li>
   <li>
     <a href="https://www.curseforge.com/minecraft/mc-mods/better-archeology">Better Archeology</a> by Pandarix - Version 1.20.1 - 1.20.4
+  </li>
+  <li>
+    <a href="https://www.curseforge.com/minecraft/mc-mods/danger-close">Danger Close</a> by Lupin - Version 1.19.2 - 1.21
   </li>
 </ul>
 
