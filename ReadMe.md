@@ -16,7 +16,7 @@
   I love to create mods for Minecraft and wish to live off it one day, so I hope you like what I do. <br>
   Either way feel free to give me your feedback and suggestions, either on my Discord or <a href="https://github.com/NemoNotFound/NemosWoodcutter/discussions/">here</a> :)
   <br>
-  For more information check the <a href="https://www.nemonotfound.com/minecraft-mods/nemos-woodcutter">wiki</a>.
+  For more information check the <a href="https://www.nemonotfound.com/minecraft-mods/nemos-woodcutter/wiki">wiki</a>.
 </p>
 
 <br>
