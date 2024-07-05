@@ -8,9 +8,11 @@
 		"NemoNotFound"
 	],
 	"contact": {
-		"homepage": "https://nemonotfound.com/"
+		"homepage": "https://nemonotfound.com/",
+		"sources": "https://github.com/NemoNotFound/NemosWoodcutter"
 	},
 	"license": "MIT",
+	"icon": "assets/nemos-woodcutter/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
