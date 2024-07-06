@@ -1,0 +1,10 @@
+{
+  "type": "nemos-woodcutter:woodcutting",
+  "ingredient": {
+    "item": "minecraft:cherry_log"
+  },
+  "result": {
+    "Count": 1,
+    "id": "minecraft:stripped_cherry_log"
+  }
+}

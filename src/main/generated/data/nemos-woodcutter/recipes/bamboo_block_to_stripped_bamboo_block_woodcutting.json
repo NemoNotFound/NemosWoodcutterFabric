@@ -1,0 +1,10 @@
+{
+  "type": "nemos-woodcutter:woodcutting",
+  "ingredient": {
+    "item": "minecraft:bamboo_block"
+  },
+  "result": {
+    "Count": 1,
+    "id": "minecraft:stripped_bamboo_block"
+  }
+}
