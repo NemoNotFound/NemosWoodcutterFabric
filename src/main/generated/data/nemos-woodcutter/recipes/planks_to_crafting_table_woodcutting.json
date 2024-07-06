@@ -1,0 +1,10 @@
+{
+  "type": "nemos-woodcutter:woodcutting",
+  "ingredient": {
+    "tag": "minecraft:planks"
+  },
+  "result": {
+    "Count": 1,
+    "id": "minecraft:crafting_table"
+  }
+}
