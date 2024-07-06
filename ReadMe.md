@@ -1,10 +1,8 @@
-![Nemo's Woodcutter](https://github.com/NemoNotFound/NemosWoodcutter/blob/master/src/main/resources/assets/nemos-woodcutter/title.png?raw=true)
+![Nemo's Woodcutter](https://github.com/NemoNotFound/NemoNotFound/blob/master/resources/png/nemos_woodcutter_title.png?raw=true)
 <br><br>
 
 <p align="center">
-  With the Woodcutter you can do everything that a Stonecutter does, just for wood! <br><br>
-  I love to create mods for Minecraft and wish to live off it one day, so I hope you like what I do.
-  Either way feel free to give me your feedback and suggestions, either in the comments or on my Discord :)
+  With the Woodcutter you can do everything that a Stonecutter does, just for wood!
 </p>
 
 <div align="center">
@@ -15,8 +13,10 @@
 
 <p align="center">
   <br>
-  If you have suggestions for compatibilities, let me know on my Discord or <a href="https://github.com/NemoNotFound/NemosWoodcutter/discussions/new?category=ideas">here</a> <br>
-  For more information check the <a href="https://www.nemonotfound.com/minecraft-mods/nemos-woodcutter">wiki</a>.
+  I love to create mods for Minecraft and wish to live off it one day, so I hope you like what I do. <br>
+  Either way feel free to give me your feedback and suggestions, either on my Discord or <a href="https://github.com/NemoNotFound/NemosWoodcutter/discussions/">here</a> :)
+  <br>
+  For more information check the <a href="https://www.nemonotfound.com/minecraft-mods/nemos-woodcutter/wiki">wiki</a>.
 </p>
 
 <br>
@@ -27,7 +27,7 @@
   </a>
 </div>
 
-<h2 align="center">Compatibilities</h2>
+<h1 align="center">Compatibilities</h1>
 <ul>
   <li>
     <a href="https://www.curseforge.com/minecraft/mc-mods/more-slabs-stairs-and-walls">More Slabs, Stairs, and Walls</a> by Nibaru - Version 1.19.2 - 1.20.4
@@ -42,7 +42,22 @@
     <a href="https://www.curseforge.com/minecraft/mc-mods/better-archeology">Better Archeology</a> by Pandarix - Version 1.20.1 - 1.20.4
   </li>
   <li>
+    <a href="https://www.curseforge.com/minecraft/mc-mods/biomes-o-plenty">Biomes O' Plenty</a> by Forstride - Version 1.19.2 - 1.21
+  </li>
+  <li>
     <a href="https://www.curseforge.com/minecraft/mc-mods/danger-close">Danger Close</a> by Lupin - Version 1.19.2 - 1.21
+  </li>
+  <li>
+    <a href="https://modrinth.com/mod/more-chest-variants-lieonlion">More Chests Variants (MCV)</a> by LieOnLion - Version 1.19.2 - 1.21
+  </li>
+  <li>
+    <a href="https://modrinth.com/mod/more-crafting-tables-lieonlion">More Crafting Tables (MCT)</a> by LieOnLion - Version 1.20.1 - 1.21
+  </li>
+  <li>
+    <a href="https://modrinth.com/mod/more-composter-variants">More Composter Variants</a> by pnku - Version 1.20.1 - 1.21
+  </li>
+  <li>
+    <a href="https://modrinth.com/mod/more-barrel-variants">More Barrel Variants</a> by pnku - Version 1.20.1 - 1.21
   </li>
 </ul>
 

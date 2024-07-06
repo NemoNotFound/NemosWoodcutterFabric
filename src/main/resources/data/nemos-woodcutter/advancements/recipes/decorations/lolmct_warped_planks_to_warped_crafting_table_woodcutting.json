@@ -1,0 +1,40 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "lolmct"
+      ]
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:lolmct_warped_planks_to_warped_crafting_table_woodcutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_warped_crafting_table": {
+      "conditions": {
+        "items": [
+          {
+            "items": "lolmct:warped_crafting_table"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_warped_crafting_table"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:lolmct_warped_planks_to_warped_crafting_table_woodcutting"
+    ]
+  }
+}
