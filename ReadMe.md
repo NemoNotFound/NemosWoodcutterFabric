@@ -42,6 +42,9 @@
     <a href="https://www.curseforge.com/minecraft/mc-mods/better-archeology">Better Archeology</a> by Pandarix - Version 1.20.1 - 1.20.4
   </li>
   <li>
+    <a href="https://www.curseforge.com/minecraft/mc-mods/biomes-o-plenty">Biomes O' Plenty</a> by Forstride - Version 1.19.2 - 1.21
+  </li>
+  <li>
     <a href="https://www.curseforge.com/minecraft/mc-mods/danger-close">Danger Close</a> by Lupin - Version 1.19.2 - 1.21
   </li>
 </ul>
