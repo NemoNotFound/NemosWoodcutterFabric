@@ -1,0 +1,42 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "lolmcmv"
+      ]
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_mangrove_composter": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "lolmcmv:mangrove_composter"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:lolmcmv_mangrove_planks_to_mangrove_composter_woodcutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_mangrove_composter"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:lolmcmv_mangrove_planks_to_mangrove_composter_woodcutting"
+    ]
+  }
+}
