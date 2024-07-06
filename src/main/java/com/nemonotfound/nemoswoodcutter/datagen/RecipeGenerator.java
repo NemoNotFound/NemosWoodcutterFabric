@@ -28,6 +28,47 @@ public class RecipeGenerator extends FabricRecipeProvider {
     public void generate(RecipeExporter exporter) {
         createWoodCutterRecipe(exporter);
 
+        createCarpentryRecipe(exporter, ItemTags.PLANKS, 1, Items.COMPOSTER, 1);
+        createCarpentryRecipe(exporter, ItemTags.LOGS, 1, Items.COMPOSTER, 4);
+        createCarpentryRecipe(exporter, ItemTags.PLANKS, 1, Items.CRAFTING_TABLE, 1);
+        createCarpentryRecipe(exporter, ItemTags.LOGS, 1, Items.CRAFTING_TABLE, 4);
+        createCarpentryRecipe(exporter, ItemTags.PLANKS, 4, Items.BARREL, 1);
+        createCarpentryRecipe(exporter, ItemTags.LOGS, 1, Items.BARREL, 1);
+        createCarpentryRecipe(exporter, ItemTags.PLANKS, 4, Items.CHEST, 1);
+        createCarpentryRecipe(exporter, ItemTags.LOGS, 1, Items.CHEST, 1);
+
+        createCarpentryRecipe(exporter, Pair.of(Blocks.ACACIA_LOG, 1), Items.STRIPPED_ACACIA_LOG, 1);
+        createCarpentryRecipe(exporter, Pair.of(Blocks.ACACIA_WOOD, 1), Items.STRIPPED_ACACIA_WOOD, 1);
+
+        createCarpentryRecipe(exporter, Pair.of(Blocks.BAMBOO_BLOCK, 1), Items.STRIPPED_BAMBOO_BLOCK, 1);
+
+        createCarpentryRecipe(exporter, Pair.of(Blocks.BIRCH_LOG, 1), Items.STRIPPED_BIRCH_LOG, 1);
+        createCarpentryRecipe(exporter, Pair.of(Blocks.BIRCH_WOOD, 1), Items.STRIPPED_BIRCH_WOOD, 1);
+
+        createCarpentryRecipe(exporter, Pair.of(Blocks.CHERRY_LOG, 1), Items.STRIPPED_CHERRY_LOG, 1);
+        createCarpentryRecipe(exporter, Pair.of(Blocks.CHERRY_WOOD, 1), Items.STRIPPED_CHERRY_WOOD, 1);
+
+        createCarpentryRecipe(exporter, Pair.of(Blocks.CRIMSON_STEM, 1), Items.STRIPPED_CRIMSON_STEM, 1);
+        createCarpentryRecipe(exporter, Pair.of(Blocks.CRIMSON_HYPHAE, 1), Items.STRIPPED_CRIMSON_HYPHAE, 1);
+
+        createCarpentryRecipe(exporter, Pair.of(Blocks.DARK_OAK_LOG, 1), Items.STRIPPED_DARK_OAK_LOG, 1);
+        createCarpentryRecipe(exporter, Pair.of(Blocks.DARK_OAK_WOOD, 1), Items.STRIPPED_DARK_OAK_WOOD, 1);
+
+        createCarpentryRecipe(exporter, Pair.of(Blocks.JUNGLE_LOG, 1), Items.STRIPPED_JUNGLE_LOG, 1);
+        createCarpentryRecipe(exporter, Pair.of(Blocks.JUNGLE_WOOD, 1), Items.STRIPPED_JUNGLE_WOOD, 1);
+
+        createCarpentryRecipe(exporter, Pair.of(Blocks.MANGROVE_LOG, 1), Items.STRIPPED_MANGROVE_LOG, 1);
+        createCarpentryRecipe(exporter, Pair.of(Blocks.MANGROVE_WOOD, 1), Items.STRIPPED_MANGROVE_WOOD, 1);
+
+        createCarpentryRecipe(exporter, Pair.of(Blocks.OAK_LOG, 1), Items.STRIPPED_OAK_LOG, 1);
+        createCarpentryRecipe(exporter, Pair.of(Blocks.OAK_WOOD, 1), Items.STRIPPED_OAK_WOOD, 1);
+
+        createCarpentryRecipe(exporter, Pair.of(Blocks.SPRUCE_LOG, 1), Items.STRIPPED_SPRUCE_LOG, 1);
+        createCarpentryRecipe(exporter, Pair.of(Blocks.SPRUCE_WOOD, 1), Items.STRIPPED_SPRUCE_WOOD, 1);
+
+        createCarpentryRecipe(exporter, Pair.of(Blocks.WARPED_STEM, 1), Items.STRIPPED_WARPED_STEM, 1);
+        createCarpentryRecipe(exporter, Pair.of(Blocks.WARPED_HYPHAE, 1), Items.STRIPPED_WARPED_HYPHAE, 1);
+
         createCarpentryRecipe(exporter, Pair.of(Blocks.ACACIA_PLANKS, 2), Items.ACACIA_BOAT, 1);
         createCarpentryRecipe(exporter, Pair.of(Blocks.ACACIA_PLANKS, 1), Items.ACACIA_BUTTON, 4);
         createCarpentryRecipe(exporter, Pair.of(Blocks.ACACIA_PLANKS, 2), Items.ACACIA_DOOR, 2);
