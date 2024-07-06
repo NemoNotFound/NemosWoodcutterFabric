@@ -1,0 +1,40 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "lolmblv"
+      ]
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_jungle_barrel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "lolmblv:jungle_barrel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:lolmblv_jungle_logs_to_jungle_barrel_woodcutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_jungle_barrel"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:lolmblv_jungle_logs_to_jungle_barrel_woodcutting"
+    ]
+  }
+}

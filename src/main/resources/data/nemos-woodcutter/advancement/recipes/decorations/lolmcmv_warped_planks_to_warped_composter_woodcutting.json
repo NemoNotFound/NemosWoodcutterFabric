@@ -1,0 +1,40 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "lolmcmv"
+      ]
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:lolmcmv_warped_planks_to_warped_composter_woodcutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_warped_composter": {
+      "conditions": {
+        "items": [
+          {
+            "items": "lolmcmv:warped_composter"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_warped_composter"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:lolmcmv_warped_planks_to_warped_composter_woodcutting"
+    ]
+  }
+}

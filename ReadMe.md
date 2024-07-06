@@ -47,6 +47,18 @@
   <li>
     <a href="https://www.curseforge.com/minecraft/mc-mods/danger-close">Danger Close</a> by Lupin - Version 1.19.2 - 1.21
   </li>
+  <li>
+    <a href="https://modrinth.com/mod/more-chest-variants-lieonlion">More Chests Variants (MCV)</a> by LieOnLion - Version 1.19.2 - 1.21
+  </li>
+  <li>
+    <a href="https://modrinth.com/mod/more-crafting-tables-lieonlion">More Crafting Tables (MCT)</a> by LieOnLion - Version 1.20.1 - 1.21
+  </li>
+  <li>
+    <a href="https://modrinth.com/mod/more-composter-variants">More Composter Variants</a> by pnku - Version 1.20.1 - 1.21
+  </li>
+  <li>
+    <a href="https://modrinth.com/mod/more-barrel-variants">More Barrel Variants</a> by pnku - Version 1.20.1 - 1.21
+  </li>
 </ul>
 
 <br>
