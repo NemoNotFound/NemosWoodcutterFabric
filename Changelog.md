@@ -1,8 +1,8 @@
-# Changelog v1.11.2
+# Changelog v1.11.3
 
 ## Additions
-- Added compatibility for [Danger Close](https://www.curseforge.com/minecraft/mc-mods/danger-close) which makes the Woodcutter hurt you. 
-I mean, who steps on a spinning saw blade anyway?
+- Added compatibility for More Crafting Table, More Barrel Variants, More Chest Variants, More Composter Variants. 
+- Added recipes for chest/barrel/composter/crafting/stripped log/stripped wood to woodcutter
 
 ### Downloads
 [CurseForge](https://curseforge.com/minecraft/mc-mods/nemos-woodcutter) <br>
