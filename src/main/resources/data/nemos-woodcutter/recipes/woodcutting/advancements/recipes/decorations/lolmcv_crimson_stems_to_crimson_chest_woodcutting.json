@@ -1,0 +1,42 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "lolmcv"
+      ]
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_crimson_chest": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "lolmcv:crimson_chest"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:lolmcv_crimson_stems_to_crimson_chest_woodcutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_crimson_chest"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:lolmcv_crimson_stems_to_crimson_chest_woodcutting"
+    ]
+  }
+}

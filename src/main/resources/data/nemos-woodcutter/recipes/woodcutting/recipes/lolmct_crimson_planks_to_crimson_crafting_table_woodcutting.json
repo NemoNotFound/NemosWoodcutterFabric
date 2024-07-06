@@ -1,0 +1,18 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "lolmct"
+      ]
+    }
+  ],
+  "type": "nemos-woodcutter:woodcutting",
+  "ingredient": {
+    "item": "minecraft:crimson_planks"
+  },
+  "result": {
+    "Count": 1,
+    "id": "lolmct:crimson_crafting_table"
+  }
+}

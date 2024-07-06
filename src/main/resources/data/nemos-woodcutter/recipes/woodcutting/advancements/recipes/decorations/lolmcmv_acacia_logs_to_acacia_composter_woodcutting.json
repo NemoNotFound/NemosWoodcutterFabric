@@ -1,0 +1,42 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "lolmcmv"
+      ]
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_acacia_composter": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "lolmcmv:acacia_composter"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:lolmcmv_acacia_logs_to_acacia_composter_woodcutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_acacia_composter"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:lolmcmv_acacia_logs_to_acacia_composter_woodcutting"
+    ]
+  }
+}

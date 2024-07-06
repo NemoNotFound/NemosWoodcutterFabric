@@ -1,0 +1,42 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "lolmcv"
+      ]
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_birch_chest": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "lolmcv:birch_chest"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:lolmcv_birch_logs_to_birch_chest_woodcutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_birch_chest"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:lolmcv_birch_logs_to_birch_chest_woodcutting"
+    ]
+  }
+}
