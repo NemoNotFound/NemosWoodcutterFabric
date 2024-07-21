@@ -1,4 +1,4 @@
-![Nemo's Woodcutter](https://github.com/NemoNotFound/NemoNotFound/blob/master/resources/png/nemos_woodcutter_title.png?raw=true)
+![Nemo's Woodcutter](https://github.com/NemoNotFound/NemoNotFound/blob/master/resources/png/nemos-woodcutter-title.png?raw=true)
 <br><br>
 
 # Description
