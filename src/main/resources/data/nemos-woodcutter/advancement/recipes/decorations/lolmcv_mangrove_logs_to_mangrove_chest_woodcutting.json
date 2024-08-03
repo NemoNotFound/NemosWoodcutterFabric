@@ -1,0 +1,40 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "lolmcv"
+      ]
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_mangrove_chest": {
+      "conditions": {
+        "items": [
+          {
+            "items": "lolmcv:mangrove_chest"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:lolmcv_mangrove_logs_to_mangrove_chest_woodcutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_mangrove_chest"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:lolmcv_mangrove_logs_to_mangrove_chest_woodcutting"
+    ]
+  }
+}

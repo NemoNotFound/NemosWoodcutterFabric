@@ -1,10 +1,7 @@
-# Changelog v1.11.1
+# Changelog v1.11.4
 
-## Additions
-- Added recipes for [Better Archeology](https://www.curseforge.com/minecraft/mc-mods/better-archeology)
-
-## Fixes
-- Recipes for other mods now only load, if the mod is loaded
+## Changes
+- Removed two wrong pixels from the woodcutter texture
 
 ### Downloads
 [CurseForge](https://curseforge.com/minecraft/mc-mods/nemos-woodcutter) <br>

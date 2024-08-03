@@ -1,0 +1,40 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "biomesoplenty"
+      ]
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_redwood_slab": {
+      "conditions": {
+        "items": [
+          {
+            "items": "biomesoplenty:redwood_slab"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:biomesoplenty_redwood_planks_to_redwood_slab_woodcutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_redwood_slab"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:biomesoplenty_redwood_planks_to_redwood_slab_woodcutting"
+    ]
+  }
+}
