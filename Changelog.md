@@ -1,8 +1,7 @@
-# Changelog v1.11.3
+# Changelog v1.11.5
 
 ## Additions
-- Added compatibility for More Crafting Table, More Barrel Variants, More Chest Variants, More Composter Variants. 
-- Added recipes for chest/barrel/composter/crafting/stripped log/stripped wood to woodcutter
+- Added recipes for Nemo's Mossy Blocks
 
 ### Downloads
 [CurseForge](https://curseforge.com/minecraft/mc-mods/nemos-woodcutter) <br>
