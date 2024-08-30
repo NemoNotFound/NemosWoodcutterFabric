@@ -18,6 +18,7 @@ For more information and the recipes check the [wiki](https://www.nemonotfound.c
 <br>
 
 # Compatibilities  
+- [Nemo's Mossy Blocks](https://www.curseforge.com/minecraft/mc-mods/nemos-mossy-blocks) by NemoNotFound (me) - Version 1.20.1 - 1.21.1
 - [More Slabs, Stairs, and Walls](https://www.curseforge.com/minecraft/mc-mods/more-slabs-stairs-and-walls) by Nibaru - Version 1.19.2 - 1.20.4
 - [Oh The Biomes You'll Go Refabricated](https://www.curseforge.com/minecraft/mc-mods/oh-the-biomes-youll-go-fabric) by AOCAWOL - Version 1.19.2 
 - [Regions Unexplored](https://www.curseforge.com/minecraft/mc-mods/regions-unexplored) by UHQ_GAMES - Version 1.19.2 - 1.20.4 

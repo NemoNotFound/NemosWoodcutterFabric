@@ -1,7 +1,7 @@
-# Changelog v1.11.4
+# Changelog v1.11.5
 
-## Changes
-- Removed two wrong pixels from the woodcutter texture
+## Additions
+- Added recipes for Nemo's Mossy Blocks
 
 ### Downloads
 [CurseForge](https://curseforge.com/minecraft/mc-mods/nemos-woodcutter) <br>
