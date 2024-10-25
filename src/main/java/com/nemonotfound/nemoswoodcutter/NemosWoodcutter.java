@@ -1,8 +1,12 @@
 package com.nemonotfound.nemoswoodcutter;
 
 import com.nemonotfound.nemoswoodcutter.block.ModBlocks;
+import com.nemonotfound.nemoswoodcutter.item.ModItemGroups;
+import com.nemonotfound.nemoswoodcutter.item.ModItems;
 import com.nemonotfound.nemoswoodcutter.recipe.ModRecipeSerializer;
 import com.nemonotfound.nemoswoodcutter.recipe.ModRecipeTypes;
+import com.nemonotfound.nemoswoodcutter.recipe.book.ModRecipeBookCategory;
+import com.nemonotfound.nemoswoodcutter.recipe.display.ModRecipeDisplays;
 import com.nemonotfound.nemoswoodcutter.screen.WoodcutterScreenHandler;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.screen.ScreenHandlerType;
@@ -21,7 +25,11 @@ public class NemosWoodcutter implements ModInitializer {
 		log.info("Thank you for using Nemo's Woodcutter!");
 
 		ModBlocks.registerBlocks();
+		ModItems.registerItems();
+		ModItemGroups.registerItemGroups();
 		ModRecipeTypes.registerRecipeTypes();
 		ModRecipeSerializer.registerRecipeSerializer();
+		ModRecipeBookCategory.registerRecipeBookCategories();
+		ModRecipeDisplays.registerRecipeDisplays();
 	}
 }

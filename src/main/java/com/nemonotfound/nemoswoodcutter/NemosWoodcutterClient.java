@@ -15,6 +15,6 @@ public class NemosWoodcutterClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         HandledScreens.register(NemosWoodcutter.WOODCUTTER_SCREEN_HANDLER, WoodcutterScreen::new);
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WOODCUTTER_BLOCK, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WOODCUTTER, RenderLayer.getCutout());
     }
 }

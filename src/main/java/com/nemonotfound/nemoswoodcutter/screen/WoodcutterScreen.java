@@ -2,18 +2,25 @@ package com.nemonotfound.nemoswoodcutter.screen;
 
 import com.mojang.datafixers.util.Pair;
 import com.nemonotfound.nemoswoodcutter.recipe.WoodcuttingRecipe;
+import com.nemonotfound.nemoswoodcutter.recipe.WoodcuttingRecipe;
+import com.nemonotfound.nemoswoodcutter.recipe.display.WoodcutterRecipeDisplay;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.sound.PositionedSoundInstance;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeEntry;
+import net.minecraft.recipe.display.CuttingRecipeDisplay;
+import net.minecraft.recipe.display.SlotDisplay;
+import net.minecraft.recipe.display.SlotDisplayContexts;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.context.ContextParameterMap;
 import net.minecraft.util.math.MathHelper;
 
 import java.util.List;
@@ -48,10 +55,10 @@ public class WoodcutterScreen extends HandledScreen<WoodcutterScreenHandler> {
 
     @Override
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
-        context.drawTexture(TEXTURE, x, y, 0, 0, this.backgroundWidth, this.backgroundHeight);
+        context.drawTexture(RenderLayer::getGuiTextured, TEXTURE, x, y, 0.0F, 0.0F, this.backgroundWidth, this.backgroundHeight, 256, 256);
         int yPosAfterScrolling = (int) (41.0f * this.scrollAmount);
         Identifier identifier = this.shouldScroll() ? SCROLLER_TEXTURE : SCROLLER_DISABLED_TEXTURE;
-        context.drawGuiTexture(identifier, x + 119, y + 15 + yPosAfterScrolling, 12, 15);
+        context.drawGuiTexture(RenderLayer::getGuiTextured, identifier, x + 119, y + 15 + yPosAfterScrolling, 12, 15);
         int xPosForRecipe = this.x + 52;
         int yPosForRecipe = this.y + 14;
         int scrollOffset = this.scrollOffset + 12;
@@ -60,23 +67,26 @@ public class WoodcutterScreen extends HandledScreen<WoodcutterScreenHandler> {
     }
 
     @Override
-    protected void drawMouseoverTooltip(DrawContext context, int x, int y) {
-        super.drawMouseoverTooltip(context, x, y);
+    protected void drawMouseoverTooltip(DrawContext drawContext, int x, int y) {
+        super.drawMouseoverTooltip(drawContext, x, y);
 
-        int toolPosX = this.x + 52;
-        int toolPosY = this.y + 14;
-        int scrollOffset = this.scrollOffset + 12;
-        List<RecipeEntry<WoodcuttingRecipe>> availableRecipes = this.handler.getAvailableRecipes();
+        if (this.canCraft) {
+            int toolPosX = this.x + 52;
+            int toolPosY = this.y + 14;
+            int scrollOffset = this.scrollOffset + 12;
+            CuttingRecipeDisplay.Grouping<WoodcuttingRecipe> availableRecipes = this.handler.getAvailableRecipes();
 
-        for (int l = this.scrollOffset; l < scrollOffset && l < this.handler.getAvailableRecipeCount(); ++l) {
-            int m = l - this.scrollOffset;
-            int n = toolPosX + m % 4 * 16;
-            int o = toolPosY + m / 4 * 18 + 2;
-            if (x < n || x >= n + 16 || y < o || y >= o + 18) continue;
-            context.drawItemTooltip(this.textRenderer, availableRecipes.get(l).value()
-                    .getResult(this.client.world.getRegistryManager()), x, y);
+            for (int l = this.scrollOffset; l < scrollOffset && l < this.handler.getAvailableRecipeCount(); ++l) {
+                int m = l - this.scrollOffset;
+                int n = toolPosX + m % 4 * 16;
+                int o = toolPosY + m / 4 * 18 + 2;
+                if (x < n || x >= n + 16 || y < o || y >= o + 18) {
+                    ContextParameterMap contextParameterMap = SlotDisplayContexts.createParameters(this.client.world);
+                    SlotDisplay slotDisplay = availableRecipes.entries().get(l).recipe().optionDisplay();
+                    drawContext.drawItemTooltip(this.textRenderer, slotDisplay.getFirst(contextParameterMap), x, y);
+                }
+            }
         }
-
     }
 
     private void renderRecipeBackground(DrawContext context, int mouseX, int mouseY, int xPosForRecipe,
@@ -87,12 +97,10 @@ public class WoodcutterScreen extends HandledScreen<WoodcutterScreenHandler> {
             int l = yPosWithoutScrollOffset / 4;
             int m = yPosForRecipe + l * 18 + 2;
             int inputCount = this.handler.inputSlot.getStack().getCount();
-            WoodcuttingRecipe recipe = this.handler.getAvailableRecipes().get(i).value();
-            Pair<Ingredient, Integer> ingredientPair = recipe.getIngredientPair();
-            int requiredInputCount = ingredientPair.getSecond();
+            WoodcuttingRecipe recipe = this.handler.getAvailableRecipes().entries().get(i).recipe().recipe().get().value();
 
-            if (inputCount < requiredInputCount) {
-                context.drawGuiTexture(RECIPE_DISABLED_TEXTURE, k, m - 1, 16, 18);
+            if (inputCount < recipe.inputCount()) {
+                context.drawGuiTexture(RenderLayer::getGuiTextured, RECIPE_DISABLED_TEXTURE, k, m - 1, 16, 18);
             } else {
                 renderRecipeBackgroundForCraftableRecipe(context, i, mouseX, mouseY, k, m);
             }
@@ -102,19 +110,20 @@ public class WoodcutterScreen extends HandledScreen<WoodcutterScreenHandler> {
     private void renderRecipeBackgroundForCraftableRecipe(DrawContext context, int i, int mouseX, int mouseY, int k, int m) {
         Identifier identifier = i == this.handler.getSelectedRecipe() ? RECIPE_SELECTED_TEXTURE :
                 (mouseX >= k && mouseY >= m && mouseX < k + 16 && mouseY < m + 18 ? RECIPE_HIGHLIGHTED_TEXTURE : RECIPE_TEXTURE);
-        context.drawGuiTexture(identifier, k, m - 1, 16, 18);
+        context.drawGuiTexture(RenderLayer::getGuiTextured, identifier, k, m - 1, 16, 18);
     }
 
     private void renderRecipeIcons(DrawContext context, int x, int y, int scrollOffset) {
-        List<RecipeEntry<WoodcuttingRecipe>> availableRecipes = this.handler.getAvailableRecipes();
+        CuttingRecipeDisplay.Grouping<WoodcuttingRecipe> availableRecipes = this.handler.getAvailableRecipes();
+        ContextParameterMap contextParameterMap = SlotDisplayContexts.createParameters(this.client.world);
+
         for (int i = this.scrollOffset; i < scrollOffset && i < availableRecipes.size(); ++i) {
             int yPosWithoutScrollOffset = i - this.scrollOffset;
             int k = x + yPosWithoutScrollOffset % 4 * 16;
             int l = yPosWithoutScrollOffset / 4;
             int m = y + l * 18 + 2;
-            var recipeEntry = availableRecipes.get(i);
-
-            context.drawItem(recipeEntry.value().getResult(this.client.world.getRegistryManager()), k, m);
+            SlotDisplay slotDisplay = (availableRecipes.entries().get(i)).recipe().optionDisplay();
+            context.drawItem(slotDisplay.getFirst(contextParameterMap), k, m);
         }
     }
 
@@ -136,12 +145,10 @@ public class WoodcutterScreen extends HandledScreen<WoodcutterScreenHandler> {
                 }
 
                 if (this.handler.getAvailableRecipeCount() > l) {
-                    WoodcuttingRecipe recipe = this.handler.getAvailableRecipes().get(l).value();
-                    Pair<Ingredient, Integer> ingredientPair = recipe.getIngredientPair();
-                    int requiredInputCount = ingredientPair.getSecond();
+                    WoodcuttingRecipe recipe = this.handler.getAvailableRecipes().entries().get(l).recipe().recipe().get().value();
                     int inputCount = this.handler.inputSlot.getStack().getCount();
 
-                    if (inputCount < requiredInputCount) {
+                    if (inputCount < recipe.inputCount()) {
                         MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(SoundEvents.UI_STONECUTTER_SELECT_RECIPE, 4.0f));
                     } else {
                         MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(SoundEvents.UI_STONECUTTER_SELECT_RECIPE, 1.0f));
