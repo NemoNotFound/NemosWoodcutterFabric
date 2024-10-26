@@ -5,7 +5,13 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [],
   "client": [
-    "ClientPlayNetworkHandlerMixin"
+    "ClientPlayNetworkHandlerMixin",
+    "ClientPlayPacketListenerMixin",
+    "ClientWorldMixin",
+    "ClientCommonNetworkHandlerMixin",
+    "ServerRecipeManagerMixin",
+    "PlayerManagerMixin",
+    "PlayStateFactoriesMixin"
   ],
   "server": [],
   "injectors": {

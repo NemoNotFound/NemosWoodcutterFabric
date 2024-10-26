@@ -1,20 +1,19 @@
 package com.nemonotfound.nemoswoodcutter.client.recipebook;
 
-import com.nemonotfound.nemoswoodcutter.recipe.WoodcuttingRecipe;
+import com.nemonotfound.nemoswoodcutter.recipe.display.WoodcuttingRecipeDisplay;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.recipe.display.CuttingRecipeDisplay;
 
 @Environment(EnvType.CLIENT)
 public class ClientModRecipeManager {
 
-    private final CuttingRecipeDisplay.Grouping<WoodcuttingRecipe> woodcuttingRecipes;
+    private final WoodcuttingRecipeDisplay.Grouping woodcuttingRecipes;
 
-    public ClientModRecipeManager(CuttingRecipeDisplay.Grouping<WoodcuttingRecipe> woodcuttingRecipes) {
+    public ClientModRecipeManager(WoodcuttingRecipeDisplay.Grouping woodcuttingRecipes) {
         this.woodcuttingRecipes = woodcuttingRecipes;
     }
 
-    public CuttingRecipeDisplay.Grouping<WoodcuttingRecipe> getWoodcutterRecipes() {
+    public WoodcuttingRecipeDisplay.Grouping getWoodcutterRecipes() {
         return this.woodcuttingRecipes;
     }
 }

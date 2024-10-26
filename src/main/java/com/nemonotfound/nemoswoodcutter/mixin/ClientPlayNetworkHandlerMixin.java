@@ -1,55 +1,38 @@
 package com.nemonotfound.nemoswoodcutter.mixin;
 
 import com.nemonotfound.nemoswoodcutter.client.recipebook.ClientModRecipeManager;
-import com.nemonotfound.nemoswoodcutter.network.listener.ModClientPlayPacketListener;
+import com.nemonotfound.nemoswoodcutter.interfaces.ModRecipeManagerGetter;
 import com.nemonotfound.nemoswoodcutter.network.packet.s2c.play.SynchronizeModRecipesS2CPacket;
+import com.nemonotfound.nemoswoodcutter.recipe.display.WoodcuttingRecipeDisplay;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.network.ClientCommonNetworkHandler;
+import net.minecraft.client.network.ClientConnectionState;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
-import net.minecraft.network.DisconnectionInfo;
-import net.minecraft.network.NetworkSide;
-import net.minecraft.network.packet.s2c.query.PingResultS2CPacket;
-import net.minecraft.recipe.display.CuttingRecipeDisplay;
+import net.minecraft.network.ClientConnection;
+import net.minecraft.network.NetworkThreadUtils;
+import net.minecraft.network.listener.ClientPlayPacketListener;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 
 @Mixin(ClientPlayNetworkHandler.class)
-public class ClientPlayNetworkHandlerMixin implements ModClientPlayPacketListener {
-
-    //TODO: need to set the recipes in the ServerRecipeManager
-    //TODO: need to send the packet trough PlayerManager
+public abstract class ClientPlayNetworkHandlerMixin extends ClientCommonNetworkHandler implements ClientPlayPacketListener, ModRecipeManagerGetter {
 
     @Unique
-    private ClientModRecipeManager modRecipeManager = new ClientModRecipeManager(CuttingRecipeDisplay.Grouping.empty());
+    private ClientModRecipeManager modRecipeManager = new ClientModRecipeManager(WoodcuttingRecipeDisplay.Grouping.empty());
 
-    //TODO: need to add this method to the ClientPlayNetworkHandler
-    @Unique
-    public ClientModRecipeManager getModRecipeManager() {
+    protected ClientPlayNetworkHandlerMixin(MinecraftClient client, ClientConnection connection, ClientConnectionState connectionState) {
+        super(client, connection, connectionState);
+    }
+
+    @Override
+    public ClientModRecipeManager nemo_sWoodcutter$getModRecipeManager() {
         return this.modRecipeManager;
     }
 
     @Override
-    public void onSynchronizeModRecipes(SynchronizeModRecipesS2CPacket packet) {
-        //TODO: need to retrieve client
-        //NetworkThreadUtils.forceMainThread(packet, this, this.client);
+    public void nemo_sWoodcutter$onSynchronizeModRecipes(SynchronizeModRecipesS2CPacket packet) {
+        MinecraftClient client = this.nemo_sWoodcutter$getMinecraftClient();
+        NetworkThreadUtils.forceMainThread(packet, this, client);
         this.modRecipeManager = new ClientModRecipeManager(packet.woodcuttingRecipes());
-    }
-
-    @Override
-    public void onPingResult(PingResultS2CPacket packet) {
-
-    }
-
-    @Override
-    public NetworkSide getSide() {
-        return null;
-    }
-
-    @Override
-    public void onDisconnected(DisconnectionInfo info) {
-
-    }
-
-    @Override
-    public boolean isConnectionOpen() {
-        return false;
     }
 }

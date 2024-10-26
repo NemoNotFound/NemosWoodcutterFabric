@@ -2,8 +2,9 @@ package com.nemonotfound.nemoswoodcutter.screen;
 
 import com.nemonotfound.nemoswoodcutter.NemosWoodcutter;
 import com.nemonotfound.nemoswoodcutter.block.ModBlocks;
-import com.nemonotfound.nemoswoodcutter.recipe.ModRecipePropertySet;
 import com.nemonotfound.nemoswoodcutter.recipe.WoodcuttingRecipe;
+import com.nemonotfound.nemoswoodcutter.recipe.display.WoodcuttingRecipeDisplay;
+import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.CraftingResultInventory;
@@ -12,7 +13,6 @@ import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.RecipeEntry;
-import net.minecraft.recipe.display.CuttingRecipeDisplay;
 import net.minecraft.recipe.input.SingleStackRecipeInput;
 import net.minecraft.screen.Property;
 import net.minecraft.screen.ScreenHandler;
@@ -34,7 +34,7 @@ extends ScreenHandler {
     private final ScreenHandlerContext context;
     private final Property selectedRecipe = Property.create();
     private final World world;
-    private CuttingRecipeDisplay.Grouping<WoodcuttingRecipe> availableRecipes = CuttingRecipeDisplay.Grouping.empty();
+    private WoodcuttingRecipeDisplay.Grouping availableRecipes = WoodcuttingRecipeDisplay.Grouping.empty();
     private ItemStack inputStack = ItemStack.EMPTY;
     long lastTakeTime;
     final Slot inputSlot;
@@ -73,8 +73,8 @@ extends ScreenHandler {
             public void onTakeItem(PlayerEntity player, ItemStack stack) {
                 stack.onCraftByPlayer(player.getWorld(), player, stack.getCount());
                 WoodcutterScreenHandler.this.output.unlockLastRecipe(player, this.getInputStacks());
-                WoodcuttingRecipe recipe = availableRecipes.entries().get(selectedRecipe.get()).recipe().recipe().get().value();
-                ItemStack itemStack = WoodcutterScreenHandler.this.inputSlot.takeStack(recipe.inputCount());
+                int recipeInputCount = availableRecipes.entries().get(selectedRecipe.get()).inputCount();
+                ItemStack itemStack = WoodcutterScreenHandler.this.inputSlot.takeStack(recipeInputCount);
 
                 if (!itemStack.isEmpty()) {
                     WoodcutterScreenHandler.this.populateResult(WoodcutterScreenHandler.this.selectedRecipe.get());
@@ -112,7 +112,7 @@ extends ScreenHandler {
         return this.selectedRecipe.get();
     }
 
-    public CuttingRecipeDisplay.Grouping<WoodcuttingRecipe> getAvailableRecipes() {
+    public WoodcuttingRecipeDisplay.Grouping getAvailableRecipes() {
         return this.availableRecipes;
     }
 
@@ -159,21 +159,12 @@ extends ScreenHandler {
 
         if (!stack.isEmpty()) {
             if (this.world instanceof ServerWorld serverWorld) {
-                List<CuttingRecipeDisplay.GroupEntry<WoodcuttingRecipe>> groupEntries = serverWorld.getServer().getRecipeManager().values().stream()
-                        .filter(recipeEntry -> recipeEntry.value() instanceof WoodcuttingRecipe)
-                        .map(recipeEntry -> new CuttingRecipeDisplay.GroupEntry<>(((WoodcuttingRecipe) recipeEntry.value()).ingredient(), new CuttingRecipeDisplay<>(((WoodcuttingRecipe) recipeEntry.value()).createResultDisplay(), Optional.of((RecipeEntry<WoodcuttingRecipe>) recipeEntry))))
-                        .toList();
-
-                availableRecipes = new CuttingRecipeDisplay.Grouping<>(groupEntries);
+                this.availableRecipes = serverWorld.getRecipeManager().nemo_sWoodcutter$getWoodcutterRecipes().filter(stack);
+            } else if (this.world instanceof ClientWorld clientWorld) {
+                this.availableRecipes = clientWorld.nemo_sWoodcutter$getModRecipeManager().getWoodcutterRecipes().filter(stack);
             }
-
-            //TODO: Need to fix this **** on client side :(
-//            this.availableRecipes = new ArrayList<>(this.world.getRecipeManager()
-//                    .getAllMatches(ModRecipeTypes.WOODCUTTING, createRecipeInput(input), this.world).stream()
-//                    .filter(recipe -> !recipe.value().getResult(this.world.getRegistryManager()).toString().contains("0 air"))
-//                    .toList());
         } else {
-            this.availableRecipes = CuttingRecipeDisplay.Grouping.empty();
+            this.availableRecipes = WoodcuttingRecipeDisplay.Grouping.empty();
         }
     }
 
@@ -181,7 +172,7 @@ extends ScreenHandler {
         Optional<RecipeEntry<WoodcuttingRecipe>> optionalRecipe;
 
         if (!this.availableRecipes.isEmpty() && this.isInBounds(selectedId)) {
-            CuttingRecipeDisplay.GroupEntry<WoodcuttingRecipe> groupEntry = this.availableRecipes.entries().get(selectedId);
+            WoodcuttingRecipeDisplay.GroupEntry groupEntry = this.availableRecipes.entries().get(selectedId);
             optionalRecipe = groupEntry.recipe().recipe();
 
         } else {
@@ -228,7 +219,6 @@ extends ScreenHandler {
         return slot.inventory != this.output && super.canInsertIntoSlot(stack, slot);
     }
 
-    //TODO: SEARCH FOR WOODCUTTING RECIPE
     @Override
     public ItemStack quickMove(PlayerEntity player, int slot) {
         ItemStack itemStack = ItemStack.EMPTY;
@@ -248,7 +238,7 @@ extends ScreenHandler {
                 if (!this.insertItem(itemStack2, 2, 38, false)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (this.world.getRecipeManager().getStonecutterRecipes().contains(itemStack2)) {
+            } else if (isWoodcuttingRecipe(itemStack2)) {
                 if (!this.insertItem(itemStack2, 0, 1, false)) {
                     return ItemStack.EMPTY;
                 }
@@ -278,6 +268,13 @@ extends ScreenHandler {
         }
 
         return itemStack;
+    }
+
+    private boolean isWoodcuttingRecipe(ItemStack itemStack2) {
+        return (this.world instanceof ServerWorld serverWorld &&
+                serverWorld.getRecipeManager().nemo_sWoodcutter$getWoodcutterRecipes().contains(itemStack2)) ||
+                (this.world instanceof ClientWorld clientWorld &&
+                        clientWorld.nemo_sWoodcutter$getModRecipeManager().getWoodcutterRecipes().contains(itemStack2));
     }
 
     @Override
