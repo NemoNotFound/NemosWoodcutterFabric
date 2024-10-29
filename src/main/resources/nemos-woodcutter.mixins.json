@@ -3,15 +3,18 @@
   "minVersion": "0.8",
   "package": "com.nemonotfound.nemoswoodcutter.mixin",
   "compatibilityLevel": "JAVA_17",
-  "mixins": [],
-  "client": [
-    "ClientPlayNetworkHandlerMixin",
-    "ClientPlayPacketListenerMixin",
+  "mixins": [
+
     "ClientWorldMixin",
-    "ClientCommonNetworkHandlerMixin",
     "ServerRecipeManagerMixin",
     "PlayerManagerMixin",
     "PlayStateFactoriesMixin"
+  ],
+  "client": [
+    "ClientPlayNetworkHandlerMixin",
+    "ClientPlayPacketListenerMixin",
+    "ClientCommonNetworkHandlerMixin"
+
   ],
   "server": [],
   "injectors": {
