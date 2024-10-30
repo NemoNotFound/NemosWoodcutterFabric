@@ -1,6 +1,7 @@
 package com.nemonotfound.nemoswoodcutter;
 
 import com.nemonotfound.nemoswoodcutter.datagen.RecipeProvider;
+import com.nemonotfound.nemoswoodcutter.datagen.WinterDropRecipeProvider;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
@@ -11,5 +12,6 @@ public class NemosWoodcutterDataGenerator implements DataGeneratorEntrypoint {
         FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 
         pack.addProvider(RecipeProvider::new);
+        pack.addProvider(WinterDropRecipeProvider::new);
     }
 }

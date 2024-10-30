@@ -1,7 +1,7 @@
-# Changelog v1.11.5
+# Changelog v1.11.6
 
 ## Additions
-- Added recipes for Nemo's Mossy Blocks
+- Added recipes for pale oak wood
 
 ### Downloads
 [CurseForge](https://curseforge.com/minecraft/mc-mods/nemos-woodcutter) <br>

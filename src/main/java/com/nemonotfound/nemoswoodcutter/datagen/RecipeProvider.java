@@ -1,6 +1,5 @@
 package com.nemonotfound.nemoswoodcutter.datagen;
 
-import com.mojang.datafixers.util.Pair;
 import com.nemonotfound.nemoswoodcutter.block.ModBlocks;
 import com.nemonotfound.nemoswoodcutter.recipe.WoodcuttingRecipeJsonBuilder;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -9,7 +8,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.RecipeGenerator;
-import net.minecraft.data.server.recipe.VanillaRecipeGenerator;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
