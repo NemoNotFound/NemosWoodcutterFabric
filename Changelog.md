@@ -1,4 +1,4 @@
-# Changelog v1.11.6
+# Changelog v1.12
 
 ## Additions
 - Added recipes for pale oak wood
