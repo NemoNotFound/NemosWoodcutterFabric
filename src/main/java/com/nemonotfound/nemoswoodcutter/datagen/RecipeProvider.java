@@ -54,6 +54,9 @@ public class RecipeProvider extends FabricRecipeProvider {
                 createWoodcuttingRecipe(Blocks.CHERRY_LOG, Items.STRIPPED_CHERRY_LOG);
                 createWoodcuttingRecipe(Blocks.CHERRY_WOOD, Items.STRIPPED_CHERRY_WOOD);
 
+                createWoodcuttingRecipe(Blocks.PALE_OAK_LOG, Items.STRIPPED_PALE_OAK_LOG);
+                createWoodcuttingRecipe(Blocks.PALE_OAK_WOOD, Items.STRIPPED_PALE_OAK_WOOD);
+
                 createWoodcuttingRecipe(Blocks.CRIMSON_STEM, Items.STRIPPED_CRIMSON_STEM);
                 createWoodcuttingRecipe(Blocks.CRIMSON_HYPHAE, Items.STRIPPED_CRIMSON_HYPHAE);
 
@@ -124,6 +127,17 @@ public class RecipeProvider extends FabricRecipeProvider {
                 createWoodcuttingRecipe(Blocks.CHERRY_PLANKS, Items.CHERRY_SLAB, 2);
                 createWoodcuttingRecipe(Blocks.CHERRY_PLANKS, Items.CHERRY_STAIRS);
                 createWoodcuttingRecipe(Blocks.CHERRY_PLANKS, Items.CHERRY_TRAPDOOR, 2);
+
+                createWoodcuttingRecipe(Blocks.PALE_OAK_PLANKS, 2, Items.PALE_OAK_BOAT);
+                createWoodcuttingRecipe(Blocks.PALE_OAK_PLANKS, Items.PALE_OAK_BUTTON, 4);
+                createWoodcuttingRecipe(Blocks.PALE_OAK_PLANKS, 2, Items.PALE_OAK_DOOR, 2);
+                createWoodcuttingRecipe(Blocks.PALE_OAK_PLANKS, Items.PALE_OAK_FENCE_GATE);
+                createWoodcuttingRecipe(Blocks.PALE_OAK_PLANKS, Items.PALE_OAK_FENCE);
+                createWoodcuttingRecipe(Blocks.PALE_OAK_PLANKS, Items.PALE_OAK_PRESSURE_PLATE, 4);
+                createWoodcuttingRecipe(Blocks.PALE_OAK_PLANKS, Items.PALE_OAK_SIGN, 3);
+                createWoodcuttingRecipe(Blocks.PALE_OAK_PLANKS, Items.PALE_OAK_SLAB, 2);
+                createWoodcuttingRecipe(Blocks.PALE_OAK_PLANKS, Items.PALE_OAK_STAIRS);
+                createWoodcuttingRecipe(Blocks.PALE_OAK_PLANKS, Items.PALE_OAK_TRAPDOOR, 2);
 
                 createWoodcuttingRecipe(Blocks.CRIMSON_PLANKS, Items.CRIMSON_BUTTON, 4);
                 createWoodcuttingRecipe(Blocks.CRIMSON_PLANKS, 2, Items.CRIMSON_DOOR, 2);
@@ -251,6 +265,18 @@ public class RecipeProvider extends FabricRecipeProvider {
                 createWoodcuttingRecipe(ItemTags.CHERRY_LOGS, "cherry_logs", Items.CHERRY_SLAB, 8);
                 createWoodcuttingRecipe(ItemTags.CHERRY_LOGS, "cherry_logs", Items.CHERRY_STAIRS, 4);
                 createWoodcuttingRecipe(ItemTags.CHERRY_LOGS, "cherry_logs", Items.CHERRY_TRAPDOOR, 8);
+
+                createWoodcuttingRecipe(ItemTags.PALE_OAK_LOGS, "pale_oak_logs", Items.PALE_OAK_PLANKS, 4);
+                createWoodcuttingRecipe(ItemTags.PALE_OAK_LOGS, "pale_oak_logs", Items.PALE_OAK_BOAT);
+                createWoodcuttingRecipe(ItemTags.PALE_OAK_LOGS, "pale_oak_logs", Items.PALE_OAK_BUTTON, 16);
+                createWoodcuttingRecipe(ItemTags.PALE_OAK_LOGS, "pale_oak_logs", Items.PALE_OAK_DOOR, 4);
+                createWoodcuttingRecipe(ItemTags.PALE_OAK_LOGS, "pale_oak_logs", Items.PALE_OAK_FENCE_GATE, 4);
+                createWoodcuttingRecipe(ItemTags.PALE_OAK_LOGS, "pale_oak_logs", Items.PALE_OAK_FENCE, 4);
+                createWoodcuttingRecipe(ItemTags.PALE_OAK_LOGS, "pale_oak_logs", Items.PALE_OAK_PRESSURE_PLATE, 16);
+                createWoodcuttingRecipe(ItemTags.PALE_OAK_LOGS, "pale_oak_logs", Items.PALE_OAK_SIGN, 12);
+                createWoodcuttingRecipe(ItemTags.PALE_OAK_LOGS, "pale_oak_logs", Items.PALE_OAK_SLAB, 8);
+                createWoodcuttingRecipe(ItemTags.PALE_OAK_LOGS, "pale_oak_logs", Items.PALE_OAK_STAIRS, 4);
+                createWoodcuttingRecipe(ItemTags.PALE_OAK_LOGS, "pale_oak_logs", Items.PALE_OAK_TRAPDOOR, 8);
 
                 createWoodcuttingRecipe(ItemTags.CRIMSON_STEMS, "crimson_stems", Items.CRIMSON_PLANKS, 4);
                 createWoodcuttingRecipe(ItemTags.CRIMSON_STEMS, "crimson_stems", Items.CRIMSON_BUTTON, 16);

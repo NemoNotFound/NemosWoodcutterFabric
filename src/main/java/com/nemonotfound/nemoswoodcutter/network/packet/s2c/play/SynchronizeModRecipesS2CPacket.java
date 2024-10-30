@@ -16,13 +16,23 @@ public record SynchronizeModRecipesS2CPacket(WoodcuttingRecipeDisplay.Grouping w
             SynchronizeModRecipesS2CPacket::new
     );
 
+//    @Override
+//    public PacketType<? extends Packet<ClientPlayPacketListener>> getPacketId() {
+//        return ModPlayPackets.UPDATE_RECIPES;
+//    }
+//
+//    @Override
+//    public void apply(ClientPlayPacketListener clientPlayPacketListener) {
+//        clientPlayPacketListener.nemo_sWoodcutter$onSynchronizeModRecipes(this);
+//    }
+
     @Override
-    public PacketType<? extends Packet<ClientPlayPacketListener>> getPacketId() {
+    public PacketType<? extends Packet<ClientPlayPacketListener>> method_65080() {
         return ModPlayPackets.UPDATE_RECIPES;
     }
 
     @Override
-    public void apply(ClientPlayPacketListener clientPlayPacketListener) {
+    public void method_65081(ClientPlayPacketListener clientPlayPacketListener) {
         clientPlayPacketListener.nemo_sWoodcutter$onSynchronizeModRecipes(this);
     }
 }
