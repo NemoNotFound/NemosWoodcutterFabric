@@ -35,6 +35,7 @@ Here is an example of the recipe json file:
   }
 }
 ```
+<br><br>
 
 # Compatibilities  
 - [Nemo's Mossy Blocks](https://www.curseforge.com/minecraft/mc-mods/nemos-mossy-blocks) by NemoNotFound (me) - Version 1.20.1 - 1.21.1
