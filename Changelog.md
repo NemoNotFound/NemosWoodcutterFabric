@@ -1,7 +1,7 @@
-# Changelog v1.12.0.1
+# Changelog v1.12.1
 
 ## Changes
-- Removed recipes for pale wood due to errors in logs
+- Adapted recipe categories
 
 ### Downloads
 [CurseForge](https://curseforge.com/minecraft/mc-mods/nemos-woodcutter) <br>

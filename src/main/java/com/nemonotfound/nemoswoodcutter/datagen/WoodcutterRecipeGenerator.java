@@ -21,65 +21,65 @@ public abstract class WoodcutterRecipeGenerator extends RecipeGenerator {
         super(registries, exporter);
     }
 
-    protected void createWoodcuttingRecipe(TagKey<Item> inputTag, String criteria, Item output) {
+    protected void createWoodcuttingRecipe(RecipeCategory recipeCategory, TagKey<Item> inputTag, String criteria, Item output) {
         String tagPath = inputTag.id().getPath();
         Ingredient ingredient = ingredientFromTag(inputTag);
 
-        WoodcuttingRecipeJsonBuilder.createWoodcutting(RecipeCategory.DECORATIONS, ingredient, output)
+        WoodcuttingRecipeJsonBuilder.createWoodcutting(recipeCategory, ingredient, output)
                 .criterion(criteria, this.conditionsFromTag(inputTag))
                 .offerTo(exporter, convertBetween(output, tagPath) + "_woodcutting");
     }
 
-    protected void createWoodcuttingRecipe(TagKey<Item> inputTag, String criteria, int inputCount, Item output) {
+    protected void createWoodcuttingRecipe(RecipeCategory recipeCategory, TagKey<Item> inputTag, String criteria, int inputCount, Item output) {
         String tagPath = inputTag.id().getPath();
         Ingredient ingredient = ingredientFromTag(inputTag);
 
-        WoodcuttingRecipeJsonBuilder.createWoodcutting(RecipeCategory.DECORATIONS, ingredient, inputCount, output)
+        WoodcuttingRecipeJsonBuilder.createWoodcutting(recipeCategory, ingredient, inputCount, output)
                 .criterion(criteria, this.conditionsFromTag(inputTag))
                 .offerTo(exporter, convertBetween(output, tagPath) + "_woodcutting");
     }
 
-    protected void createWoodcuttingRecipe(TagKey<Item> inputTag, String criteria, Item output, int outputCount) {
+    protected void createWoodcuttingRecipe(RecipeCategory recipeCategory, TagKey<Item> inputTag, String criteria, Item output, int outputCount) {
         String tagPath = inputTag.id().getPath();
         Ingredient ingredient = ingredientFromTag(inputTag);
 
-        WoodcuttingRecipeJsonBuilder.createWoodcutting(RecipeCategory.DECORATIONS, ingredient, output, outputCount)
+        WoodcuttingRecipeJsonBuilder.createWoodcutting(recipeCategory, ingredient, output, outputCount)
                 .criterion(criteria, this.conditionsFromTag(inputTag))
                 .offerTo(exporter, convertBetween(output, tagPath) + "_woodcutting");
     }
 
-    protected void createWoodcuttingRecipe(Block input, Item output) {
+    protected void createWoodcuttingRecipe(RecipeCategory recipeCategory, Block input, Item output) {
         Ingredient ingredient = Ingredient.ofItem(input);
         String blockName = Registries.BLOCK.getId(input).getPath();
 
-        WoodcuttingRecipeJsonBuilder.createWoodcutting(RecipeCategory.DECORATIONS, ingredient, output)
+        WoodcuttingRecipeJsonBuilder.createWoodcutting(recipeCategory, ingredient, output)
                 .criterion(hasItem(input), this.conditionsFromItem(input))
                 .offerTo(exporter, convertBetween(output, blockName) + "_woodcutting");
     }
 
-    protected void createWoodcuttingRecipe(Block input, int inputCount, Item output) {
+    protected void createWoodcuttingRecipe(RecipeCategory recipeCategory, Block input, int inputCount, Item output) {
         Ingredient ingredient = Ingredient.ofItem(input);
         String blockName = Registries.BLOCK.getId(input).getPath();
 
-        WoodcuttingRecipeJsonBuilder.createWoodcutting(RecipeCategory.DECORATIONS, ingredient, inputCount, output)
+        WoodcuttingRecipeJsonBuilder.createWoodcutting(recipeCategory, ingredient, inputCount, output)
                 .criterion(hasItem(input), this.conditionsFromItem(input))
                 .offerTo(exporter, convertBetween(output, blockName) + "_woodcutting");
     }
 
-    protected void createWoodcuttingRecipe(Block input, Item output, int outputCount) {
+    protected void createWoodcuttingRecipe(RecipeCategory recipeCategory, Block input, Item output, int outputCount) {
         Ingredient ingredient = Ingredient.ofItem(input);
         String blockName = Registries.BLOCK.getId(input).getPath();
 
-        WoodcuttingRecipeJsonBuilder.createWoodcutting(RecipeCategory.DECORATIONS, ingredient, output, outputCount)
+        WoodcuttingRecipeJsonBuilder.createWoodcutting(recipeCategory, ingredient, output, outputCount)
                 .criterion(hasItem(input), this.conditionsFromItem(input))
                 .offerTo(exporter, convertBetween(output, blockName) + "_woodcutting");
     }
 
-    protected void createWoodcuttingRecipe(Block input, int inputCount, Item output, int outputCount) {
+    protected void createWoodcuttingRecipe(RecipeCategory recipeCategory, Block input, int inputCount, Item output, int outputCount) {
         Ingredient ingredient = Ingredient.ofItem(input);
         String blockName = Registries.BLOCK.getId(input).getPath();
 
-        WoodcuttingRecipeJsonBuilder.createWoodcutting(RecipeCategory.DECORATIONS, ingredient, inputCount, output, outputCount)
+        WoodcuttingRecipeJsonBuilder.createWoodcutting(recipeCategory, ingredient, inputCount, output, outputCount)
                 .criterion(hasItem(input), this.conditionsFromItem(input))
                 .offerTo(exporter, convertBetween(output, blockName) + "_woodcutting");
     }
