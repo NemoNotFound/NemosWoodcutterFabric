@@ -49,8 +49,8 @@ public class WoodcutterScreen extends HandledScreen<WoodcutterScreenHandler> {
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
         context.drawTexture(RenderLayer::getGuiTextured, TEXTURE, x, y, 0.0F, 0.0F, this.backgroundWidth, this.backgroundHeight, 256, 256);
         int yPosAfterScrolling = (int) (41.0f * this.scrollAmount);
-        Identifier identifier = this.shouldScroll() ? SCROLLER_TEXTURE : SCROLLER_DISABLED_TEXTURE;
-        context.drawGuiTexture(RenderLayer::getGuiTextured, identifier, x + 119, y + 15 + yPosAfterScrolling, 12, 15);
+        Identifier scrollerTexture = this.shouldScroll() ? SCROLLER_TEXTURE : SCROLLER_DISABLED_TEXTURE;
+        context.drawGuiTexture(RenderLayer::getGuiTextured, scrollerTexture, x + 119, y + 15 + yPosAfterScrolling, 12, 15);
         int xPosForRecipe = this.x + 52;
         int yPosForRecipe = this.y + 14;
         int scrollOffset = this.scrollOffset + 12;
