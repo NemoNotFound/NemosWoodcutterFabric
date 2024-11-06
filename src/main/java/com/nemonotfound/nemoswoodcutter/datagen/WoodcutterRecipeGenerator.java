@@ -2,7 +2,6 @@ package com.nemonotfound.nemoswoodcutter.datagen;
 
 import com.nemonotfound.nemoswoodcutter.block.ModBlocks;
 import com.nemonotfound.nemoswoodcutter.recipe.WoodcuttingRecipeJsonBuilder;
-import net.minecraft.block.Block;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.RecipeGenerator;
 import net.minecraft.item.Item;
@@ -48,36 +47,36 @@ public abstract class WoodcutterRecipeGenerator extends RecipeGenerator {
                 .offerTo(exporter, convertBetween(output, tagPath) + "_woodcutting");
     }
 
-    protected void createWoodcuttingRecipe(RecipeCategory recipeCategory, Block input, Item output) {
+    protected void createWoodcuttingRecipe(RecipeCategory recipeCategory, ItemConvertible input, Item output) {
         Ingredient ingredient = Ingredient.ofItem(input);
-        String blockName = Registries.BLOCK.getId(input).getPath();
+        String blockName = Registries.ITEM.getId(input.asItem()).getPath();
 
         WoodcuttingRecipeJsonBuilder.createWoodcutting(recipeCategory, ingredient, output)
                 .criterion(hasItem(input), this.conditionsFromItem(input))
                 .offerTo(exporter, convertBetween(output, blockName) + "_woodcutting");
     }
 
-    protected void createWoodcuttingRecipe(RecipeCategory recipeCategory, Block input, int inputCount, Item output) {
+    protected void createWoodcuttingRecipe(RecipeCategory recipeCategory, ItemConvertible input, int inputCount, Item output) {
         Ingredient ingredient = Ingredient.ofItem(input);
-        String blockName = Registries.BLOCK.getId(input).getPath();
+        String blockName = Registries.ITEM.getId(input.asItem()).getPath();
 
         WoodcuttingRecipeJsonBuilder.createWoodcutting(recipeCategory, ingredient, inputCount, output)
                 .criterion(hasItem(input), this.conditionsFromItem(input))
                 .offerTo(exporter, convertBetween(output, blockName) + "_woodcutting");
     }
 
-    protected void createWoodcuttingRecipe(RecipeCategory recipeCategory, Block input, Item output, int outputCount) {
+    protected void createWoodcuttingRecipe(RecipeCategory recipeCategory, ItemConvertible input, Item output, int outputCount) {
         Ingredient ingredient = Ingredient.ofItem(input);
-        String blockName = Registries.BLOCK.getId(input).getPath();
+        String blockName = Registries.ITEM.getId(input.asItem()).getPath();
 
         WoodcuttingRecipeJsonBuilder.createWoodcutting(recipeCategory, ingredient, output, outputCount)
                 .criterion(hasItem(input), this.conditionsFromItem(input))
                 .offerTo(exporter, convertBetween(output, blockName) + "_woodcutting");
     }
 
-    protected void createWoodcuttingRecipe(RecipeCategory recipeCategory, Block input, int inputCount, Item output, int outputCount) {
+    protected void createWoodcuttingRecipe(RecipeCategory recipeCategory, ItemConvertible input, int inputCount, Item output, int outputCount) {
         Ingredient ingredient = Ingredient.ofItem(input);
-        String blockName = Registries.BLOCK.getId(input).getPath();
+        String blockName = Registries.ITEM.getId(input.asItem()).getPath();
 
         WoodcuttingRecipeJsonBuilder.createWoodcutting(recipeCategory, ingredient, inputCount, output, outputCount)
                 .criterion(hasItem(input), this.conditionsFromItem(input))

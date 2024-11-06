@@ -1,7 +1,7 @@
-# Changelog v1.12.1
+# Changelog v1.12.2
 
 ## Changes
-- Adapted recipe categories
+- Removed incompatible recipes
 
 ### Downloads
 [CurseForge](https://curseforge.com/minecraft/mc-mods/nemos-woodcutter) <br>
