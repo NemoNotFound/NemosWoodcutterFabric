@@ -1,7 +1,7 @@
-# Changelog v1.12.0.1
+# Changelog v1.12.3
 
-## Changes
-- Removed recipes for pale wood due to errors in logs
+## Additions
+- Added recipes for Chiseled Bookshelf
 
 ### Downloads
 [CurseForge](https://curseforge.com/minecraft/mc-mods/nemos-woodcutter) <br>

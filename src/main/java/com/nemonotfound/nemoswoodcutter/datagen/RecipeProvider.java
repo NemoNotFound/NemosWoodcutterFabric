@@ -33,6 +33,8 @@ public class RecipeProvider extends FabricRecipeProvider {
                 createWoodcuttingRecipe(RecipeCategory.DECORATIONS, ItemTags.LOGS, "has_planks", Items.BARREL);
                 createWoodcuttingRecipe(RecipeCategory.DECORATIONS, ItemTags.PLANKS, "has_planks",4, Items.CHEST);
                 createWoodcuttingRecipe(RecipeCategory.DECORATIONS, ItemTags.LOGS, "has_planks", Items.CHEST);
+                createWoodcuttingRecipe(RecipeCategory.DECORATIONS, ItemTags.PLANKS, "has_planks", 4, Items.CHISELED_BOOKSHELF);
+                createWoodcuttingRecipe(RecipeCategory.DECORATIONS, ItemTags.LOGS, "has_planks", Items.CHISELED_BOOKSHELF);
 
                 createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, Blocks.ACACIA_LOG, Items.STRIPPED_ACACIA_LOG);
                 createWoodcuttingRecipe(RecipeCategory.BUILDING_BLOCKS, Blocks.ACACIA_WOOD, Items.STRIPPED_ACACIA_WOOD);
