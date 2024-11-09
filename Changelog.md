@@ -1,7 +1,7 @@
-# Changelog v1.12.2
+# Changelog v1.12.3
 
-## Changes
-- Removed incompatible recipes
+## Additions
+- Added recipes for Chiseled Bookshelf
 
 ### Downloads
 [CurseForge](https://curseforge.com/minecraft/mc-mods/nemos-woodcutter) <br>
