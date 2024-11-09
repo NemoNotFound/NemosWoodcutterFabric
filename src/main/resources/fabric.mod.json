@@ -40,24 +40,5 @@
 	"suggests": {
 		"another-mod": "*"
 	},
-	"accessWidener": "nemos-woodcutter.accesswidener",
-	"custom": {
-		"loom:injected_interfaces": {
-			"net/minecraft/class_2602": [
-				"com/nemonotfound/nemoswoodcutter/network/listener/ModClientPlayPacketListener"
-			],
-			"net/minecraft/class_634": [
-				"com/nemonotfound/nemoswoodcutter/interfaces/ModRecipeManagerGetter"
-			],
-			"net/minecraft/class_638": [
-				"com/nemonotfound/nemoswoodcutter/interfaces/ModRecipeManagerGetter"
-			],
-			"net/minecraft/class_8673": [
-				"com/nemonotfound/nemoswoodcutter/interfaces/MinecraftClientGetter"
-			],
-			"net/minecraft/class_1863": [
-				"com/nemonotfound/nemoswoodcutter/interfaces/WoodcutterRecipeGetter"
-			]
-		}
-	}
+	"accessWidener": "nemos-woodcutter.accesswidener"
 }

@@ -1,5 +1,6 @@
 package com.nemonotfound.nemoswoodcutter.network.packet.s2c.play;
 
+import com.nemonotfound.nemoswoodcutter.network.listener.ModClientPlayPacketListener;
 import com.nemonotfound.nemoswoodcutter.network.packet.ModPlayPackets;
 import com.nemonotfound.nemoswoodcutter.recipe.display.WoodcuttingRecipeDisplay;
 import net.minecraft.network.RegistryByteBuf;
@@ -23,6 +24,6 @@ public record SynchronizeModRecipesS2CPacket(WoodcuttingRecipeDisplay.Grouping w
 
     @Override
     public void apply(ClientPlayPacketListener clientPlayPacketListener) {
-        clientPlayPacketListener.nemo_sWoodcutter$onSynchronizeModRecipes(this);
+        ((ModClientPlayPacketListener) clientPlayPacketListener).nemo_sWoodcutter$onSynchronizeModRecipes(this);
     }
 }

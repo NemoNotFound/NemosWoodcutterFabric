@@ -1,7 +1,9 @@
 package com.nemonotfound.nemoswoodcutter.mixin;
 
 import com.nemonotfound.nemoswoodcutter.client.recipebook.ClientModRecipeManager;
+import com.nemonotfound.nemoswoodcutter.interfaces.MinecraftClientGetter;
 import com.nemonotfound.nemoswoodcutter.interfaces.ModRecipeManagerGetter;
+import com.nemonotfound.nemoswoodcutter.network.listener.ModClientPlayPacketListener;
 import com.nemonotfound.nemoswoodcutter.network.packet.s2c.play.SynchronizeModRecipesS2CPacket;
 import com.nemonotfound.nemoswoodcutter.recipe.display.WoodcuttingRecipeDisplay;
 import net.minecraft.client.MinecraftClient;
@@ -15,7 +17,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 
 @Mixin(ClientPlayNetworkHandler.class)
-public abstract class ClientPlayNetworkHandlerMixin extends ClientCommonNetworkHandler implements ClientPlayPacketListener, ModRecipeManagerGetter {
+public abstract class ClientPlayNetworkHandlerMixin extends ClientCommonNetworkHandler implements ClientPlayPacketListener, ModClientPlayPacketListener, ModRecipeManagerGetter {
 
     @Unique
     private ClientModRecipeManager modRecipeManager = new ClientModRecipeManager(WoodcuttingRecipeDisplay.Grouping.empty());
@@ -31,7 +33,7 @@ public abstract class ClientPlayNetworkHandlerMixin extends ClientCommonNetworkH
 
     @Override
     public void nemo_sWoodcutter$onSynchronizeModRecipes(SynchronizeModRecipesS2CPacket packet) {
-        MinecraftClient client = this.nemo_sWoodcutter$getMinecraftClient();
+        MinecraftClient client = ((MinecraftClientGetter)this).nemo_sWoodcutter$getMinecraftClient();
         NetworkThreadUtils.forceMainThread(packet, this, client);
         this.modRecipeManager = new ClientModRecipeManager(packet.woodcuttingRecipes());
     }

@@ -2,6 +2,8 @@ package com.nemonotfound.nemoswoodcutter.screen;
 
 import com.nemonotfound.nemoswoodcutter.NemosWoodcutter;
 import com.nemonotfound.nemoswoodcutter.block.ModBlocks;
+import com.nemonotfound.nemoswoodcutter.interfaces.ModRecipeManagerGetter;
+import com.nemonotfound.nemoswoodcutter.interfaces.WoodcutterRecipeGetter;
 import com.nemonotfound.nemoswoodcutter.recipe.WoodcuttingRecipe;
 import com.nemonotfound.nemoswoodcutter.recipe.display.WoodcuttingRecipeDisplay;
 import net.minecraft.client.world.ClientWorld;
@@ -159,9 +161,9 @@ extends ScreenHandler {
 
         if (!stack.isEmpty()) {
             if (this.world instanceof ServerWorld serverWorld) {
-                this.availableRecipes = serverWorld.getRecipeManager().nemo_sWoodcutter$getWoodcutterRecipes().filter(stack);
+                this.availableRecipes = ((WoodcutterRecipeGetter) serverWorld.getRecipeManager()).nemo_sWoodcutter$getWoodcutterRecipes().filter(stack);
             } else if (this.world instanceof ClientWorld clientWorld) {
-                this.availableRecipes = clientWorld.nemo_sWoodcutter$getModRecipeManager().getWoodcutterRecipes().filter(stack);
+                this.availableRecipes = ((ModRecipeManagerGetter) clientWorld).nemo_sWoodcutter$getModRecipeManager().getWoodcutterRecipes().filter(stack);
             }
         } else {
             this.availableRecipes = WoodcuttingRecipeDisplay.Grouping.empty();
@@ -272,9 +274,9 @@ extends ScreenHandler {
 
     private boolean isWoodcuttingRecipe(ItemStack itemStack2) {
         return (this.world instanceof ServerWorld serverWorld &&
-                serverWorld.getRecipeManager().nemo_sWoodcutter$getWoodcutterRecipes().contains(itemStack2)) ||
+                ((WoodcutterRecipeGetter) serverWorld.getRecipeManager()).nemo_sWoodcutter$getWoodcutterRecipes().contains(itemStack2)) ||
                 (this.world instanceof ClientWorld clientWorld &&
-                        clientWorld.nemo_sWoodcutter$getModRecipeManager().getWoodcutterRecipes().contains(itemStack2));
+                        ((ModRecipeManagerGetter) clientWorld).nemo_sWoodcutter$getModRecipeManager().getWoodcutterRecipes().contains(itemStack2));
     }
 
     @Override
