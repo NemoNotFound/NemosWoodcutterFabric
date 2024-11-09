@@ -1,7 +1,7 @@
-# Changelog v1.11.5
+# Changelog v1.12.3
 
 ## Additions
-- Added recipes for Nemo's Mossy Blocks
+- Added recipes for Chiseled Bookshelf
 
 ### Downloads
 [CurseForge](https://curseforge.com/minecraft/mc-mods/nemos-woodcutter) <br>

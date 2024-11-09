@@ -39,6 +39,8 @@ public class RecipeGenerator extends FabricRecipeProvider {
         createCarpentryRecipe(exporter, ItemTags.LOGS, 1, Items.BARREL, 1);
         createCarpentryRecipe(exporter, ItemTags.PLANKS, 4, Items.CHEST, 1);
         createCarpentryRecipe(exporter, ItemTags.LOGS, 1, Items.CHEST, 1);
+        createCarpentryRecipe(exporter, ItemTags.PLANKS, 4, Items.CHISELED_BOOKSHELF, 1);
+        createCarpentryRecipe(exporter, ItemTags.LOGS, 1, Items.CHISELED_BOOKSHELF, 1);
 
         createCarpentryRecipe(exporter, Pair.of(Blocks.ACACIA_LOG, 1), Items.STRIPPED_ACACIA_LOG, 1);
         createCarpentryRecipe(exporter, Pair.of(Blocks.ACACIA_WOOD, 1), Items.STRIPPED_ACACIA_WOOD, 1);
